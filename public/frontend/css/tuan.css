@@ -1,0 +1,222 @@
+.sec-hero, .sec-hero .swiper-slide, .sec-hero .hero-slider, .hero-content {
+    height: 65vh;
+}
+.swiper-3d .swiper-cube-shadow, .swiper-3d .swiper-slide, .swiper-3d .swiper-slide-shadow, .swiper-3d .swiper-slide-shadow-bottom, .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right, .swiper-3d .swiper-slide-shadow-top, .swiper-3d .swiper-wrapper{
+	transform-style: inherit;
+}
+.card-s .card-body {
+    margin: 0;
+}
+.card-s4::before, .card-s3::before, .card-s1::before {
+    bottom: -5px;
+}
+.sec-broker-hp .card-s3 .card-body {
+    margin-top: -85px;
+    padding: 100px 24px 24px;
+}
+.widget-subscribe img {
+    width: 100%;
+}
+header .navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 13px;
+    padding: 19px 25px;
+}
+.scrollDown header .navbar-expand-lg .navbar-nav .nav-link{
+	font-size: 13px;
+    padding: 19px 25px;
+}
+
+.widget-broker.card-s3 .card-body {
+    margin-top: -145px;
+    padding-top: 155px;
+}
+.product-price {
+    top: 60px;
+}
+.product-contact {
+    top: 220px;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool a{
+	border: none;
+    color: #fff;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu {
+    padding: 0px;border: none;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool {
+    margin-top: 0px;
+    background: #30394f;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #30394f;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool a.view-all {
+    flex: none;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool-bottom{
+	justify-content: center;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu a {
+    padding: 5px;
+    margin: 0;
+    border-bottom: 1px solid #30394f;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu a.unread p {
+    font-size: .8rem;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu a i, header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu a span {
+    font-size: .7rem;
+}
+header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool a:hover {
+    background: none;
+    color: #fff !important;text-decoration: revert;
+}
+
+.sr-hd-nav-box{
+	margin-bottom: 0;
+}
+.sec-breadcrumb{
+	margin-top: 0;
+}
+.location-list {
+    margin-bottom: 20px;
+}
+.current-price{
+	padding-right: 0px;
+}
+.current-price span{
+	color: #000; font-weight: 100; font-size: .8rem;
+}
+.card-s .card-title a {
+    font-size: 1rem;
+}
+.sec-product-hot .card-s > a .card-price .current-price {
+    padding: 13px 10px 13px 4px;
+}
+.sec-product-hot .card-s > a .card-price .old-price {
+    height: 48px;
+    line-height: 13px;
+}
+.floating-label .btn-circle, .sec-search .btn-circle.btn-toggle {background: #f2f2f2 !important; color: #6e6e6e; flex-direction: row-reverse; justify-content: space-between;padding: 10px;}
+.grid-view .card-contact span, .grid-view .card-info p {
+    display: block;
+}
+.card-body-new .card-price{
+	display: flex;
+	flex-direction: column;padding-right: 10px;align-items: flex-end;
+}
+.sec-hero .swiper-slide::after{
+	content: none;
+}
+.navbar-expand-lg {
+    height: 58px;
+}
+.grid-view .card-s .card-title {
+    padding-top: 0;
+}
+.cover-title-home .cover-content h3 {
+    font-size: 30px;
+    top: 0;
+}
+.card-s4::before, .card-s3::before, .card-s1::before{content: none;}
+.card-s > a, .card-s .card-body, .card-s .card-img, .card-s .card-img-top{ border-radius: 0; }
+/*.sec-product-hot .card-s .card-img, .sec-product-hot .card-s .card-img-top {
+	height: 300px;
+}
+.card-s .card-img, .card-s .card-img-top {
+    height: 200px;
+}*/
+.card-s:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1600px){
+	.horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {
+	    width: 25%;
+	}
+	.horizontal-view .card-s > .card-body, .news-sec .horizontal-view .card-s > .card-body{
+		width: 75%;
+	}
+	.horizontal-view .card-s .hot {
+	    left: calc(20%);
+	}
+	.scrollDown header .navbar .navbar-nav .nav-item > .dropdown-menu {
+	    margin-top: 6px;
+	}
+}
+
+@media (max-width: 768px){
+	.modal.info-customer .modal-content {
+	    border-radius: 0;
+	    height: 56vh;
+	    width: 95%;	
+	    margin: 0 auto;
+	}
+	.expand-search {
+	    margin-top: 62px;
+	}
+
+	.card-body-new .card-contact i{
+	    background-color: var(--sub-color); height: 30px; flex: 0 0 30px; font-size: 20px;
+	    color: #fff !important;
+	}
+	.card-body-new .card-contact{ border: none; display: block; flex: auto;display: flex;  align-items: center; margin-top: 0px; justify-content: flex-end;}
+	.card-body-new .card-footer {
+	    flex-wrap: nowrap;
+	    display: flex;align-items: center; margin-bottom: 0px;justify-content: space-between;
+	}
+	
+	
+	.card-s .card-body-new:not(.card-s2 .card-body-new){
+		background: #fff; padding: 5px;
+	}
+	.card-body-new .card-body-wrap{ border-bottom: 1px solid #ddd;margin-bottom: 14px; }
+	.card-body-new .current-price{ padding-right: 0px; font-size: 1.1rem; }
+	.card-body-new .card-contact span, .card-body-new .card-info p{ font-size: .7rem; }
+	.card-body-new .old-price{font-size: .8rem;}
+	.card-body-new .card-s .card-title a {
+	    font-size: .9rem;
+	}
+	.product-status{
+		display: flex;justify-content: space-evenly;
+		color: #fff;
+		bottom: 0;bottom: -20px;
+	}
+	.floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: 'Tìm kiếm sản phẩm';}
+}
+
+@media (max-width: 414px){
+.sec-product-hot .primary-title h3 {font-size: 48px;display: flex;}
+.sec-product-hot .primary-title .cover-title-filled {
+	font-size: 25px; bottom: 0;margin-right: 5px;
+}
+.cover-content h3:after, .primary-title h3:after{ left: 0; }
+.sec-product-hot .primary-title .position-relative{
+	font-size: 32px;bottom: 8px;
+}
+
+
+
+}
+
+
+@media (max-width: 390px){
+	.card-s .card-title a {font-size: .8rem;}
+	.card-info {font-size: .7rem;}
+	.card-body-new .current-price { font-size: .9rem;}
+	.card-body-new .card-contact i {height: 25px;flex: 0 0 25px;}
+	.current-price span,.card-body-new .old-price,.card-body-new .card-contact span, .card-body-new .card-info p {font-size: .6rem; line-height: 10px;}
+}
