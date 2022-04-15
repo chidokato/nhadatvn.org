@@ -45,18 +45,23 @@
 <link href="frontend/css/form.css" rel="stylesheet">
 <link href="frontend/css/simpleLightbox.css" rel="stylesheet">
 <link href="frontend/css/home.css" rel="stylesheet">
-<link href="frontend/css/tuan.css" rel="stylesheet">
-<!-- ================= js ================== --> 
 @yield('css')
+
+
+
+<!-- ================= js ================== --> 
+<link href="frontend/css/tuan.css" rel="stylesheet">
+
 {!! $head_setting->codeheader !!}
 
 </head>
 @include('layout.function')
 <body> 
-<div class="body-inner">
+@include('layout.header')
+
 @yield('content')
+
 @include('layout.footer')
-</div>
 
 <!------------------- JS core------------------->
 <script src="frontend/js/bootstrap.bundle.min.js"></script>

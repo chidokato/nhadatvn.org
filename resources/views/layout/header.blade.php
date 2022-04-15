@@ -16,7 +16,7 @@
 		  <div class="navbar-collapse flex-grow-1" id="navbarsExample07XL">
 			<ul class="collapse navbar-nav mb-lg-0">
 				<li class="nav-item active">
-					<a class="nav-link" href="homepage.htm">Trang chủ</a>
+					<a class="nav-link" href="{{asset('')}}">Trang chủ</a>
 				</li>
 				@foreach($menu as $val)
 				<li class="nav-item">

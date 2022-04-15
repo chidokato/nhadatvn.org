@@ -8,7 +8,7 @@
 
 @section('content')
 
-@include('layout.header')
+
 
 <!------------------- HERO ------------------->
 <section class="sec-hero">
