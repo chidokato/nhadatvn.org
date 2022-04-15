@@ -1,0 +1,13 @@
+
+#toc{background: #f3f3f347; padding: 7px;	font-size: 14px;	text-align: justify;}
+#contents{padding: 0px; }
+#toc ul{padding: 0; margin: 0; margin-top: 10px;}
+#toc ul li{ list-style:none; padding:0px; margin-bottom: 8px; }
+#toc>ul>ul>li{ margin-left: 0px; margin-bottom: 12px; text-align: left; }
+#toc>ul>ul>li>ul{margin-left: 0px}
+#toc>ul>ul>li>ul>li{margin-bottom: 8px;}
+#toc ul li a{ text-decoration:none; }
+#toc ul li a:hover{ color: red }
+#toc ul li .active{color: red}
+#toc ul li{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.position-sticky h4{font-size: 1.2rem; border-bottom: 1px solid #ddd; padding-bottom: 5px;}
