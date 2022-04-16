@@ -28,7 +28,8 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Mua bán</li>
+			<li class="breadcrumb-item"><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{$articles->name}}</li>
 			</ol>
 		</nav>
 	</div>
@@ -40,39 +41,39 @@
 		<div class="news-hightlight">
 			<div class="row g-3">
 				<div class="col-lg-6">
-					<a class="card-overlay outline-effect video" title="1/10" href="https://www.youtube.com/embed/wLRe4rJzdgY?autoplay=true&muted=true">
-						<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://top10tphcm.com/wp-content/uploads/2018/06/New-city-min.jpg');"></span>
+					<a class="card-overlay outline-effect" title="1/{{count($articles->images)}}" href="data/product/{{$articles->img}}">
+						<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$articles->img}}');"></span>
 						<div class="card-overlay-body">
-							<div>Căn hộ Roman Plaza</div>
+							<div>{{$articles->name}}</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
-						<a class="card-overlay card-overlay-sm outline-effect" title="2/10" href="https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg');"></span>
+						@foreach($articles->images as $key => $img)
+						@if($key<2)
+						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
 						</a>
-						<a class="card-overlay card-overlay-sm outline-effect" title="3/10" href="https://angialand.com.vn/wp-content/uploads/2020/06/phoi-canh-du-an-can-ho-chung-cu-park-vista-duong-nguyen-huu-tho-nha-be.jpg">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://angialand.com.vn/wp-content/uploads/2020/06/phoi-canh-du-an-can-ho-chung-cu-park-vista-duong-nguyen-huu-tho-nha-be.jpg');"></span>
-						</a>
+						@endif
+						@endforeach
 					</div>
 				</div>
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
-						<a class="card-overlay card-overlay-sm outline-effect" title="4/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						@foreach($articles->images as $key => $img)
+						@if($key<4 && $key>1)
+						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
 						</a>
-						<a class="card-overlay card-overlay-sm outline-effect more" title="5/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg');"></span>
-							<i class="btn-plus"></i>
-						</a>
+						<i class="btn-plus"></i>
+						@endif
+						@endforeach
 					</div>
 					<div class="more-item">
-						<a class="card-overlay" title="6/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png"></a>
-						<a class="card-overlay" title="7/10" href="https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg"></a>
-						<a class="card-overlay" title="8/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg"></a>
-						<a class="card-overlay" title="9/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png"></a>
-						<a class="card-overlay" title="10/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg"></a>
+						@foreach($articles->images as $key => $img)
+						<a class="card-overlay" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}"></a>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -87,25 +88,17 @@
 			<div class="swiper gallery-mobile">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a class="card-overlay outline-effect video" title="1/4" href="https://www.youtube.com/embed/wLRe4rJzdgY?autoplay=true&muted=true">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://top10tphcm.com/wp-content/uploads/2018/06/New-city-min.jpg');"></span>
+						<a class="card-overlay outline-effect" title="1/4" href="data/product/{{$articles->img}}">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$articles->img}}');"></span>
 						</a>
 					</div>
+					@foreach($articles->images as $key => $img)
 					<div class="swiper-slide">
-						<a class="card-overlay card-overlay-sm outline-effect" title="2/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						<a class="card-overlay outline-effect" title="1/4" href="data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
 						</a>
 					</div>
-					<div class="swiper-slide">
-						<a class="card-overlay card-overlay-sm outline-effect" title="3/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
-						</a>
-					</div>
-					<div class="swiper-slide">
-						<a class="card-overlay card-overlay-sm outline-effect" title="4/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
-						</a>
-					</div>
+					@endforeach
 				</div>
 				<div class="swiper-pagination bullets"></div>
 				<div class="swiper-pagination fraction" id="fraction"></div>
@@ -123,18 +116,11 @@
 					<div class="row">
 						<div class="col-md-10">
 							<div class="product-dt-header">
-								<div class="product-dt-header-ct">
-									<div class="product-dt-header-status">
-										<div class="product-dt-header-status-left">
-											<span class="bg-subcolor">Non9035</span>
-											<span class="bg-light">Đã sử dụng</span>
-										</div>
-										<span class="bg-secondary">Đã xác thực <i class="ms-1 icon-check"></i></span>
-									</div>
-								</div>
 								<div class="product-dt-header-title">
-									<h2>Bán ngay dự án chung cư cao cấp Roman Plaza</h2>
-									<div class="mb-2 text-muted"><small><i class="icon-location me-1"></i>Phường Kim Mã, Quận Ba Đình, Hà Nội</small></div>
+									<h2>{{$articles->name}}</h2>
+									<div class="mb-2 text-muted"><small><i class="icon-location me-1"></i>
+										{{$articles->product->address}}{{isset($articles->product->street->name)? ', '.$articles->product->street->name:''}}{{isset($articles->product->ward->name)? ', '.$articles->product->ward->name:''}}{{isset($articles->product->district->name)? ', '.$articles->product->district->name:''}}{{isset($articles->product->province->name)? ', '.$articles->product->province->name:''}}
+									</small></div>
 									<div class="d-md-none" id="fix-ft">
 										<div class="product-price">
 											<div class="new-price">
@@ -150,7 +136,6 @@
 										</div>
 									</div>
 									<div id="fix-ft-anchor"></div>
-									<a href="#">Tin trong bảng hàng <i class="icon-next"></i></a>
 								</div>
 								<div class="product-dt-header-icons">
 									<div class="product-dt-header-icons-wrap product-dt-header-icons-left">
@@ -167,30 +152,22 @@
 							<div class="main-article">
 								<div class="product-overview" id="overview">
 									<ul class="nav scrollspy-product" id="scrollspy-product">
+										@foreach($articles->section as $key => $section)
 										<li class="nav-item">
-											<a class="nav-link active" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-meta">Mô tả</a>
+											<a class="nav-link {{ $key==0? 'active':'' }}" href="{{asset('')}}{{$articles->category->slug}}/{{$articles->slug}}#product-{{$section->id}}">{{$section->tab_heading}}</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-detail">Chi tiết</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-map">Maps</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-chart">Biểu đồ giá</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-ls">Lãi suất</a>
-										</li>
+										@endforeach
 									</ul>
 									<div>
-										<div id="product-meta" class="scrolloverview">
+										@foreach($articles->section as $key => $section)
+										<div id="product-{{$section->id}}" class="scrolloverview">
 											<div class="product-detail product-utilities">
-												<h5 class="line-b">Mô tả</h5>
-												<p>Mật độ xây dựng là gì? Dựa vào quy định tại “Quy chuẩn kỹ thuật Quốc gia về Quy hoạch xây dựng” thì mật độ xây dựng chính là tỉ lệ chiếm đất của các công trình trên tổng diện tích khu đất. (Không bao gồm diện tích đất của các công trình khác như: bể bơi, tiểu cảnh, sân thể thao…….).</p>
-												<p>Đặc biệt, mật độ xây dựng là chỉ số trực quan nhất giúp chúng ta so sánh được quỹ đất cho cư dân sinh hoạt. Việc tuân thủ mật độ xây dựng, sẽ đảm bảo được không gian sinh hoạt khoa học, đúng với nhu cầu sử dụng. Hơn nữa, mật độ xây dựng chính là thước đo quan trọng đánh giá sự văn minh và giá trị của các công trình xây dựng, khu đô thị và khu dân cư.</p>
+												<h5 class="line-b">{{$section->heading}}</h5>
+												{!!$section->content!!}
 											</div>
 										</div>
+										@endforeach
+
 										<div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">Chi tiết</h5>
@@ -263,11 +240,13 @@
 									<h1>3,75 tỷ</h1>
 								</div>
 								<div class="old-price">3.9 tỷ</div>
+
+								<div class="product-contact">
+									<a class="btn btn-tel"><i class="icon-phone"></i>0972029093</a>
+									<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i>Liên hệ ngay</a>
+								</div>
 							</div>
-							<div class="product-contact">
-								<a class="btn btn-tel"><i class="icon-phone"></i>0972029093</a>
-								<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i>Liên hệ ngay</a>
-							</div>
+							
 						</div>
 					</div>
 					
@@ -322,47 +301,13 @@
 				<div class="widget widget-list widget-news mb-3">
 					<h4><span>Tin tức nổi bật</span></h4>
 					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('');" alt="" class="w-100"></span>
 						<div class="news-item-body">
 							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
 							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
 						</div>
 					</a>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://truongvietnam.net/wp-content/uploads/2021/10/Nganh-bat-dong-san.png');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://truongvietnam.net/wp-content/uploads/2021/10/Nganh-bat-dong-san.png');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
+					
 				</div>
 
 			</div>

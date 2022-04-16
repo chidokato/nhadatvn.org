@@ -53,13 +53,13 @@
 						<div class="swiper-slide">
 							<div class="card card-s card-s4">
 								<span class="hot"><img src="frontend/images/new-label.png"></span>
-								<a href="sale-detail.htm">
+								<a href="{{$val->category->slug}}/{{$val->slug}}">
 									<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/{{$val->img}}');" alt="..."></span>
 									<div class="card-price">Giá: <span class="current-price">4,3 tỷ</span><span class="old-price"></span></div>
 								</a>
 								<div class="card-body">
 									<div class="card-body-wrap">
-										<h5 class="card-title"><a href="#" class="text-truncate">Serena Valley Thanh Lanh Golf And Resort</a></h5>
+										<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
 										<div class="card-info">
 											<span><i class="icon-location me-2"></i>Nam Từ Liêm, Hà Nội</span>
 										</div>
@@ -95,12 +95,12 @@
 			<div class="col">
 				<div class="card card-s card-s4">
 					<!-- <span class="hot"><img src="frontend/images/new-label.png"></span> -->
-					<a href="sale-detail.htm">
+					<a href="{{$val->category->slug}}/{{$val->slug}}">
 						<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/{{$val->img}}');" alt="..."></span>
 					</a>
 					<div class="card-body card-body-new">
 						<div class="card-body-wrap">
-							<h5 class="card-title "><a href="#" class="text-truncate-set text-truncate-set-1">Bán Gấp Nhà Phố Trung Yên Cầu Giấy 50m2 Gara ÔTÔ 6 Tầng 9 Tỷ</a></h5>
+							<h5 class="card-title "><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate-set text-truncate-set-1">{{$val->name}}</a></h5>
 							<div class="card-info">
 								<span><i class="icon-location me-2"></i>Nam Từ Liêm, Hà Nội</span>
 							</div>
