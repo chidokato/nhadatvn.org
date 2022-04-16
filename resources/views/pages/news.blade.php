@@ -6,7 +6,13 @@
 @section('robots'){{ $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
 @section('url'){{asset('').$category['slug']}}@endsection
 @section('css')
+<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="frontend/css/fonts.css" rel="stylesheet">
+<link href="frontend/css/common.css" rel="stylesheet">
+<link href="frontend/css/header.css" rel="stylesheet">
+<link href="frontend/css/footer.css" rel="stylesheet">
 <link href="frontend/css/widget.css" rel="stylesheet">
+<link href="frontend/css/card.css" rel="stylesheet">
 @endsection
 @section('content')
 <!------------------- BREADCRUMB ------------------->
@@ -122,4 +128,9 @@
 </section>
 <!------------------- END CARD ------------------->
 
+@endsection
+
+@section('css')
+<script src="frontend/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/js/custom.js"></script>
 @endsection

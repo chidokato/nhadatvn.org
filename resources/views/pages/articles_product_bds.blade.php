@@ -6,61 +6,73 @@
 @section('robots'){{ $articles->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
 @section('url'){{asset('').$articles->category->slug.'/'.$articles->slug.'.html'}}@endsection
 
+@section('css')
+<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="frontend/css/swiper-bundle.min.css" rel="stylesheet">
+<link href="frontend/css/fonts.css" rel="stylesheet">
+<link href="frontend/css/common.css" rel="stylesheet">
+<link href="frontend/css/header.css" rel="stylesheet">
+<link href="frontend/css/footer.css" rel="stylesheet">
+<link href="frontend/css/form.css" rel="stylesheet">
+<link href="frontend/css/card.css" rel="stylesheet">
+<link href="frontend/css/rating.css" rel="stylesheet">
+<link href="frontend/css/widget.css" rel="stylesheet">
+<link href="frontend/css/article.css" rel="stylesheet">
+<link href="frontend/css/simpleLightbox.css" rel="stylesheet">
+@endsection
 @section('content')
 
-@include('layout.header_page')
-
-<section id="page-content" class="sidebar-right">
+<!------------------- BREADCRUMB ------------------->
+<section class="sec-breadcrumb">
 	<div class="container">
-		<div class="breadcrumb">
-			<ul>
-				<li><a href="{{asset('')}}">Trang chủ</a></li>
-				<li><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
-				<li class="active">{{$articles->name}}</li>
-			</ul>
-		</div>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Mua bán</li>
+			</ol>
+		</nav>
 	</div>
 </section>
-<section>
+<!------------------- END: BREADCRUMB ------------------->
+<!------------------- GALLERY DESKTOP ------------------->
+<section class="sec-gallery d-none d-md-block pt-4">
 	<div class="container">
-		<div class="row">
-			<div class="content col-lg-12">
-				<div class="product">
-					<div class="row m-b-40">
-						<div class="col-lg-8">
-							<div class="product-image">
-								<div class="demo">
-								    <ul class="lightSlider">
-								        <li data-thumb="data/product/80/{{$articles->img}}">
-								            <img src="data/product/{{$articles->img}}" />
-								        </li>
-								        @foreach($articles->images as $val)
-								        <li data-thumb="data/product/80/{{$val->img}}">
-								            <img src="data/product/{{$val->img}}" />
-								        </li>
-								        @endforeach
-								    </ul>
-								</div>
-							</div>
+		<div class="news-hightlight">
+			<div class="row g-3">
+				<div class="col-lg-6">
+					<a class="card-overlay outline-effect video" title="1/10" href="https://www.youtube.com/embed/wLRe4rJzdgY?autoplay=true&muted=true">
+						<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://top10tphcm.com/wp-content/uploads/2018/06/New-city-min.jpg');"></span>
+						<div class="card-overlay-body">
+							<div>Căn hộ Roman Plaza</div>
 						</div>
-						<div class="col-lg-4">
-							<div class="product-description">
-								<div class="product-category">{{$articles->category->name}}</div>
-								<div class="product-title">
-									<h3><a>{{$articles->name}}</a></h3>
-								</div>
-								<div class="product-price"><ins>{{ isset($articles->product->price) && $articles->product->price != '' ? number_format($articles->product->price)."đ" : '' }}</ins></div>
-								<div class="product-rate">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-half-o"></i>
-								</div>
-								<div class="product-reviews"><a href="#">{{rand(10,30)}} Đánh giá</a></div>
-								<div class="seperator m-b-5"></div>
-							</div>
-						</div>
+					</a>
+				</div>
+				<div class="col-lg-3">
+					<div class="card-overlay-flex">
+						<a class="card-overlay card-overlay-sm outline-effect" title="2/10" href="https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg');"></span>
+						</a>
+						<a class="card-overlay card-overlay-sm outline-effect" title="3/10" href="https://angialand.com.vn/wp-content/uploads/2020/06/phoi-canh-du-an-can-ho-chung-cu-park-vista-duong-nguyen-huu-tho-nha-be.jpg">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://angialand.com.vn/wp-content/uploads/2020/06/phoi-canh-du-an-can-ho-chung-cu-park-vista-duong-nguyen-huu-tho-nha-be.jpg');"></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<div class="card-overlay-flex">
+						<a class="card-overlay card-overlay-sm outline-effect" title="4/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						</a>
+						<a class="card-overlay card-overlay-sm outline-effect more" title="5/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg');"></span>
+							<i class="btn-plus"></i>
+						</a>
+					</div>
+					<div class="more-item">
+						<a class="card-overlay" title="6/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png"></a>
+						<a class="card-overlay" title="7/10" href="https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg"></a>
+						<a class="card-overlay" title="8/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg"></a>
+						<a class="card-overlay" title="9/10" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png"></a>
+						<a class="card-overlay" title="10/10" href="https://blog.rever.vn/hubfs/chinh-sach-ho-tro-tai-chinh-kich-cau-thi-truong-bat-dong-san-cuoi-nam-1.jpg"></a>
 					</div>
 				</div>
 			</div>
@@ -68,63 +80,462 @@
 	</div>
 </section>
 
-<section id="fixed_top">
+<!------------------- GALLERY MOBILE ------------------->
+<section class="sec-gallery pt-4 d-md-none">
 	<div class="container">
-		<ul>
-			<li><a href="#Tongquanduan">Tổng quan</a></li>
-			<li><a href="#Vitri">Vị trí</a></li>
-			<li><a href="">sdfsdf</a></li>
-		</ul>
-	</div>
-</section>
-
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="content col-lg-12">
-				<div class="product">
-					<div class="row m-b-40">
-						<div class="col-lg-8">
-							<div class="content_product" id="contents">
-								{!! $articles->content !!}
-								{!! $articles->content !!}
-								{!! $articles->content !!}
-								{!! $articles->content !!}
-							</div>
-						</div>
-						
+		<div class="position-relative grid-view mb-4 pb-lg-4">
+			<div class="swiper gallery-mobile">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a class="card-overlay outline-effect video" title="1/4" href="https://www.youtube.com/embed/wLRe4rJzdgY?autoplay=true&muted=true">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://top10tphcm.com/wp-content/uploads/2018/06/New-city-min.jpg');"></span>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a class="card-overlay card-overlay-sm outline-effect" title="2/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a class="card-overlay card-overlay-sm outline-effect" title="3/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a class="card-overlay card-overlay-sm outline-effect" title="4/4" href="https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png">
+							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+						</a>
 					</div>
 				</div>
+				<div class="swiper-pagination bullets"></div>
+				<div class="swiper-pagination fraction" id="fraction"></div>
 			</div>
-			
 		</div>
 	</div>
 </section>
+
+<!------------------- CARD ------------------->
+<section class="sale-detail-sec mt-4 pt-lg-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9">
+				<div class="main-content product-subpage">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="product-dt-header">
+								<div class="product-dt-header-ct">
+									<div class="product-dt-header-status">
+										<div class="product-dt-header-status-left">
+											<span class="bg-subcolor">Non9035</span>
+											<span class="bg-light">Đã sử dụng</span>
+										</div>
+										<span class="bg-secondary">Đã xác thực <i class="ms-1 icon-check"></i></span>
+									</div>
+								</div>
+								<div class="product-dt-header-title">
+									<h2>Bán ngay dự án chung cư cao cấp Roman Plaza</h2>
+									<div class="mb-2 text-muted"><small><i class="icon-location me-1"></i>Phường Kim Mã, Quận Ba Đình, Hà Nội</small></div>
+									<div class="d-md-none" id="fix-ft">
+										<div class="product-price">
+											<div class="new-price">
+												<span>Giá bán</span>
+												<h1>3.5 tỷ</h1>
+											</div>
+											<div class="old-price">3.9 tỷ</div>
+										</div>
+										<div class="product-contact">
+											<h2 class="d-none d-lg-block line-b"></h2>
+											<a class="btn btn-tel"><i class="icon-phone-filled"></i></a>
+											<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail-filled"></i></a>
+										</div>
+									</div>
+									<div id="fix-ft-anchor"></div>
+									<a href="#">Tin trong bảng hàng <i class="icon-next"></i></a>
+								</div>
+								<div class="product-dt-header-icons">
+									<div class="product-dt-header-icons-wrap product-dt-header-icons-left">
+										<span><i class="icon-acreage"></i>50m2</span>
+										<span><i class="icon-bed"></i>2PN</span>
+										<span><i class="icon-bathroom"></i>2WC</span>
+									</div>
+									<div class="product-dt-header-icons-wrap product-dt-header-icons-right">
+										<a href="#"><i class="icon-deagree"></i>VR360</a>
+										<a href="#"><i class="icon-brochure"></i>Brochure</a>
+									</div>
+								</div>
+							</div>
+							<div class="main-article">
+								<div class="product-overview" id="overview">
+									<ul class="nav scrollspy-product" id="scrollspy-product">
+										<li class="nav-item">
+											<a class="nav-link active" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-meta">Mô tả</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-detail">Chi tiết</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-map">Maps</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-chart">Biểu đồ giá</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="http://localhost/www/nhadatvn.org/public/chung-cu/chung-cu-vinhomes#product-ls">Lãi suất</a>
+										</li>
+									</ul>
+									<div>
+										<div id="product-meta" class="scrolloverview">
+											<div class="product-detail product-utilities">
+												<h5 class="line-b">Mô tả</h5>
+												<p>Mật độ xây dựng là gì? Dựa vào quy định tại “Quy chuẩn kỹ thuật Quốc gia về Quy hoạch xây dựng” thì mật độ xây dựng chính là tỉ lệ chiếm đất của các công trình trên tổng diện tích khu đất. (Không bao gồm diện tích đất của các công trình khác như: bể bơi, tiểu cảnh, sân thể thao…….).</p>
+												<p>Đặc biệt, mật độ xây dựng là chỉ số trực quan nhất giúp chúng ta so sánh được quỹ đất cho cư dân sinh hoạt. Việc tuân thủ mật độ xây dựng, sẽ đảm bảo được không gian sinh hoạt khoa học, đúng với nhu cầu sử dụng. Hơn nữa, mật độ xây dựng chính là thước đo quan trọng đánh giá sự văn minh và giá trị của các công trình xây dựng, khu đô thị và khu dân cư.</p>
+											</div>
+										</div>
+										<div id="product-detail" class="scrolloverview">
+											<div class="product-detail product-utilities">
+												<h5 class="line-b">Chi tiết</h5>
+												<div class="row g-5 justify-content-between">
+													<div class="col-lg-6">
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-bedroom-2"></i>Phòng ngủ</div>
+															<span class="text-main">3</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-bathroom-2"></i>Phòng tắm</div>
+															<span class="text-main">3</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-direction"></i>Hướng</div>
+															<span class="text-main">Nam</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-home-status"></i>Hiện trạng nhà</div>
+															<span class="text-main">Để trống</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-paper"></i>Giấy tờ</div>
+															<span class="text-main">Sổ hồng</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-home-measure"></i>Kết cấu nhà</div>
+															<span class="text-main">1 trệt + 1 lầu</span>
+														</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-acreage-2"></i>Diện tích đất</div>
+															<span class="text-main">82.1 m<sup>2</sup></span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-home-acreage"></i>Diện tích sử dụng</div>
+															<span class="text-main">130.6 m<sup>2</sup></span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-home-measure"></i>Chiều dài</div>
+															<span class="text-main">15.44 m</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-home-measure"></i>Chiều rộng</div>
+															<span class="text-main">5.28 m</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-stretch"></i>Độ rộng hẻm</div>
+															<span class="text-main">5.0 m</span>
+														</div>
+														<div class="utilitie-item">
+															<div><i class="me-2 icon-stretch"></i>Độ rộng mặt tiền đường</div>
+															<span class="text-main">---</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2 d-none d-md-block">
+							<div class="product-price affix">
+								<div class="new-price">
+									<span>Giá bán</span>
+									<h1>3,75 tỷ</h1>
+								</div>
+								<div class="old-price">3.9 tỷ</div>
+							</div>
+							<div class="product-contact">
+								<a class="btn btn-tel"><i class="icon-phone"></i>0972029093</a>
+								<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i>Liên hệ ngay</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-lg-3 d-none d-lg-block">
+
+				<div class="card card-s card-s3 widget widget-broker">
+					<a href="#"><span class="vip"><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('previews/brokers/1.jpg');" alt="..."></span></a>
+					<div class="card-body">
+						<div class="card-body-wrap">
+							<div class="px-lg-2">
+								<small class="text-sub">Thành viên vip</small>
+								<h5 class="card-title"><a href="#" class="text-truncate">Nguyễn Minh Chiến</a></h5>
+							</div>
+							<div class="mb-3 widget-broker-btn">
+								<a href="#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
+								<a href="#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
+							</div>
+							<div class="card-info px-lg-2">
+								<span><i class="icon-call me-2"></i>0989 595 989</span>
+								<span><i class="icon-location me-2"></i>Thanh Xuân, Hà Nội</span>
+								<span><i class="icon-experience me-2"></i>8 năm kinh nghiệm</span>
+							</div>
+						</div>
+						<div class="card-ct px-lg-2">
+							<button type="button" class="btn btn-outline"><span>Tư vấn ngay <i class="icon-chat ms-1"></i></span></button>
+						</div>
+					</div>
+				</div>
+
+				<div class="widget widget-appointment">
+					<h4 class="line-b">Đăng ký xem nhà</h4>
+					<form>
+						<div class="mb-3">
+							<input type="text" class="form-control" id="" placeholder="Họ tên của bạn">
+						</div>
+						<div class="mb-3">
+							<input type="email" class="form-control" id="" placeholder="Nhập email">
+						</div>
+						<div class="mb-3">
+							<input type="number" class="form-control" id="" placeholder="Nhập số điện thoại">
+						</div>
+						<div class="mb-3 datepicker">
+							<input type="date" class="form-control" id="" placeholder="Ngày xem">
+							<i><img src="frontend/images/ico-datepicker.svg" alt=""></i>
+						</div>
+						<div class="text-center"><div class="cta-btn ir"><a class="" href="register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
+					</form>
+				</div>
+				
+				<div class="widget widget-list widget-news mb-3">
+					<h4><span>Tin tức nổi bật</span></h4>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://truongvietnam.net/wp-content/uploads/2021/10/Nganh-bat-dong-san.png');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+					<a href="#" class="news-item">
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://truongvietnam.net/wp-content/uploads/2021/10/Nganh-bat-dong-san.png');" alt="" class="w-100"></span>
+						<div class="news-item-body">
+							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+						</div>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!------------------- END CARD ------------------->
+
+<!-- INFO CUSTOMER -->
+<div class="modal fade info-customer" id="info-customer">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+	  <div class="modal-content">
+		<div class="modal-body">
+			<button type="button" class="close" data-bs-dismiss="modal"><img src="frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
+			<div class="info-customer-wrap">
+				<img src="frontend/images/info-customer-figure.png" class="" alt="">
+				<div class="info-customer-content">
+					<div class="primary-form">
+						<div class="account-form-content px-md-4 pt-3 pt-md-0">
+							<h2 class="line-b mb-4">Liên hệ với tôi</h2>
+
+							<form class="row g-3">
+								<div class="col-12">
+									<div class="form-floating">
+										<input type="text" class="form-control" id="yourName" placeholder="Họ và tên">
+										<label for="yourPhone">Họ và tên</label>
+									</div>
+								</div>
+
+								<div class="col-12">
+									<div class="form-floating">
+										<input type="email" class="form-control" id="yourEmail" placeholder="Email">
+										<label for="yourEmail">Email</label>
+									</div>
+								</div>
+
+								<div class="col-12">
+									<div class="form-floating">
+										<input type="text" class="form-control" id="yourPhone" placeholder="Số điện thoại">
+										<label for="yourPhone">Số điện thoại</label>
+									</div>
+								</div>
+								<div class="load-more text-center mt-4 pt-2">
+									<div class="cta-btn ir">
+										<a class="" data-bs-dismiss="modal" href="#info-system" data-bs-toggle="modal"><span class="cta-text font-weight-semibold">Gửi đi</span><span class="cta-ico"><i class="icon-next"></i></span></a>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<!-- SYSTEM POPUP -->
+<div class="modal fade info-customer" id="info-system">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
+	  <div class="modal-content">
+		<div class="modal-body">
+			<button type="button" class="close" data-bs-dismiss="modal"><img src="frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
+			<div class="info-customer-wrap">
+				<img src="frontend/images/info-customer-figure.png" class="" alt="">
+				<div class="info-customer-content">
+					<div class="primary-form">
+						<div class="account-form-content px-md-4 pt-3 pt-md-0">
+							<div class="text-center text-md-start">
+								<div class="primary-title pt-md-0">
+									<h3><span class="cover-title-filled">NHẬN THÔNG TIN</span><span class="position-relative">ĐỊNH GIÁ NHÀ BẠN</span></h3>
+								</div> 
+							</div>
+							<p class="mt-5">Bạn đã gửi thông tin thành công.</p>
+							<p class="mb-0">Thông tin của bạn sẽ được <span class="text-sub font-weight-semibold">Nhà Ở Ngay</span><br> đánh giá trong 24h làm việc tiếp theo.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+  </div>
 
 @endsection
-
 @section('script')
-<style type="text/css">
-	#fixed_top{ position: sticky; position: -webkit-sticky; top: 50px; z-index: 9999; background: #fff;}
-	#fixed_top ul{ display: flex; border-bottom: 1px solid #ddd;}
-	#fixed_top ul li{ list-style: none;padding: 5px; }
-	#fixed_top ul li a{ padding: 3px 10px; }
-	section {padding: 0;}
-	.content{ margin-bottom: 0px; }
-	#page-content:not(.no-sidebar){padding-bottom: 0px;}
-</style>
-<link rel="stylesheet" type="text/css" href="frontend/css/lightslider.css">
-<script src="https://sachinchoolur.github.io/lightslider/dist/js/lightslider.js"></script>
-<script type="text/javascript">
-$('.lightSlider').lightSlider({
-    gallery: true,
-    item: 1,
-    loop:true,
-    slideMargin: 0,
-    thumbItem: 8
-});
+<script src="frontend/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/js/swiper-bundle.min.js"></script>
+<script src="frontend/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="frontend/js/chart.nhaongay.js"></script>
+<script src="frontend/js/simpleLightbox.min.js"></script>
+<script src="frontend/js/smoothscroll.js"></script>
+<script>
+	const myChart2 = new Chart(
+	  document.getElementById('fluctuatingPrice'),
+	  fluctuatingPrice,
+	);
 
+	const myChart3 = new Chart(
+	  document.getElementById('loanChart'),
+	  loanChart,
+	);	
+</script>
+<script>
+		var swiper = new Swiper(".related-sec .mySwiper", {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			pagination: {
+				el: ".related-sec .swiper-pagination",
+				clickable: true,
+			},
+			// Responsive breakpoints
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 2,
+					spaceBetween: 20
+				},
+				// when window width is >= 480px
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+				// when window width is >= 640px
+				1024: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+					navigation: {
+						nextEl: ".related-sec .swiper-button-next",
+						prevEl: ".related-sec .swiper-button-prev",
+					},
+				}
+			},	
+		});
 
+		const fraction = document.getElementById("fraction");
+		const slides = document.querySelectorAll(".swiper.gallery-mobile .swiper-slide");
+		const slideCount = slides.length;
+		fraction.textContent = `1 / ${slideCount}`;
 
+		var swiper2 = new Swiper(".swiper.gallery-mobile", {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			loop:true,
+			pagination: {
+				el: ".swiper.gallery-mobile .bullets",
+				clickable: true,
+			},
+			autoplay: {
+				delay: 20500,
+				disableOnInteraction: false,
+			},
+			on: {
+				slideChange: (index) => {
+					if(index.activeIndex > slideCount || index.activeIndex < 1) {
+						if(index.activeIndex < 1) {
+							fraction.textContent = `${slideCount} / ${slideCount}`;
+						}
+						else {
+							fraction.textContent = `1 / ${slideCount}`;
+						}	
+					}
+					else {
+						fraction.textContent = `${index.activeIndex} / ${slideCount}`;
+					}
+			}
+		}
+		});
+
+		var lightbox = new SimpleLightbox({
+			elements: '.sec-gallery .card-overlay',
+		});
 </script>
 @endsection

@@ -129,7 +129,31 @@ header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-me
 .card-s:hover .card-img-top {
     transform: scale(1.05);
 }
-
+.cover-title-home {
+    padding-top: 50px;
+}
+.cover-title-home h2:after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    left: 0;
+    width: 80px;
+    background-color: var(--sub-color);
+    bottom: 18px;
+}
+.cover-title-home h2{
+	font-weight: bold;
+}
+.cover-title-home .cover-title{
+	display: flex;justify-content: space-between;align-items: center;
+}
+.cover-title-home .cover-title button{
+	background: #fff; border: 1px solid var(--sub-color); padding: 6px 18px 9px 18px; border-radius: 30px; 
+	color: var(--sub-color);
+}
+.cover-title-home .cover-title button:hover{
+	background: var(--sub-color); color: #fff; border: #fff;
+}
 
 
 
