@@ -2,7 +2,7 @@
 <header class="">
 	<nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
 		<div class="container">
-		  <a class="navbar-brand" href="#"><img src="images/lg-hd.svg" alt="" class="mw-100"></a>
+		  <a class="navbar-brand logo" href="{{asset('')}}"><img src="data/themes/{{$head_logo->img}}" alt="" class="mw-100"></a>
 		  <div class="toggle-menu" data-bs-toggle="button">
 				<button class="navbar-toggler ico-menu" id="navbarToggler">
 					<div>

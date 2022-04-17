@@ -19,11 +19,11 @@
 }
 header .navbar-expand-lg .navbar-nav .nav-link {
     font-size: 13px;
-    padding: 19px 25px;
+    padding: 18px 25px;
 }
 .scrollDown header .navbar-expand-lg .navbar-nav .nav-link{
 	font-size: 13px;
-    padding: 19px 25px;
+    padding: 17px 25px;
 }
 
 .widget-broker.card-s3 .card-body {
@@ -73,6 +73,9 @@ header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-me
 header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-menu .notify-tool a:hover {
     background: none;
     color: #fff !important;text-decoration: revert;
+}
+header .navbar .logo{
+	background: #fff; padding: 10px; box-shadow: 0px 0px 5px 1px var(--main-color);border-radius: 0px 0px 3px 3px;
 }
 
 .sr-hd-nav-box{
@@ -160,6 +163,18 @@ header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-me
 .product-dt-header-title h2 {
     color: var(--main-color);
     font-weight: bold;text-transform: uppercase;
+}
+.sec-product-hot, .review-project, footer, footer .ft-main, .scrollDown header{
+	background: var(--main-color);
+}
+.review-project-content .cover-title-filled{
+	color: #fff !important;
+}
+header .navbar-brand img {
+    width: 80px;
+}
+.scrollDown header .navbar-brand img {
+    width: 59px;
 }
 
 

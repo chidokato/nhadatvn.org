@@ -1,4 +1,4 @@
-header {background: #0f1a33;position: sticky;position: -webkit-sticky;z-index: 9999;top: 0;}
+header {background: var(--main-color);position: sticky;position: -webkit-sticky;z-index: 9999;top: 0;}
 header nav {background: none !important;padding: 0 !important;transition:.2s all;}
 header nav .container {align-items: flex-start !important;}
 header nav .navbar-collapse {align-items: center;justify-content: end;}
