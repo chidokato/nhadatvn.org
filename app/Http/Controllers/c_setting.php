@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\setting;
+use Image;
+use File;
 
 class c_setting extends Controller
 {
@@ -35,9 +37,19 @@ class c_setting extends Controller
         $setting->description = $Request->description;
         $setting->keywords = $Request->keywords;
         $setting->robot = $Request->robot;
-        if($Request->img)
-        {
-            $setting->img = $Request->img;
+        if ($Request->hasFile('favicon')) {
+            // xóa ảnh cũ
+            if(File::exists('data/themes/'.$setting->img)) { 
+                File::delete('data/themes/'.$setting->img); 
+            }
+            // xóa ảnh cũ
+            // thêm ảnh mới
+            $file = $Request->file('favicon');
+            $filename = $file->getClientOriginalName();
+            while(file_exists("data/themes/".$filename)){ $filename = str_random(4)."_".$filename; }
+            $img = Image::make($file)->resize(16, 16, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/themes/'.$filename));
+            $setting->img = $filename;
+            // thêm ảnh mới
         }
         $setting->save();
         return redirect('admin/setting/list')->with('Success','Success');

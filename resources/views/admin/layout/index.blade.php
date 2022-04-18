@@ -20,8 +20,6 @@
     <!-- select2 multiple css -->
     <link href="admin_asset/select2/css/select2.min.css" rel="stylesheet">
 
-
-
 </head>
 
 <body id="page-top">
