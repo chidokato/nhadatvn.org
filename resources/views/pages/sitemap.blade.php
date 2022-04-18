@@ -26,7 +26,7 @@
 <url>
     <loc>{{asset('')}}{{$val->slug}}</loc>
     <changefreq>always</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
 </url>
 @endforeach
 	
