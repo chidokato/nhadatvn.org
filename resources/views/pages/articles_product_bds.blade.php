@@ -165,6 +165,29 @@
 												<h5 class="line-b">{{$section->heading}}</h5>
 												{!!$section->content!!}
 											</div>
+											<div class="fullscreen-slider">
+												<div class="position-relative agent-slider">
+													<div class="swiper" id="template-apartment-area">
+														<div class="swiper-wrapper">
+															<div class="swiper-slide">
+																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://1.bp.blogspot.com/-z5CcCibG3q0/Wj4C50bTGJI/AAAAAAAAAXk/D9wmm6Qa5qMv9aVhLA4wG_MFNn-i31NyQCLcBGAs/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');" alt="..."></span>
+															</div>
+															<div class="swiper-slide">
+																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://abcvietnamland.vn/wp-content/uploads/phong-ngu-du-an-201-minh-khai.png');" alt="..."></span>
+															</div>
+															<div class="swiper-slide">
+																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://1.bp.blogspot.com/-z5CcCibG3q0/Wj4C50bTGJI/AAAAAAAAAXk/D9wmm6Qa5qMv9aVhLA4wG_MFNn-i31NyQCLcBGAs/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');" alt="..."></span>
+															</div>
+															<div class="swiper-slide">
+																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://abcvietnamland.vn/wp-content/uploads/phong-ngu-du-an-201-minh-khai.png');" alt="..."></span>
+															</div>
+														</div>
+														<div class="swiper-button-next"></div>
+														<div class="swiper-button-prev"></div>
+														<div class="swiper-pagination d-md-none"></div>
+													</div>
+												</div>
+											</div>
 										</div>
 										@endforeach
 
@@ -403,15 +426,52 @@
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="frontend/js/smoothscroll.js"></script>
 <script>
-	const myChart2 = new Chart(
-	  document.getElementById('fluctuatingPrice'),
-	  fluctuatingPrice,
-	);
+		var swiper3 = new Swiper("#template-apartment-area", {
+			slidesPerView: 'auto',
+        	centeredSlides: true,
+			grabCursor: true,
+			spaceBetween: 10,
+			initialSlide : 1,
+			pagination: {
+				el: "#template-apartment-area .swiper-pagination",
+				clickable: true,
+			},	
+			// Responsive breakpoints
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 'auto',
+					spaceBetween: 10
+				},
+				// when window width is >= 480px
+				768: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+				},
+				// when window width is >= 640px
+				1024: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+					navigation: {
+						nextEl: "#template-apartment-area .swiper-button-next",
+						prevEl: "#template-apartment-area .swiper-button-prev",
+					},
+				}
+			},
+		});
 
-	const myChart3 = new Chart(
-	  document.getElementById('loanChart'),
-	  loanChart,
-	);	
+		
+
+		const fraction = document.getElementById("fraction");
+		const slides = document.querySelectorAll(".swiper.gallery-mobile .swiper-slide");
+		const slideCount = slides.length;
+		fraction.textContent = `1 / ${slideCount}`;
+
+
+	new SimpleLightbox({elements: '.sec-gallery .card-overlay'});
+	new SimpleLightbox({elements: '.overview-3dfl-a'});
+	new SimpleLightbox({elements: '.overview-3dfl-b'});
+
 </script>
 <script>
 		var swiper = new Swiper(".related-sec .mySwiper", {
@@ -483,4 +543,7 @@
 			elements: '.sec-gallery .card-overlay',
 		});
 </script>
+
+
+
 @endsection
