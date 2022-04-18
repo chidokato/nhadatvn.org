@@ -176,7 +176,8 @@ header .navbar-brand img {
 .scrollDown header .navbar-brand img {
     width: 59px;
 }
-
+.product-detail p{ text-align: justify; }
+.main-article img{ max-width: 100%; }
 
 
 

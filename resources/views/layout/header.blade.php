@@ -15,11 +15,11 @@
 	
 		  <div class="navbar-collapse flex-grow-1" id="navbarsExample07XL">
 			<ul class="collapse navbar-nav mb-lg-0">
-				<li class="nav-item active">
+				<li class="nav-item {{ isset($active) && $active=='' ? 'active':'' }}">
 					<a class="nav-link" href="{{asset('')}}">Trang chủ</a>
 				</li>
 				@foreach($menu as $val)
-				<li class="nav-item">
+				<li class="nav-item {{ isset($active) && $active==$val->slug ? 'active':'' }} ">
 					<a class="nav-link" href="{{$val->slug}}">{{$val->name}}</a>
 				</li>
 				@endforeach

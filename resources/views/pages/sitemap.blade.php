@@ -10,17 +10,24 @@
 <url>
     <loc>{{asset('')}}{{$val->slug}}</loc>
     <changefreq>always</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
 </url>
 @endforeach
 
-@foreach ($sitemap_articles as $val)
+@foreach ($sitemap_articles_pro as $val)
 <url>
     <loc>{{asset('')}}{{$val->slug}}</loc>
     <changefreq>always</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
 </url>
 @endforeach
 	
+@foreach ($sitemap_articles_new as $val)
+<url>
+    <loc>{{asset('')}}{{$val->slug}}</loc>
+    <changefreq>always</changefreq>
+    <priority>0.9</priority>
+</url>
+@endforeach
 	
 </urlset>

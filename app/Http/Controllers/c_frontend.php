@@ -50,14 +50,14 @@ class c_frontend extends Controller
     public function sitemap()
     {
         $sitemap_category = category::where('status','true')->get();
-        $sitemap_articles = articles::where('status','true')->get();
+        $sitemap_articles_pro = articles::where('sort_by','1')->where('status','true')->get();
+        $sitemap_articles_new = articles::where('sort_by','2')->where('status','true')->get();
         return response()->view('pages.sitemap', [
             'sitemap_category' => $sitemap_category,
-            'sitemap_articles' => $sitemap_articles,
+            'sitemap_articles_pro' => $sitemap_articles_pro,
+            'sitemap_articles_new' => $sitemap_articles_new,
             ])->header('Content-Type', 'text/xml');
     }
-
-    
 
     public function category($curl)
     {
@@ -106,6 +106,7 @@ class c_frontend extends Controller
 
     public function articles($curl,$arurl)
     {
+        $active = $curl;
         $articles = articles::where('slug',$arurl)->first();
         
         $id = $articles['id'];
@@ -118,10 +119,10 @@ class c_frontend extends Controller
             ->take(8)
             ->get();
         if ($articles['sort_by'] == 1) {
-            return view('pages.articles_product_bds',['articles'=>$articles,'lienquan'=>$lienquan]);
+            return view('pages.articles_product_bds',['active'=>$active,'articles'=>$articles,'lienquan'=>$lienquan]);
         }
         if ($articles['sort_by'] == 2) {
-            return view('pages.articles',['articles'=>$articles,'lienquan'=>$lienquan]);
+            return view('pages.articles',['active'=>$active,'articles'=>$articles,'lienquan'=>$lienquan]);
         }
     }
 
