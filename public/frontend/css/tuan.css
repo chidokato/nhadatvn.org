@@ -178,6 +178,16 @@ header .navbar-brand img {
 }
 .product-detail p{ text-align: justify; }
 .main-article img{ max-width: 100%; }
+.product-detail ul{
+	display: flex;
+    flex-direction: column;margin-bottom: 10px;padding-left: 17px;
+}
+.product-detail ul li{
+	list-style: inline; list-style: circle !important;display: revert;margin-bottom: 4px;
+}
+.product-detail strong{
+	font-weight: 600;
+}
 
 
 

@@ -20,6 +20,11 @@
     </ul>
 </nav>
 
+<div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
+    <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">{{ isset($data) ? $data->name : 'Thêm mới' }}</h2>
+    <!-- <a class="add-iteam" href="admin/news/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a> -->
+</div>
+
 <div class="row">
     <div class="col-xl-9 col-lg-9">
         <div class="card shadow mb-4">
