@@ -165,22 +165,16 @@
 												<h5 class="line-b">{{$section->heading}}</h5>
 												{!!$section->content!!}
 											</div>
+											@if(isset($section->images) && count($section->images) > 0)
 											<div class="fullscreen-slider">
 												<div class="position-relative agent-slider">
 													<div class="swiper" id="template-apartment-area">
 														<div class="swiper-wrapper">
+															@foreach($section->images as $img)
 															<div class="swiper-slide">
-																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://1.bp.blogspot.com/-z5CcCibG3q0/Wj4C50bTGJI/AAAAAAAAAXk/D9wmm6Qa5qMv9aVhLA4wG_MFNn-i31NyQCLcBGAs/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');" alt="..."></span>
+																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
 															</div>
-															<div class="swiper-slide">
-																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://abcvietnamland.vn/wp-content/uploads/phong-ngu-du-an-201-minh-khai.png');" alt="..."></span>
-															</div>
-															<div class="swiper-slide">
-																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://1.bp.blogspot.com/-z5CcCibG3q0/Wj4C50bTGJI/AAAAAAAAAXk/D9wmm6Qa5qMv9aVhLA4wG_MFNn-i31NyQCLcBGAs/s1600/hinh-anh-phong-khach-cua-hinode-city.jpg');" alt="..."></span>
-															</div>
-															<div class="swiper-slide">
-																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('https://abcvietnamland.vn/wp-content/uploads/phong-ngu-du-an-201-minh-khai.png');" alt="..."></span>
-															</div>
+															@endforeach
 														</div>
 														<div class="swiper-button-next"></div>
 														<div class="swiper-button-prev"></div>
@@ -188,10 +182,11 @@
 													</div>
 												</div>
 											</div>
+											@endif
 										</div>
 										@endforeach
 
-										<div id="product-detail" class="scrolloverview">
+										<!-- <div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">Chi tiết</h5>
 												<div class="row g-5 justify-content-between">
@@ -249,7 +244,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										
 										
 									</div>
@@ -426,6 +421,71 @@
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="frontend/js/smoothscroll.js"></script>
 <script>
+		var swiper = new Swiper(".related .swiper", {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			pagination: {
+				el: ".related .swiper-pagination",
+				clickable: true,
+			},
+			// Responsive breakpoints
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 2,
+					spaceBetween: 20
+				},
+				// when window width is >= 480px
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
+				// when window width is >= 640px
+				1024: {
+					slidesPerView: 4,
+					spaceBetween: 20,
+					navigation: {
+						nextEl: ".related .swiper-button-next",
+						prevEl: ".related .swiper-button-prev",
+					},
+				}
+			},	
+		});
+
+		var swiper2 = new Swiper("#convenient-area", {
+			slidesPerView: 'auto',
+        	centeredSlides: true,
+			grabCursor: true,
+			spaceBetween: 10,
+			pagination: {
+				el: "#convenient-area .swiper-pagination",
+				clickable: true,
+			},	
+			initialSlide : 1,
+			// Responsive breakpoints
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 'auto',
+					spaceBetween: 10
+				},
+				// when window width is >= 480px
+				768: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+				},
+				// when window width is >= 640px
+				1024: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+					navigation: {
+						nextEl: "#convenient-area .swiper-button-next",
+						prevEl: "#convenient-area .swiper-button-prev",
+					},
+				}
+			},
+		});
+
 		var swiper3 = new Swiper("#template-apartment-area", {
 			slidesPerView: 'auto',
         	centeredSlides: true,
@@ -460,13 +520,50 @@
 			},
 		});
 
-		
+		var swiper4 = new Swiper(".review-project-content .swiper", {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			pagination: {
+				el: ".review-project-content .swiper-pagination",
+				clickable: true,
+			},	
+		});
 
 		const fraction = document.getElementById("fraction");
 		const slides = document.querySelectorAll(".swiper.gallery-mobile .swiper-slide");
 		const slideCount = slides.length;
 		fraction.textContent = `1 / ${slideCount}`;
 
+		var swiper5 = new Swiper(".swiper.gallery-mobile", {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			loop:true,
+			pagination: {
+				el: ".swiper.gallery-mobile .bullets",
+				clickable: true,
+			},
+			autoplay: {
+				delay: 20500,
+				disableOnInteraction: false,
+			},
+			on: {
+				slideChange: (index) => {
+					if(index.activeIndex > slideCount || index.activeIndex < 1) {
+						if(index.activeIndex < 1) {
+							fraction.textContent = `${slideCount} / ${slideCount}`;
+						}
+						else {
+							fraction.textContent = `1 / ${slideCount}`;
+						}	
+					}
+					else {
+						fraction.textContent = `${index.activeIndex} / ${slideCount}`;
+					}
+			}
+		}
+		});
+
+		
 
 	new SimpleLightbox({elements: '.sec-gallery .card-overlay'});
 	new SimpleLightbox({elements: '.overview-3dfl-a'});
