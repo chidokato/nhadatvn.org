@@ -182,8 +182,14 @@ header .navbar-brand img {
 	display: flex;
     flex-direction: column;margin-bottom: 10px;padding-left: 17px;
 }
+.product-detail ol{
+	padding-left: 17px;margin-bottom: 10px;
+}
 .product-detail ul li{
 	list-style: inline; list-style: circle !important;display: revert;margin-bottom: 4px;
+}
+.product-detail ol li{
+	margin-bottom: 4px;
 }
 .product-detail strong{
 	font-weight: 600;
