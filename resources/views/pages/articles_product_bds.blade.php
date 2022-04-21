@@ -125,9 +125,9 @@
 										<div class="product-price">
 											<div class="new-price">
 												<span>Giá bán</span>
-												<h1>3.5 tỷ</h1>
+												<h1>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h1>
 											</div>
-											<div class="old-price">3.9 tỷ</div>
+											<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
 										</div>
 										<div class="product-contact">
 											<h2 class="d-none d-lg-block line-b"></h2>
@@ -154,13 +154,13 @@
 									<ul class="nav scrollspy-product" id="scrollspy-product">
 										@foreach($articles->section as $key => $section)
 										<li class="nav-item">
-											<a class="nav-link {{ $key==0? 'active':'' }}" href="{{asset('')}}{{$articles->category->slug}}/{{$articles->slug}}#product-{{$section->id}}">{{$section->tab_heading}}</a>
+											<a class="nav-link {{ $key==0? 'active':'' }}" href="#{{$section->slug}}">{{$section->tab_heading}}</a>
 										</li>
 										@endforeach
 									</ul>
 									<div>
 										@foreach($articles->section as $key => $section)
-										<div id="product-{{$section->id}}" class="scrolloverview">
+										<div id="{{$section->slug}}" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">{{$section->heading}}</h5>
 												{!!$section->content!!}
@@ -186,7 +186,7 @@
 										</div>
 										@endforeach
 
-										<!-- <div id="product-detail" class="scrolloverview">
+										<div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">Chi tiết</h5>
 												<div class="row g-5 justify-content-between">
@@ -244,7 +244,7 @@
 													</div>
 												</div>
 											</div>
-										</div> -->
+										</div>
 										
 										
 									</div>
@@ -255,9 +255,9 @@
 							<div class="product-price affix">
 								<div class="new-price">
 									<span>Giá bán</span>
-									<h1>3,75 tỷ</h1>
+									<h1>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h1>
 								</div>
-								<div class="old-price">3.9 tỷ</div>
+								<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
 
 								<div class="product-contact">
 									<a class="btn btn-tel"><i class="icon-phone"></i>0972029093</a>
@@ -421,154 +421,15 @@
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="frontend/js/smoothscroll.js"></script>
 <script>
-		var swiper = new Swiper(".related .swiper", {
-			slidesPerView: 1,
-			spaceBetween: 10,
-			pagination: {
-				el: ".related .swiper-pagination",
-				clickable: true,
-			},
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 2,
-					spaceBetween: 20
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 3,
-					spaceBetween: 30,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 4,
-					spaceBetween: 20,
-					navigation: {
-						nextEl: ".related .swiper-button-next",
-						prevEl: ".related .swiper-button-prev",
-					},
-				}
-			},	
-		});
+	const myChart2 = new Chart(
+	  document.getElementById('fluctuatingPrice'),
+	  fluctuatingPrice,
+	);
 
-		var swiper2 = new Swiper("#convenient-area", {
-			slidesPerView: 'auto',
-        	centeredSlides: true,
-			grabCursor: true,
-			spaceBetween: 10,
-			pagination: {
-				el: "#convenient-area .swiper-pagination",
-				clickable: true,
-			},	
-			initialSlide : 1,
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 'auto',
-					spaceBetween: 10
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 'auto',
-					spaceBetween: 10,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 'auto',
-					spaceBetween: 10,
-					navigation: {
-						nextEl: "#convenient-area .swiper-button-next",
-						prevEl: "#convenient-area .swiper-button-prev",
-					},
-				}
-			},
-		});
-
-		var swiper3 = new Swiper("#template-apartment-area", {
-			slidesPerView: 'auto',
-        	centeredSlides: true,
-			grabCursor: true,
-			spaceBetween: 10,
-			initialSlide : 1,
-			pagination: {
-				el: "#template-apartment-area .swiper-pagination",
-				clickable: true,
-			},	
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 'auto',
-					spaceBetween: 10
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 'auto',
-					spaceBetween: 10,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 'auto',
-					spaceBetween: 10,
-					navigation: {
-						nextEl: "#template-apartment-area .swiper-button-next",
-						prevEl: "#template-apartment-area .swiper-button-prev",
-					},
-				}
-			},
-		});
-
-		var swiper4 = new Swiper(".review-project-content .swiper", {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			pagination: {
-				el: ".review-project-content .swiper-pagination",
-				clickable: true,
-			},	
-		});
-
-		const fraction = document.getElementById("fraction");
-		const slides = document.querySelectorAll(".swiper.gallery-mobile .swiper-slide");
-		const slideCount = slides.length;
-		fraction.textContent = `1 / ${slideCount}`;
-
-		var swiper5 = new Swiper(".swiper.gallery-mobile", {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			loop:true,
-			pagination: {
-				el: ".swiper.gallery-mobile .bullets",
-				clickable: true,
-			},
-			autoplay: {
-				delay: 20500,
-				disableOnInteraction: false,
-			},
-			on: {
-				slideChange: (index) => {
-					if(index.activeIndex > slideCount || index.activeIndex < 1) {
-						if(index.activeIndex < 1) {
-							fraction.textContent = `${slideCount} / ${slideCount}`;
-						}
-						else {
-							fraction.textContent = `1 / ${slideCount}`;
-						}	
-					}
-					else {
-						fraction.textContent = `${index.activeIndex} / ${slideCount}`;
-					}
-			}
-		}
-		});
-
-		
-
-	new SimpleLightbox({elements: '.sec-gallery .card-overlay'});
-	new SimpleLightbox({elements: '.overview-3dfl-a'});
-	new SimpleLightbox({elements: '.overview-3dfl-b'});
-
+	const myChart3 = new Chart(
+	  document.getElementById('loanChart'),
+	  loanChart,
+	);	
 </script>
 <script>
 		var swiper = new Swiper(".related-sec .mySwiper", {

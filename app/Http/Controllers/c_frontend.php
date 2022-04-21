@@ -40,10 +40,12 @@ class c_frontend extends Controller
         $active = '';
         $slider = themes::where('note','Slider')->where('status','true')->get();
         $articles = articles::where('sort_by','1')->where('status','true')->orderBy('id','desc')->paginate(9);
+        $articles_news = articles::where('sort_by','2')->where('status','true')->orderBy('id','desc')->paginate(9);
         return view('pages.home',[
             'active'=>$active,
             'slider'=>$slider,
             'articles' => $articles,
+            'articles_news' => $articles_news,
         ]);
     }
 

@@ -12,6 +12,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item mobile-hide">
+            <a class="add-iteam" target="_blank" href="{{ isset($data) ? asset('').$data->category->slug.'/'.$data->slug : asset('') }}"><button class="btn-warning form-control" type="button"><i class="fa fa-share" aria-hidden="true"></i> {{ isset($data) ? 'Xem thực tế' : 'Trang chủ' }}</button></a>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item mobile-hide">
             <button type="reset" class="btn-danger mr-2 form-control"><i class="fas fa-sync"></i> Làm mới</button>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
@@ -20,6 +24,10 @@
         </li>
     </ul>
 </nav>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-3 flex" style="height: 38px;">
+    <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">{{ isset($data) ? $data->name : 'Thêm mới' }}</h2>
+</div>
 
 <div class="row">
     <div class="col-xl-9 col-lg-9">
@@ -248,12 +256,26 @@
 
                 <div class="form-group" style="position: relative;">
                     <label>Giá bán</label>
-                    <input class="form-control price" type="text" name="price" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ isset($data->product->price) ? $data->product->price : '' }}" data-type="currency" placeholder="...">
+                    <div class="row-price">
+                        <input class="form-control price" type="text" name="price" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ isset($data->product->price) ? $data->product->price : '' }}" data-type="currency" placeholder="...">
+                        <select class="form-control" name="unit">
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1){ echo 'selected'; } ?>  value="1">VNĐ</option>
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1000000){ echo 'selected'; } ?> value="1000000">Triệu</option>
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1000000000){ echo 'selected'; } ?> value="1000000000">Tỷ</option>
+                        </select>
+                    </div>
                 </div>
                 
                 <div class="form-group">
                     <label>Giá niêm yết</label>
-                    <input class="form-control oldprice" type="text" name="oldprice" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ isset($data->product->oldprice) ? $data->product->oldprice : '' }}" data-type="currency" placeholder="...">
+                    <div class="row-price">
+                        <input class="form-control oldprice" type="text" name="oldprice" id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="{{ isset($data->product->oldprice) ? $data->product->oldprice : '' }}" data-type="currency" placeholder="...">
+                        <select class="form-control">
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1){ echo 'selected'; } ?> value="1">VNĐ</option>
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1000000){ echo 'selected'; } ?> value="1000000">Triệu</option>
+                            <option <?php if(isset($data->product->unit_price) && $data->product->unit_price==1000000000){ echo 'selected'; } ?> value="1000000000">Tỷ</option>
+                        </select>
+                    </div>
                 </div>
                 
                 <!-- <div class="form-group">

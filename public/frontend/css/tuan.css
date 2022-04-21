@@ -188,7 +188,13 @@ header .navbar-brand img {
 .product-detail strong{
 	font-weight: 600;
 }
-
+.product-overview .scrollspy-product {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.product-overview .scrollspy-product li a {
+    margin-right: 15px; font-size: .9rem;
+}
 
 
 

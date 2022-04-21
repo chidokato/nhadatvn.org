@@ -274,6 +274,9 @@ label {color: #46515F;}
 .button-none{
     background: none; border: none;
 }
+.row-price{display: flex;}
+.row-price input{border-radius: 5px 0px 0px 5px;}
+.row-price select{width: 40%; border-radius: 0px 5px 5px 0px;}
 
 @media (max-width: 768px){
     .sticky{z-index: 12;}

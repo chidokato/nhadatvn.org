@@ -92,6 +92,8 @@ class c_product extends Controller
         $product = new product;
         $product->price = str_replace( array(',') , '', $Request->price );
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
+        $product->unit_price = $Request->unit;
+        $product->search_price = $product->price*$Request->unit;
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
         if(isset($Request->province_id)){$product->province_id = $Request->province_id;}
@@ -158,6 +160,7 @@ class c_product extends Controller
                 $section = new section;
                 $section->articles_id = $articles->id;
                 $section->tab_heading = $val;
+                $section->slug = changeTitle($val);
                 $section->save();
             }
         }
@@ -254,6 +257,8 @@ class c_product extends Controller
         $product = product::find($articles['product_id']);
         $product->price = str_replace( array(',') , '', $Request->price );
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
+        $product->unit_price = $Request->unit;
+        if($product->price!=''){$product->search_price = $product->price*$Request->unit;}
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
         if($Request->province_id){$product->province_id = $Request->province_id;}
@@ -289,6 +294,7 @@ class c_product extends Controller
                     $section = new section;
                     $section->articles_id = $articles->id;
                     $section->tab_heading = $val;
+                    $section->slug = changeTitle($val);
                     $section->save();
                 }
             }
@@ -299,6 +305,7 @@ class c_product extends Controller
             foreach($Request->id_section as $key => $id_section){
                 $section = section::find($id_section);
                 $section->tab_heading = $Request->tab_heading[$key];
+                $section->slug = changeTitle($Request->tab_heading[$key]);
                 $section->heading = $Request->heading[$key];
                 $section->content = $Request->content_section[$key];
                 $section->save();

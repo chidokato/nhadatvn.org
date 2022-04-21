@@ -55,13 +55,15 @@
 								<span class="hot"><img src="frontend/images/new-label.png"></span>
 								<a href="{{$val->category->slug}}/{{$val->slug}}">
 									<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/{{$val->img}}');" alt="..."></span>
-									<div class="card-price">Giá: <span class="current-price">4,3 tỷ</span><span class="old-price"></span></div>
+									<div class="card-price">Giá: <span class="current-price"> @if($val->product->price!='') {{$val->product->price}} {{$val->product->unit_price==1? 'VNĐ':''}}{{$val->product->unit_price==1000000? 'Tr':''}}{{$val->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif </span><span class="old-price"> @if($val->product->oldprice>0) {{$val->product->oldprice}} {{$val->product->unit_price==1? 'VNĐ':''}}{{$val->product->unit_price==1000000? 'Tr':''}}{{$val->product->unit_price==1000000000? 'Tỷ':''}} @endif </span></div>
 								</a>
 								<div class="card-body">
 									<div class="card-body-wrap">
 										<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
 										<div class="card-info">
-											<span><i class="icon-location me-2"></i>Nam Từ Liêm, Hà Nội</span>
+											<span><i class="icon-location me-2"></i>
+												{{isset($val->product->street->name)? $val->product->street->name:''}}{{isset($val->product->district->name)? ', '.$val->product->district->name:''}}{{isset($val->product->province->name)? ', '.$val->product->province->name:''}}
+											</span>
 										</div>
 										<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
 									</div>
@@ -98,7 +100,7 @@
 					<a href="{{$val->category->slug}}/{{$val->slug}}">
 						<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/{{$val->img}}');" alt="..."></span>
 					</a>
-					<div class="card-body card-body-new">
+					<div class="card-body">
 						<div class="card-body-wrap">
 							<h5 class="card-title "><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate-set text-truncate-set-1">{{$val->name}}</a></h5>
 							<div class="card-info">
@@ -107,7 +109,7 @@
 							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
 						</div>
 						<div class="card-footer">
-							<div class="card-price"><span class="current-price"><span>Giá: </span> 4,3 tỷ</span><span class="old-price"></span></div>
+							<div class="card-price"><span class="current-price"><span>Giá: </span> @if($val->product->price!='') {{$val->product->price}} {{$val->product->unit_price==1? 'VNĐ':''}}{{$val->product->unit_price==1000000? 'Tr':''}}{{$val->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif </span><span class="old-price">  @if($val->product->oldprice>0) {{$val->product->oldprice}} {{$val->product->unit_price==1? 'VNĐ':''}}{{$val->product->unit_price==1000000? 'Tr':''}}{{$val->product->unit_price==1000000000? 'Tỷ':''}} @endif  </span></div>
 							<span></span>
 						</div>
 					</div>
@@ -136,76 +138,37 @@
 						</div>
 					</div>
 					<div class="position-relative pt-3">
+						@foreach($articles_news as $key => $val)
+						@if($key==0)
+						<div class="review-project-item review-project-item-lg">
+							<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item row g-lg-5">
+								<div class="col-lg-6 mb-3">
+									<div class="outline-effect"><span><img src="frontend/images/space-5.gif" style="background-image: url('data/news/{{$val->img}}');" alt="" class="w-100 thumb"></span></div>
+								</div>
+								<div class="col-lg-6 mb-3 news-item-body">
+									<h4>{{$val->name}}</h4>
+									<p class="mb-4 text-truncate-set text-truncate-set-4">{{$val->detail}}</p>
+									<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
+								</div>
+							</a>
+						</div>
+						@endif
+						@endforeach
 						<div class="swiper">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="review-project-item review-project-item-lg">
-										<a href="#" class="news-item row g-lg-5">
-											<div class="col-lg-6 mb-3">
-												<div class="outline-effect"><span><img src="frontend/images/space-5.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100 thumb"></span></div>
-											</div>
-											<div class="col-lg-6 mb-3 news-item-body">
-												<h4>Review về chung cư Phương Đông Green Park</h4>
-												<p class="mb-4 text-truncate-set text-truncate-set-4">Là một doanh nghiệp trong bất kỳ giai đoạn kinh tế nào thì hiệu quả kinh doanh và mục tiêu phát triển doanh nghiệp luôn là những điều quan trọng nhất. Nhưng, doanh nghiệp của bạn có gặp khó khăn với những điều sau đây trong hoạt động kinh doanh</p>
-												<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-											</div>
-										</a>
-									</div>
-									<div class="review-project-item review-project-item-sm">
-										<div class="row">
-											<div class="col-lg-6">
-												<a href="#" class="news-item">
-													<span><img src="frontend/images/space-1.gif" style="background-image: url('previews/reviews/review-1.jpg')" alt="" class="w-100 thumb"></span>
-													<div class="news-item-body">
-														<p class="mb-0 text-truncate-set text-truncate-set-3">Review phường Hoàng Liệt Bản đồ , vị trí , dịch vụ tiện ích và các thông tin </p>
-													</div>
-												</a>
-											</div>
-											<div class="col-lg-6">
-												<a href="#" class="news-item">
-													<span><img src="frontend/images/space-1.gif" style="background-image: url('previews/reviews/review-2.jpg')" alt="" class="w-100 thumb"></span>
-													<div class="news-item-body">
-														<p class="mb-0 text-truncate-set text-truncate-set-3">Review phường Hoàng Liệt Bản đồ , vị trí , dịch vụ tiện ích và các thông tin </p>
-													</div>
-												</a>
-											</div>
+								@foreach($articles_news as $key => $val)
+								@if($key>0)
+								<div class="swiper-slide review-project-item review-project-item-sm">
+									<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
+										<span><img src="frontend/images/space-1.gif" style="background-image: url('data/news/{{$val->img}}')" alt="" class="w-100 thumb"></span>
+										<div class="news-item-body">
+											<p class="text-truncate-set text-truncate-set-3">{{$val->name}}</p>
+											<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
 										</div>
-									</div>
+									</a>
 								</div>
-								<div class="swiper-slide">
-									<div class="review-project-item review-project-item-lg">
-										<a href="#" class="news-item row g-lg-5">
-											<div class="col-lg-6 mb-3">
-												<div class="outline-effect"><span><img src="frontend/images/space-5.gif" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="" class="w-100 thumb"></span></div>
-											</div>
-											<div class="col-lg-6 mb-3 news-item-body">
-												<h4>Review về chung cư Phương Đông Green Park</h4>
-												<p class="mb-4 text-truncate-set text-truncate-set-4">Là một doanh nghiệp trong bất kỳ giai đoạn kinh tế nào thì hiệu quả kinh doanh và mục tiêu phát triển doanh nghiệp luôn là những điều quan trọng nhất. Nhưng, doanh nghiệp của bạn có gặp khó khăn với những điều sau đây trong hoạt động kinh doanh</p>
-												<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-											</div>
-										</a>
-									</div>
-									<div class="review-project-item review-project-item-sm">
-										<div class="row">
-											<div class="col-lg-6">
-												<a href="#" class="news-item">
-													<span><img src="frontend/images/space-1.gif" style="background-image: url('previews/reviews/review-1.jpg')" alt="" class="w-100 thumb"></span>
-													<div class="news-item-body">
-														<p class="mb-0 text-truncate-set text-truncate-set-3">Review phường Hoàng Liệt Bản đồ , vị trí , dịch vụ tiện ích và các thông tin </p>
-													</div>
-												</a>
-											</div>
-											<div class="col-lg-6">
-												<a href="#" class="news-item">
-													<span><img src="frontend/images/space-1.gif" style="background-image: url('previews/reviews/review-2.jpg')" alt="" class="w-100 thumb"></span>
-													<div class="news-item-body">
-														<p class="mb-0 text-truncate-set text-truncate-set-3">Review phường Hoàng Liệt Bản đồ , vị trí , dịch vụ tiện ích và các thông tin </p>
-													</div>
-												</a>
-											</div>
-										</div>
-									</div>
-								</div>
+								@endif
+								@endforeach
 							</div>
 							<div class="swiper-pagination"></div>
 						</div>
@@ -338,7 +301,7 @@
 <!-- Initialize Swiper -->
 <script>
 		var swiper1 = new Swiper(".broker-slider .swiper", {
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 20,
 			pagination: {
 				el: ".broker-slider .swiper-pagination",
@@ -369,7 +332,7 @@
 		});
 
 		var swiper2 = new Swiper(".agent-partner-slider .swiper", {
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 20,
 			pagination: {
 				el: ".agent-partner-slider .swiper-pagination",
@@ -400,7 +363,7 @@
 		});
 
 		var swiper3 = new Swiper(".service-slider .swiper", {
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 0,
 			pagination: {
 				el: ".service-slider .swiper-pagination",
@@ -427,7 +390,7 @@
 		});
 
 		var swiper4 = new Swiper(".review-project-content .swiper", {
-			slidesPerView: 1,
+			slidesPerView: 2,
 			spaceBetween: 0,
 			pagination: {
 				el: ".review-project-content .swiper-pagination",
@@ -436,7 +399,7 @@
 		});
 
 		var swiper5 = new Swiper(".thumb-ads-slider .swiper", {
-			spaceBetween:1,
+			spaceBetween:2,
 			lazy: true,
 			slidesPerView:"auto",
 			freeMode: true,

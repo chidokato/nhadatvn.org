@@ -11,6 +11,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item mobile-hide">
+            <a class="add-iteam" target="_blank" href="{{ isset($data) ? asset('').$data->category->slug.'/'.$data->slug : asset('') }}"><button class="btn-warning form-control" type="button"><i class="fa fa-share" aria-hidden="true"></i> {{ isset($data) ? 'Xem thực tế' : 'Trang chủ' }}</button></a>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item mobile-hide">
             <button type="reset" class="btn-danger mr-2 form-control"><i class="fas fa-sync"></i> Làm mới</button>
         </li>
         <div class="topbar-divider d-none d-sm-block"></div>
@@ -20,9 +24,8 @@
     </ul>
 </nav>
 
-<div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
+<div class="d-sm-flex align-items-center justify-content-between mb-3 flex" style="height: 38px;">
     <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">{{ isset($data) ? $data->name : 'Thêm mới' }}</h2>
-    <!-- <a class="add-iteam" href="admin/news/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a> -->
 </div>
 
 <div class="row">
