@@ -304,7 +304,7 @@
 						<div class="col-md-2 d-none d-md-block pd-0">
 							<div class="product-price affix">
 								<div class="new-price">
-									<span>Giá bán</span>
+									<span>Giá bán</span> 
 									<h5>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h5>
 								</div>
 								<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
