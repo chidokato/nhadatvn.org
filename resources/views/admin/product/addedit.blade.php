@@ -167,9 +167,9 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <select name="note_section[]" class="form-control">
-                                        <option value="1"> style 1 (slider 1 ảnh)</option>
-                                        <option value="2"> style 2 (slider 2 ảnh)</option>
-                                        <option value="3"> style 3 (Danh sách ảnh)</option>
+                                        <option <?php if($val->note=='style 1'){echo 'selected';} ?> value="style 1"> style 1</option>
+                                        <option <?php if($val->note=='style 2'){echo 'selected';} ?> value="style 2"> style 2</option>
+                                        <option <?php if($val->note=='style 3'){echo 'selected';} ?> value="style 3"> style 3</option>
                                     </select>
                                 </div>
                             </div>
@@ -180,6 +180,7 @@
                             <div class="col-md-1" style="max-width:10%;flex-basis:10%;" id="detail_img">
                                 <img src="data/product/300/{{$val->img}}">
                                 <button type="button" id="del_img_detail"> <i class="fa fa-times" aria-hidden="true"></i> </button>
+                                <!-- <span>{{$val->note}}</span> -->
                                 <input type="hidden" name="id_img_detail" id="id_img_detail" value="{{$val->id}}" />
                             </div>
                             @endforeach

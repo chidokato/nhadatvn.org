@@ -259,11 +259,24 @@
 .product-contact a:hover {color:var(--main-color); background:#fff}
 .product-contact a.btn-tel, .product-contact a.btn-tel:hover {color:var(--sub-color); font-size:16px}
 
+
+.main-ads-slider .swiper-slide .video .container:before {width: 64px;height: 64px;background-color: var(--sub-color);box-shadow: 0 0 0 6px rgb(255 255 255 / 20%);border-radius: 50%;}
+.main-ads-slider .swiper-slide .video .container:before, .main-ads-slider .swiper-slide .video .container::after {content: '';position: absolute;top: 0;left: 8px;margin: auto 0 auto 8px;z-index: 2;bottom: 12%;}
+.main-ads-slider .swiper-slide .video .container:after {border-left: 12px solid #fff;border-top: 8px solid transparent;border-right: 0;border-bottom: 8px solid transparent;width: 8px;height: 8px;left: 36px;}
+.main-ads-slider .swiper-wrapper {margin-bottom: 0;}
+.main-ads-slider .container {left: 0; right: 0; top: 0; bottom: 0; position: absolute;}
+.thumb-ads-slider {margin-top: -40px;}
+.thumb-ads-slider .swiper-slide {width: 100px;cursor: pointer;padding-bottom: 3px;}
+.thumb-ads-slider .swiper-slide:not(.swiper-slide-thumb-active) {-webkit-filter: grayscale(100%); filter: grayscale(100%);}
+.thumb-ads-slider .swiper-slide.swiper-slide-thumb-active {position: relative;}
+.thumb-ads-slider .swiper-slide.swiper-slide-thumb-active::after {content:''; bottom:0; position: absolute; left: 0; right:0; height: 4px; background-color: var(--sub-color);}
+
+
 @media (min-width: 769px) {
-  .main-content .col-md-2 {flex: 0 0 auto; width: 100px;}
+  .main-content .col-md-2 {flex: 0 0 auto; /*width: 100px;*/}
   .main-content .col-md-10 {flex: 1;/* width: auto; */}
 
-  .product-subpage.main-content .col-md-2 {flex: 0 0 auto; width: 200px;}
+  .product-subpage.main-content .col-md-2 {flex: 0 0 auto; /*width: 200px;*/}
 
   .utility-item:hover {color:var(--main-color); border-color: var(--sub-color);}
   .utility-item:hover i {background-color: var(--sub-color);}
@@ -365,6 +378,13 @@
   .product-dt-header-title {order:1}
   .product-dt-header-ct {order:2}
   .product-dt-header-icons {order:3}
+
+  	.sec-product-rent {padding-top:24px}
+	.thumb-ads-slider {margin-top:-20px}
+	.thumb-ads-slider .swiper-slide {width:25%}
+	.main-ads-slider .swiper-slide .video .container:before {width:52px;height:52px;left: 0;margin: auto;}
+	.main-ads-slider .swiper-slide .video .container:after {left: 2px;border-width: 6px 0 6px 10px;right: 0;margin: auto;}
+	.main-ads-slider .container {width:52px;height:52px;margin: auto;bottom: 12px;}
 }
 
 @media (max-width: 320px) {

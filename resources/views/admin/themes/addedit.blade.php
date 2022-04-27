@@ -3,18 +3,33 @@
 @section('content')
 <div id="alerts">@include('admin.errors.alerts')</div>
 <form id="validateForm" action="admin/themes/<?php
-if(isset($data)){
-    if(isset($double)) echo 'add';
-    else echo 'edit/'.$data->id;
-}else{ echo 'add'; }
-?>" method="POST" enctype="multipart/form-data" id="target">
+if(isset($data)){if(isset($double)) echo 'add';else echo 'edit/'.$data->id;}else{ echo 'add'; }?>" method="POST" enctype="multipart/form-data" id="target">
 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-<div class="text-right mb-3">
-    <button onclick="goBack()" type="button" class="btn-warning mr-2"><i class="fas fa-arrow-left"></i> Back</button>
-    <button type="reset" class="btn-danger mr-2"><i class="fas fa-sync"></i> Reset</button>
-    <!-- <button type="submit" id="other" class="btn-info mr-2"><i class="far fa-save"></i> Save</button> -->
-    <button type="submit" id="save_back" class="btn-success"><i class="far fa-save"></i> Save & Back</button>
+
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow sticky">
+    <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+    <ul class="navbar-nav ">
+        <li class="nav-item"> <a class="nav-link line-1" href="admin/themes/list" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách sản phẩm</span> </a> </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item mobile-hide">
+            <a class="add-iteam" target="_blank" href="{{ isset($data) ? asset('') : asset('') }}"><button class="btn-warning form-control" type="button"><i class="fa fa-share" aria-hidden="true"></i> {{ isset($data) ? 'Trang chủ' : 'Trang chủ' }}</button></a>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item mobile-hide">
+            <button type="reset" class="btn-danger mr-2 form-control"><i class="fas fa-sync"></i> Làm mới</button>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item">
+            <button type="submit" class="btn-success form-control"><i class="far fa-save"></i> Lưu lại</button>
+        </li>
+    </ul>
+</nav>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-3 flex" style="height: 38px;">
+    <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">{{ isset($data) ? $data->name : 'Thêm mới' }}</h2>
 </div>
+
 <div class="row">
     <div class="col-xl-8 col-lg-8">
         <div class="card shadow mb-4">

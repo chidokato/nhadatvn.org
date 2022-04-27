@@ -308,13 +308,13 @@ class c_product extends Controller
                 $section->slug = changeTitle($Request->tab_heading[$key]);
                 $section->heading = $Request->heading[$key];
                 $section->content = $Request->content_section[$key];
+                $section->note = $Request->note_section[$key];
                 $section->save();
 
                 if($key==0 && $Request->hasFile('img_section0')) {
                     foreach($Request->file('img_section0') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -328,7 +328,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section1') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -342,7 +341,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section2') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -356,7 +354,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section3') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -370,7 +367,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section4') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -384,7 +380,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section5') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -398,7 +393,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section6') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -412,7 +406,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section7') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -426,7 +419,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section8') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -440,7 +432,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section9') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
@@ -454,7 +445,6 @@ class c_product extends Controller
                     foreach($Request->file('img_section10') as $file){
                         $images = new images();
                         $images->section_id = $id_section;
-                        $images->note = $Request->note_section[$key];
                         $filename = $file->getClientOriginalName();
                         while(file_exists("data/product/".$filename)){ $filename = str_random(4)."_".$filename; }
                         $img = Image::make($file)->resize(1000, 600, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));

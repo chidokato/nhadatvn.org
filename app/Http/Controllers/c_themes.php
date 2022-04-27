@@ -69,8 +69,8 @@ class c_themes extends Controller
         if ($Request->hasFile('img')) {
             $file = $Request->file('img');
             $filename = $file->getClientOriginalName();
-            while(file_exists("data/themes/".$filename)){ $filename = str_random(4)."_".$filename; }
-            $img = Image::make($file)->resize(1500, 800, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/themes/'.$filename));
+            while(file_exists("data/themes/".$filename)){$filename = str_random(4)."_".$filename;}
+            $file->move('data/themes', $filename);
             $themes->img = $filename;
         }
         // thêm ảnh
@@ -121,8 +121,8 @@ class c_themes extends Controller
             // thêm ảnh mới
             $file = $Request->file('img');
             $filename = $file->getClientOriginalName();
-            while(file_exists("data/themes/".$filename)){ $filename = str_random(4)."_".$filename; }
-            $img = Image::make($file)->resize(1500, 800, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/themes/'.$filename));
+            while(file_exists("data/themes/".$filename)){$filename = str_random(4)."_".$filename;}
+            $file->move('data/themes', $filename);
             $themes->img = $filename;
             // thêm ảnh mới
         }

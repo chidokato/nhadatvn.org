@@ -117,7 +117,7 @@
 						<div class="col-md-10">
 							<div class="product-dt-header">
 								<div class="product-dt-header-title">
-									<h2>{{$articles->name}}</h2>
+									<h1>{{$articles->name}}</h1>
 									<div class="mb-2 text-muted"><small><i class="icon-location me-1"></i>
 										{{$articles->product->address}}{{isset($articles->product->street->name)? ', '.$articles->product->street->name:''}}{{isset($articles->product->ward->name)? ', '.$articles->product->ward->name:''}}{{isset($articles->product->district->name)? ', '.$articles->product->district->name:''}}{{isset($articles->product->province->name)? ', '.$articles->product->province->name:''}}
 									</small></div>
@@ -125,7 +125,7 @@
 										<div class="product-price">
 											<div class="new-price">
 												<span>Giá bán</span>
-												<h1>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h1>
+												<h5>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h5>
 											</div>
 											<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
 										</div>
@@ -162,9 +162,10 @@
 										@foreach($articles->section as $key => $section)
 										<div id="{{$section->slug}}" class="scrolloverview">
 											<div class="product-detail product-utilities">
-												<h5 class="line-b">{{$section->heading}}</h5>
+												<h2 class="line-b">{{$section->heading}}</h2>
 												{!!$section->content!!}
 											</div>
+											@if($section->note == 'style 1')
 											@if(isset($section->images) && count($section->images) > 0)
 											<div class="fullscreen-slider">
 												<div class="position-relative agent-slider">
@@ -172,7 +173,54 @@
 														<div class="swiper-wrapper">
 															@foreach($section->images as $img)
 															<div class="swiper-slide">
-																<span><img src="frontend/images/space-3.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
+																<span><img src="frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
+															</div>
+															@endforeach
+														</div>
+														<div class="swiper-button-next"></div>
+														<div class="swiper-button-prev"></div>
+														<div class="swiper-pagination d-md-none"></div>
+													</div>
+												</div>
+											</div>
+											@endif
+											@elseif($section->note == 'style 2')
+											<!------------------- ADS SLIDER ------------------->
+											<div class="main-ads-slider">
+												<div class="swiper">
+													<div class="swiper-wrapper">
+														@foreach($section->images as $img)
+														<div class="swiper-slide">
+															<picture>
+																<source media="(min-width: 992px)" srcset="frontend/images/space-5.gif" class="mw-100 thumb" style="background-image: url('data/product/{{$img->img}}')">
+																<img src="frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url(data/product/{{$img->img}});">
+															</picture>
+														</div>
+														@endforeach
+													</div>
+												</div>
+											</div>
+											<div class="container mg-b-40">
+												<div class="thumb-ads-slider">
+													<div class="swiper">
+														<div class="swiper-wrapper">
+															@foreach($section->images as $img)
+															<div class="swiper-slide">
+																<img src="frontend/images/space-4.gif" style="background-image: url('data/product/{{$img->img}}')" alt="" class="w-100 thumb">
+															</div>
+															@endforeach
+														</div>
+													</div>
+												</div>
+											</div>
+											@elseif($section->note == 'style 3')
+											<div class="fullscreen-slider fullscreen-slider-50">
+												<div class="position-relative agent-slider">
+													<div class="swiper" id="template-apartment-area">
+														<div class="swiper-wrapper">
+															@foreach($section->images as $img)
+															<div class="swiper-slide">
+																<span><img src="frontend/images/space-4.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
 															</div>
 															@endforeach
 														</div>
@@ -185,6 +233,8 @@
 											@endif
 										</div>
 										@endforeach
+
+										
 
 										<div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
@@ -251,11 +301,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2 d-none d-md-block">
+						<div class="col-md-2 d-none d-md-block pd-0">
 							<div class="product-price affix">
 								<div class="new-price">
 									<span>Giá bán</span>
-									<h1>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h1>
+									<h5>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h5>
 								</div>
 								<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
 
@@ -273,31 +323,31 @@
 			<div class="col-lg-3 d-none d-lg-block">
 
 				<div class="card card-s card-s3 widget widget-broker">
-					<a href="#"><span class="vip"><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('previews/brokers/1.jpg');" alt="..."></span></a>
+					<a href="#"><span class=""><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('frontend/previews/brokers/1.jpg');" alt="..."></span></a>
 					<div class="card-body">
 						<div class="card-body-wrap">
 							<div class="px-lg-2">
-								<small class="text-sub">Thành viên vip</small>
-								<h5 class="card-title"><a href="#" class="text-truncate">Nguyễn Minh Chiến</a></h5>
+								<small class="text-sub">Chuyên viên tư vấn</small>
+								<h5 class="card-title"><a href="#" class="text-truncate">Nguyễn Văn Tuấn</a></h5>
 							</div>
-							<div class="mb-3 widget-broker-btn">
+							<!-- <div class="mb-3 widget-broker-btn">
 								<a href="#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
 								<a href="#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
-							</div>
+							</div> -->
 							<div class="card-info px-lg-2">
-								<span><i class="icon-call me-2"></i>0989 595 989</span>
+								<span><i class="icon-call me-2"></i>0977 572 947</span>
 								<span><i class="icon-location me-2"></i>Thanh Xuân, Hà Nội</span>
 								<span><i class="icon-experience me-2"></i>8 năm kinh nghiệm</span>
 							</div>
 						</div>
-						<div class="card-ct px-lg-2">
+						<!-- <div class="card-ct px-lg-2">
 							<button type="button" class="btn btn-outline"><span>Tư vấn ngay <i class="icon-chat ms-1"></i></span></button>
-						</div>
+						</div> -->
 					</div>
 				</div>
 
 				<div class="widget widget-appointment">
-					<h4 class="line-b">Đăng ký xem nhà</h4>
+					<h4 class="line-b">Đăng ký nhận thông tin</h4>
 					<form>
 						<div class="mb-3">
 							<input type="text" class="form-control" id="" placeholder="Họ tên của bạn">
@@ -417,20 +467,9 @@
 <script src="frontend/js/swiper-bundle.min.js"></script>
 <script src="frontend/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="frontend/js/chart.nhaongay.js"></script>
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="frontend/js/smoothscroll.js"></script>
-<script>
-	const myChart2 = new Chart(
-	  document.getElementById('fluctuatingPrice'),
-	  fluctuatingPrice,
-	);
 
-	const myChart3 = new Chart(
-	  document.getElementById('loanChart'),
-	  loanChart,
-	);	
-</script>
 <script>
 		var swiper = new Swiper(".related-sec .mySwiper", {
 			slidesPerView: 1,
@@ -502,6 +541,71 @@
 		});
 </script>
 
+<script type="text/javascript">
+	var swiper = new Swiper(".agent-slider .swiper", {
+			slidesPerView: 'auto',
+        	centeredSlides: true,
+			grabCursor: true,
+			spaceBetween: 10,
+			loop:true,
+			pagination: {
+				el: ".agent-slider .swiper-pagination",
+				clickable: true,
+			},
+			autoplay: {
+			  delay: 2500,
+			  disableOnInteraction: false,
+			},
+			initialSlide : 1,
+			// Responsive breakpoints
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 'auto',
+					spaceBetween: 10
+				},
+				// when window width is >= 480px
+				768: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+				},
+				// when window width is >= 640px
+				1024: {
+					slidesPerView: 'auto',
+					spaceBetween: 10,
+					navigation: {
+						nextEl: ".agent-slider .swiper-button-next",
+						prevEl: ".agent-slider .swiper-button-prev",
+					},
+				}
+			},
+		});
+</script>
+
+
+<script>
+	var swiper5 = new Swiper(".thumb-ads-slider .swiper", {
+		spaceBetween:1,
+		lazy: true,
+		slidesPerView:"auto",
+		freeMode: true,
+		watchSlidesProgress: true,
+		// autoplay: {
+		//   delay: 2500,
+		// },
+	});
+	var swiper6 = new Swiper(".main-ads-slider .swiper", {
+		spaceBetween:0,
+		lazy: true,
+		autoplay: {
+		  delay: 2500,
+		  disableOnInteraction: false,
+		},
+		thumbs: {
+			swiper: swiper5,
+		},
+	});
+</script>
 
 
 @endsection

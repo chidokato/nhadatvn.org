@@ -88,6 +88,17 @@ label {
     display: block;
 }
 
+.detail-img .col-md-6 span, .detail-img .col-md-4 span, .detail-img .col-md-1 span{
+        position: absolute;
+    bottom: 0;
+    width: 81%;
+    left: 12px;
+    background: #00000087;
+    color: #fff;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+}
+
 .tab {
   overflow: hidden;
 }
@@ -359,4 +370,7 @@ label {color: #46515F;}
   line-height: 1.4;
   font-size: 16px;
   transition: color 0.25s ease;
+}
+.table tr:hover td{
+    background-color: #f8f9fc;
 }

@@ -143,7 +143,7 @@
 						<div class="review-project-item review-project-item-lg">
 							<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item row g-lg-5">
 								<div class="col-lg-6 mb-3">
-									<div class="outline-effect"><span><img src="frontend/images/space-5.gif" style="background-image: url('data/news/{{$val->img}}');" alt="" class="w-100 thumb"></span></div>
+									<div class="outline-effect"><span><img src="frontend/images/space-4.gif" style="background-image: url('data/news/{{$val->img}}');" alt="" class="w-100 thumb"></span></div>
 								</div>
 								<div class="col-lg-6 mb-3 news-item-body">
 									<h4>{{$val->name}}</h4>
@@ -160,7 +160,7 @@
 								@if($key>0)
 								<div class="swiper-slide review-project-item review-project-item-sm">
 									<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
-										<span><img src="frontend/images/space-1.gif" style="background-image: url('data/news/{{$val->img}}')" alt="" class="w-100 thumb"></span>
+										<span><img src="frontend/images/space-4.gif" style="background-image: url('data/news/{{$val->img}}')" alt="" class="w-100 thumb"></span>
 										<div class="news-item-body">
 											<p class="text-truncate-set text-truncate-set-3">{{$val->name}}</p>
 											<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
