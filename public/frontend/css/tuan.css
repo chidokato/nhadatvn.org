@@ -263,6 +263,18 @@ header .navbar-brand img {
 .main-article p{
 	text-align: justify;
 }
+.fullscreen-slider .swiper-button-next {
+    right: calc(7% - (86px/2));
+    width: 40px;
+    height: 40px;
+    top: 47%;background: #0e5d528c;
+}
+.fullscreen-slider .swiper-button-prev {
+	left: calc(7% - (86px/2));
+    width: 40px;
+    height: 40px;
+    top: 47%;background: #0e5d528c;
+}
 
 
 
