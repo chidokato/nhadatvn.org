@@ -42,9 +42,6 @@ window.onscroll = function () {
 }
 
 
-
-
-
 var mainMenu = document.getElementById('navbarToggler');
     mainMenu.onclick = function() {toggleActive()}
     function toggleActive() {
