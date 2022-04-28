@@ -54,7 +54,16 @@ label {
         color: #0016b3;
         font-size: 12px;
     }
-.alert{position: absolute; top: 12px;}
+.alert{
+    position: fixed;
+    z-index: 99;
+    top: 70px;
+    right: 25px;
+    margin-bottom: 0px !important;
+    background-color: #36b9cc;
+    padding: 10px 20px;
+    color: #fff;
+}
 .input-custom{
 	border: none; border-radius: 0px;
 	border-bottom: 1px solid #ddd; padding-left: 0px
