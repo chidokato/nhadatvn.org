@@ -260,7 +260,9 @@ header .navbar-brand img {
 .ft-contact-item-ico, .cover-ct-item-img {
     box-shadow: 0px 0px 2px 2px;
 }
-
+.main-article p{
+	text-align: justify;
+}
 
 
 
