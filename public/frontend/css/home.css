@@ -125,7 +125,7 @@
 .thumb-ads-slider .swiper-slide.swiper-slide-thumb-active::after {content:''; bottom:0; position: absolute; left: 0; right:0; height: 4px; background-color: var(--sub-color);}
 
 
-.sec-product-hot {background: var(--main-color) url(../images/cover-contact.jpg) no-repeat center center;background-size: cover;padding-top: 100px;}
+.sec-product-hot {background: #091f45 url(../images/cover-contact.jpg) no-repeat center center;background-size: cover;padding-top: 100px;}
 .product-hot-slider {margin-bottom: -120px;margin-left: -16px;margin-right: -16px;}
 .sec-product-hot .swiper {padding-top: 6px; padding-bottom: 6px;}
 .product-hot-slider .swiper-button-next, .product-hot-slider .swiper-button-prev {color:#fff}
@@ -145,7 +145,7 @@
 .sec-product-hot .card-s > a .card-price .old-price {padding: 16px 12px;background-color: rgb(10 85 151 / 88%);color: #fff;}
 
 .navhome {background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); position: fixed; width: 100%;}
-.scrollDown header, .navhome.show {background: var(--main-color);}
+.scrollDown header, .navhome.show {background: #0f1a33;}
 .sec-hero {/* position: relative; */}
 .sec-hero .hero-slider {height: 84vh; overflow-y: hidden;}
 .sec-hero .swiper-slide {height: 84vh;}

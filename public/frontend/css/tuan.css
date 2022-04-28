@@ -1,3 +1,15 @@
+:root {
+    --main-color: #0e5d52;
+    --sub-color: #e7be41;
+    --light-color: #fff;
+    --body-fontface: 'UTM Avo', sans-serif;
+    --title-fontface: 'UTM Avo';
+    --subtitle-fontface: 'UTM Avo';
+}
+header {
+    background: var(--main-color);
+}
+
 .sec-hero, .sec-hero .swiper-slide, .sec-hero .hero-slider, .hero-content {
     height: 65vh;
 }

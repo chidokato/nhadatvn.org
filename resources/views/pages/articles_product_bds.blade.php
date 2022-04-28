@@ -155,6 +155,7 @@
 										@foreach($articles->section as $key => $section)
 										<li class="nav-item">
 											<a class="nav-link {{ $key==0? 'active':'' }}" href="#{{$section->slug}}">{{$section->tab_heading}}</a>
+											<!-- <a class="nav-link {{ $key==0? 'active':'' }}" href="{{$articles->category->slug}}/{{$articles->slug}}#{{$section->slug}}">{{$section->tab_heading}}</a> -->
 										</li>
 										@endforeach
 									</ul>
