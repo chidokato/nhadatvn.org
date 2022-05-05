@@ -15,6 +15,7 @@ use App\articles;
 use App\category;
 use App\images;
 
+use App\investor;
 use App\province;
 use App\district;
 use App\ward;
@@ -64,6 +65,7 @@ class c_product extends Controller
     public function getadd()
     {
         $category = category::where('sort_by',1)->orderBy('id','desc')->get();
+        $investor = investor::orderBy('id','desc')->get();
         $mausac = mausac::orderBy('id','desc')->get();
         $form = form::orderBy('id','desc')->get();
         $size = size::orderBy('id','desc')->get();
@@ -71,6 +73,7 @@ class c_product extends Controller
         $province = province::where('status','true')->orderBy('id','desc')->get();
         return view('admin.product.addedit',[
             'category'=>$category,
+            'investor'=>$investor,
             'mausac'=>$mausac,
             'form'=>$form,
             'size'=>$size,
@@ -96,6 +99,7 @@ class c_product extends Controller
         $product->search_price = $product->price*$Request->unit;
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
+        $product->investor_id = $Request->investor_id;
         if(isset($Request->province_id)){$product->province_id = $Request->province_id;}
         if(isset($Request->district_id)){$product->district_id = $Request->district_id;}
         if($Request->ward_id)$product->ward_id = $Request->ward_id;
@@ -177,6 +181,7 @@ class c_product extends Controller
         $form = form::orderBy('id','desc')->get();
         $size = size::orderBy('id','desc')->get();
         $double = 'double';
+        $investor = investor::orderBy('id','desc')->get();
         return view('admin.product.addedit',[
             'data'=>$data,
             'category'=>$category,
@@ -185,6 +190,7 @@ class c_product extends Controller
             'form'=>$form,
             'size'=>$size,
             'double'=>$double,
+            'investor'=>$investor,
         ]);
     }
     public function getedit($id)
@@ -196,6 +202,7 @@ class c_product extends Controller
         $form = form::orderBy('id','desc')->get();
         $size = size::orderBy('id','desc')->get();
 
+        $investor = investor::orderBy('id','desc')->get();
         $province = province::where('status','true')->orderBy('id','desc')->get();
         $district = district::where('province_id',$data->product->province_id)->where('status','true')->orderBy('id','desc')->get();
         $ward = ward::where('district_id',$data->product->district_id)->orderBy('id','desc')->get();
@@ -207,6 +214,8 @@ class c_product extends Controller
             'mausac'=>$mausac,
             'form'=>$form,
             'size'=>$size,
+
+            'investor'=>$investor,
             'province'=>$province,
             'district'=>$district,
             'ward'=>$ward,
@@ -258,6 +267,7 @@ class c_product extends Controller
         $product->price = str_replace( array(',') , '', $Request->price );
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
         $product->unit_price = $Request->unit;
+        $product->investor_id = $Request->investor_id;
         if($product->price!=''){$product->search_price = $product->price*$Request->unit;}
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;

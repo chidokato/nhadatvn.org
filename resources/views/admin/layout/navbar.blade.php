@@ -72,6 +72,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="admin/investor/list">investor</a>
                 <a class="collapse-item" href="admin/province/list">Province</a>
                 <a class="collapse-item" href="admin/district/list">District</a>
                 <a class="collapse-item" href="admin/ward/list">Ward</a>

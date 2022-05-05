@@ -324,19 +324,19 @@
 			<div class="col-lg-3 d-none d-lg-block">
 
 				<div class="card card-s card-s3 widget widget-broker">
-					<a href="#"><span class=""><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('frontend/previews/brokers/1.jpg');" alt="..."></span></a>
+					<a href="#"><span class=""><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('data/user/{{$articles->user->avatar}}');" alt="..."></span></a>
 					<div class="card-body">
 						<div class="card-body-wrap">
 							<div class="px-lg-2">
 								<small class="text-sub">Chuyên viên tư vấn</small>
-								<h5 class="card-title"><a href="#" class="text-truncate">Nguyễn Văn Tuấn</a></h5>
+								<h5 class="card-title"><a href="#" class="text-truncate">{{$articles->user->your_name}}</a></h5>
 							</div>
 							<!-- <div class="mb-3 widget-broker-btn">
 								<a href="#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
 								<a href="#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
 							</div> -->
 							<div class="card-info px-lg-2">
-								<span><i class="icon-call me-2"></i>0977 572 947</span>
+								<span><i class="icon-call me-2"></i>{{$articles->user->phone}}</span>
 								<span><i class="icon-location me-2"></i>Thanh Xuân, Hà Nội</span>
 								<span><i class="icon-experience me-2"></i>8 năm kinh nghiệm</span>
 							</div>

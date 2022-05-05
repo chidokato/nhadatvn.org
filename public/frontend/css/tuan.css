@@ -11,7 +11,7 @@ header {
 }
 
 .sec-hero, .sec-hero .swiper-slide, .sec-hero .hero-slider, .hero-content {
-    height: 65vh;
+    height: 85vh;
 }
 .swiper-3d .swiper-cube-shadow, .swiper-3d .swiper-slide, .swiper-3d .swiper-slide-shadow, .swiper-3d .swiper-slide-shadow-bottom, .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right, .swiper-3d .swiper-slide-shadow-top, .swiper-3d .swiper-wrapper{
 	transform-style: inherit;
@@ -275,7 +275,23 @@ header .navbar-brand img {
     height: 40px;
     top: 47%;background: #0e5d528c;
 }
+.card-overlay .card-overlay-body-wrap h2 {
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+.card-overlay-sm .card-overlay-body h2 {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: -2px;
+}
+.card-s .card-title {
+    text-transform: inherit;
+}
 
+.card-s .card-title::first-letter{
+    text-transform: uppercase;
+}
 
 
 

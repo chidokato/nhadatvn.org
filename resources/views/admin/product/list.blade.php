@@ -94,7 +94,13 @@
                                     <a class="line-1" href="admin/product/edit/{{$val->id}}" class="mr-2">{{$val->name}}</a>
                                 </td>
                                 <td>
-                                    <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles' ><span class="checkmark"></span></label>
+                                    <div class="checkboxes__item">
+                                        <label class="checkbox style-e text-none">
+                                            <input type="checkbox" <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles'/>
+                                            <div class="checkbox__checkmark"></div>
+                                            <div class="checkbox__body"></div>
+                                        </label>
+                                    </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
                                 <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>
@@ -157,10 +163,16 @@
                                     <a href="admin/product/edit/{{$val->id}}" class="mr-2 line-1">{{$val->name}}</a>
                                 </td>
                                 <td>
-                                    <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles' ><span class="checkmark"></span></label>
+                                    <div class="checkboxes__item">
+                                        <label class="checkbox style-e text-none">
+                                            <input type="checkbox" <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles'/>
+                                            <div class="checkbox__checkmark"></div>
+                                            <div class="checkbox__body"></div>
+                                        </label>
+                                    </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
-                                <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>
+                                <td>{{ isset($val->product->price) ? $val->product->price.'đ' : '' }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
                                     <!-- {{date('d/m/Y',strtotime($val->updated_at))}} <br>  -->
@@ -221,7 +233,13 @@
                                     <a class="line-1" href="admin/product/edit/{{$val->id}}" class="mr-2">{{$val->name}}</a>
                                 </td>
                                 <td>
-                                    <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles' ><span class="checkmark"></span></label>
+                                    <div class="checkboxes__item">
+                                        <label class="checkbox style-e text-none">
+                                            <input type="checkbox" <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles'/>
+                                            <div class="checkbox__checkmark"></div>
+                                            <div class="checkbox__body"></div>
+                                        </label>
+                                    </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
                                 <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>

@@ -162,6 +162,17 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('list','c_street@getlist')->middleware('can:superadmin');
 		Route::post('loc','c_street@loc');
 	});
+	Route::group(['prefix'=>'investor'],function(){
+		Route::get('list','c_investor@getlist')->middleware('can:superadmin');
+		Route::get('add','c_investor@getadd');
+		Route::post('add','c_investor@postadd');
+		Route::get('edit/{id}','c_investor@getedit');
+		Route::get('double/{id}','c_investor@double');
+		Route::post('edit/{id}','c_investor@postedit');
+		Route::get('delete/{id}','c_investor@getdelete');
+		Route::post('delete_all','c_investor@delete_all');
+		Route::post('search','c_investor@search');
+	});
 	// end bất động sản
 	
 	Route::group(['prefix'=>'ajax'],function(){

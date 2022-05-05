@@ -47,7 +47,7 @@
 											<span>{{date('d/m',strtotime($val->created_at))}}</span>
 											<span><i class="icon-time me-1"></i>{{date('Y',strtotime($val->created_at))}}</span>
 										</div>
-										<p class="text-truncate-set text-truncate-set-2">{{$val->name}}</p>
+										<h2 class="card-title text-truncate-set text-truncate-set-2">{{$val->name}}</h2>
 									</div>
 								</div>
 							</a>
@@ -66,7 +66,7 @@
 												<span>{{date('d/m',strtotime($val->created_at))}}</span>
 												<span><i class="icon-time me-1"></i>{{date('Y',strtotime($val->created_at))}}</span>
 											</div>
-											<p class="text-truncate-set text-truncate-set-2">{{$val->name}}</p>
+											<h2 class="card-title text-truncate-set text-truncate-set-2">{{$val->name}}</h2>
 										</div>
 									</div>
 								</a>
@@ -80,7 +80,7 @@
 												<span>{{date('d/m',strtotime($val->created_at))}}</span>
 												<span><i class="icon-time me-1"></i>{{date('Y',strtotime($val->created_at))}}</span>
 											</div>
-											<p class="text-truncate-set text-truncate-set-2">{{$val->name}}</p>
+											<h2 class="card-title text-truncate-set text-truncate-set-2">{{$val->name}}</h2>
 										</div>
 									</div>
 								</a>
@@ -100,7 +100,7 @@
 							</a>
 							<div class="card-body">
 								<div class="card-body-wrap">
-									<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h5>
+									<h2 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h2>
 									<div class="card-info">
 										<span><i class="icon-time me-2"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
 										<span><i class="icon-user me-2"></i>{{$val->user->name}}</span>

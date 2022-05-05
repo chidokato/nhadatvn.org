@@ -255,6 +255,16 @@
                     <input value="{{ isset($data->product->number) ? $data->product->number : '' }}" type="text" name="number" class="form-control" placeholder="...">
                 </div> -->
 
+                <div class="form-group">
+                    <label>Chủ đầu tư</label>
+                    <select name="investor_id" class="form-control select2" >
+                        <option value="">...</option>
+                        @foreach($investor as $val)
+                        <option {{ isset($data) && $data->product->investor_id == $val->id ? 'selected':'' }} value="{{$val->id}}">{{$val->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="form-group" style="position: relative;">
                     <label>Giá bán</label>
                     <div class="row-price">
@@ -293,6 +303,8 @@
                     .view_gia .gia_niem_yet{text-decoration: line-through;}
                     .view_gia div{margin-left: 10px}
                 </style>
+
+                
             </div>
         </div>
 
