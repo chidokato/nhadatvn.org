@@ -1,3 +1,4 @@
+<?php use App\menu; ?>
 <!------------------- NAVIGATOR ------------------->
 <header class="">
 	<nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
@@ -19,22 +20,25 @@
 					<a class="nav-link" href="{{asset('')}}">Trang chủ</a>
 				</li>
 				@foreach($menu as $val)
-				<li class="nav-item {{ isset($active) && $active==$val->slug ? 'active':'' }} ">
-					<a class="nav-link" href="{{$val->slug}}">{{$val->name}}</a>
-				</li>
-				@endforeach
-				<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="news.htm" data-bs-toggle="dropdown" onclick="myFunctLink(this)">Tin tức</a>
+				<?php $sub_menus = menu::where('classify','Main menu')->where('status','true')->where('parent', $val->id)->orderBy('view','asc')->get(); ?>
+				@if(count($sub_menus) > 0)
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{{$val->slug}}" data-bs-toggle="dropdown" onclick="myFunctLink(this)">{{$val->name}}</a>
 					<a class="expand dropdown-toggle d-lg-none" href="#" data-bs-toggle="dropdown"></a>
 					<div class="dropdown-menu">
 						<ul>
-							<li><a href="#" class="submenu-link"><i class="icon-next me-2"></i>Tin phong thủy</a></li>
-							<li><a href="#" class="submenu-link"><i class="icon-next me-2"></i>Thẩm định giá</a></li>
-							<li><a href="#" class="submenu-link"><i class="icon-next me-2"></i>Dịch vụ công chứng</a></li>
-							<li><a href="#" class="submenu-link"><i class="icon-next me-2"></i>Quy hoạch đô thị</a></li>
+							@foreach($sub_menus as $sub_menu)
+							<li><a href="{{$sub_menu->slug}}" class="submenu-link"><i class="icon-next me-2"></i>{{$sub_menu->name}}</a></li>
+							@endforeach
 						</ul>
 					</div>
-				</li> -->
+				</li>
+				@else
+				<li class="nav-item {{ isset($active) && $active==$val->slug ? 'active':'' }} ">
+					<a class="nav-link" href="{{$val->slug}}">{{$val->name}}</a>
+				</li>
+				@endif
+				@endforeach
 			</ul>
 		  </div>
 		</div>
