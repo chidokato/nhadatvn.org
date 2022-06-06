@@ -35,7 +35,7 @@
                         <input value="{{ isset($key) ? $key : '' }}" name="key" type="text" class="form-control mr-3" placeholder="Tên sp...">
                     </div>
                     <div class="form-group mr-3">
-                        <select style="" class="form-control mr-3" name="category_id">
+                        <select style="" class="form-control mr-3 select2" name="category_id">
                             <option value=""> Tất cả danh mục</option>
                             @foreach($category as $val)
                             <option <?php if(isset($category_id) && $category_id==$val->id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
@@ -103,7 +103,7 @@
                                     </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
-                                <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>
+                                <td>{{ isset($val->product->search_price) ? number_format($val->product->search_price).' đ' : '' }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
                                     <!-- {{date('d/m/Y',strtotime($val->updated_at))}} <br>  -->
@@ -172,7 +172,7 @@
                                     </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
-                                <td>{{ isset($val->product->price) ? $val->product->price.'đ' : '' }}</td>
+                                <td>{{ isset($val->product->search_price) ? number_format($val->product->search_price).' đ' : '' }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
                                     <!-- {{date('d/m/Y',strtotime($val->updated_at))}} <br>  -->
@@ -242,7 +242,7 @@
                                     </div>
                                 </td>
                                 <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
-                                <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>
+                                <td>{{ isset($val->product->search_price) ? number_format($val->product->search_price).' đ' : '' }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
                                     <!-- {{date('d/m/Y',strtotime($val->updated_at))}} <br>  -->

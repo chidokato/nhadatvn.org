@@ -116,8 +116,10 @@
 
     <!-- select2 multiple JavaScript -->
     <script src="admin_asset/select2/js/select2.min.js"></script>
+    <script src="admin_asset/select2/js/select2-searchInputPlaceholder.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() { $('.select2').select2({ placeholder: '...' }); });
+        // $(document).ready(function() { $('.select2').select2({ placeholder: '...'}); });
+        $(document).ready(function() { $('.select2').select2({ searchInputPlaceholder: 'Nhập từ khóa' }); });
     </script>
 
     <!-- zoom ảnh -->

@@ -33,7 +33,7 @@ class c_district extends Controller
             $district->where('province_id',$Request->province_id);
         }
         $district = $district->paginate($Request->paginate);
-        $province = province::orderBy('id','desc')->get();
+        $province = province::orderBy('id','asc')->get();
         $count = count($district);
         return view('admin.district.list',[
             'district'=>$district,

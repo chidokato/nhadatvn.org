@@ -23,7 +23,7 @@
                         <input value="{{ isset($key) ? $key : '' }}" name="key" type="text" class="form-control mr-3" placeholder="Tên sp...">
                     </div>
                     <div class="form-group mr-3">
-                        <select style="" class="form-control mr-3" name="category_id">
+                        <select class="form-control mr-3 select2" name="category_id">
                             <option value=""> Tất cả danh mục</option>
                             @foreach($category as $val)
                             <option <?php if(isset($category_id) && $category_id==$val->id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>

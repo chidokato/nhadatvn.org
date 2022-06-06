@@ -8,6 +8,7 @@
 
 @section('css')
 <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+
 <link href="frontend/css/swiper-bundle.min.css" rel="stylesheet">
 <link href="frontend/css/fonts.css" rel="stylesheet">
 <link href="frontend/css/common.css" rel="stylesheet">
@@ -18,6 +19,7 @@
 <link href="frontend/css/form.css" rel="stylesheet">
 <link href="frontend/css/simpleLightbox.css" rel="stylesheet">
 <link href="frontend/css/home.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('content')
 
@@ -35,6 +37,69 @@
 				<div class="swiper-navigator-btn">
 					<div class="swiper-button-prev"><i class="icon-prev-thin"></i></div>
 					<div class="swiper-button-next"><i class="icon-next-thin"></i></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero-content">
+		<div class="container">
+			<div class="hero-text">
+				<h2>TÌM KIẾM NGAY</h2>
+				<!-- <p><b>NHÀ ĐẤT VN</b> - CÓ <b>NGAY NHÀ Ở</b></p> -->
+			</div>
+			<div class="hero-search">
+				<div class="row g-0 justify-content-center">
+					<div class="col-lg-8">
+						<div class="tab-content">
+							<div class="tab-pane fade show active" id="sale-search">
+								<div class="hero-search-wrap">
+									<div class="row g-0">
+										<div class="col-3">
+											<select class="form-select select2">
+												<option value="">Tất cả</option>
+												<option value="1">Chung cư</option>
+												<option value="2">Đất nền</option>
+												<option value="3">Biệt thự</option>
+											</select>
+										</div>
+										<div class="col-9">
+											<div class="input-group">
+												<span>
+													<i class="icon-location"></i>
+													<input type="text" class="form-control" placeholder="Tìm kiếm địa điểm, khu vực..">
+												</span>
+												<button type="button" class="btn btn-submit"><i class="icon-search me-1"></i>TÌM KIẾM</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="rent-search">
+								<div class="hero-search-wrap">
+									<div class="row g-0">
+										<div class="col-3">
+											<select class="form-select" id="">
+												<option selected>Loại nhà đất</option>
+												<option value="1">One</option>
+												<option value="2">Two</option>
+												<option value="3">Three</option>
+											</select>
+										</div>
+										<div class="col-9">
+											<div class="input-group">
+												<span>
+													<i class="icon-location"></i>
+													<input type="text" class="form-control" placeholder="Tìm kiếm địa điểm, khu vực..">
+												</span>
+												<button type="button" class="btn btn-submit"><i class="icon-search me-1"></i>TÌM KIẾM</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <button type="button" class="btn btn-expand" id="expand-search-btn" data-bs-toggle="offcanvas" data-bs-target="#expand-search"><span></span> <i></i></button> -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -284,7 +349,10 @@
 @endsection
 
 @section('script')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="frontend/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/js/select2.min.js"></script>
+<script src="frontend/js/select2-searchInputPlaceholder.js"></script>
 <script src="frontend/js/custom.js"></script>
 <script src="frontend/js/swiper-bundle.min.js"></script>
 <script src="frontend/js/simpleLightbox.min.js"></script>
@@ -481,5 +549,14 @@
 				prevEl: ".hero-slider .swiper-button-prev",
 			},
 		});
+</script>
+<script>
+	$('.select2').select2({
+		searchInputPlaceholder: "Tìm danh mục",
+	});
+	// $('.select2-inner-dropdown').select2({ 
+	// 	searchInputPlaceholder: "Nhập từ khóa",
+	// 	dropdownParent: $('.form-more .dropdown-menu') 
+	// });
 </script>
 @endsection

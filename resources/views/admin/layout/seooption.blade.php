@@ -36,8 +36,8 @@
     <div class="card-body seo">
         <div class="row">
             <div class="col-md-6">
-                <div class="seo-title"></div>
                 <div class="seo-link">{{asset('')}} <span class='fa fa-caret-down'></span></div>
+                <div class="seo-title"></div>
                 <div class="seo-description"></div>
             </div>
         </div>
