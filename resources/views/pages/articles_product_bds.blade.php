@@ -4,21 +4,21 @@
 @section('description'){{$articles->description}}@endsection
 @section('keywords'){{$articles->keywords}}@endsection
 @section('robots'){{ $articles->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
-@section('url'){{asset('').$articles->category->slug.'/'.$articles->slug.'.html'}}@endsection
+@section('url'){{asset('').$articles->category->slug.'/'.$articles->slug}}@endsection
 
 @section('css')
-<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
-<link href="frontend/css/swiper-bundle.min.css" rel="stylesheet">
-<link href="frontend/css/fonts.css" rel="stylesheet">
-<link href="frontend/css/common.css" rel="stylesheet">
-<link href="frontend/css/header.css" rel="stylesheet">
-<link href="frontend/css/footer.css" rel="stylesheet">
-<link href="frontend/css/form.css" rel="stylesheet">
-<link href="frontend/css/card.css" rel="stylesheet">
-<link href="frontend/css/rating.css" rel="stylesheet">
-<link href="frontend/css/widget.css" rel="stylesheet">
-<link href="frontend/css/article.css" rel="stylesheet">
-<link href="frontend/css/simpleLightbox.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/swiper-bundle.min.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/fonts.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/common.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/header.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/footer.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/form.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/card.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/rating.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/widget.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/article.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/simpleLightbox.css" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -27,8 +27,8 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-			<li class="breadcrumb-item"><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
+			<li class="breadcrumb-item"><a href="{{asset('')}}#">Trang chủ</a></li>
+			<li class="breadcrumb-item"><a href="{{asset('')}}{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
 			<li class="breadcrumb-item active" aria-current="page">{{$articles->name}}</li>
 			</ol>
 		</nav>
@@ -41,8 +41,8 @@
 		<div class="news-hightlight">
 			<div class="row g-3">
 				<div class="col-lg-6">
-					<a class="card-overlay outline-effect" title="1/{{count($articles->images)}}" href="data/product/{{$articles->img}}">
-						<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$articles->img}}');"></span>
+					<a class="card-overlay outline-effect" title="1/{{count($articles->images)}}" href="{{asset('')}}data/product/{{$articles->img}}">
+						<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/product/{{$articles->img}}');"></span>
 						<div class="card-overlay-body">
 							<div>{{$articles->name}}</div>
 						</div>
@@ -52,8 +52,8 @@
 					<div class="card-overlay-flex">
 						@foreach($articles->images as $key => $img)
 						@if($key<2)
-						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
+						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="{{asset('')}}data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/product/{{$img->img}}');"></span>
 						</a>
 						@endif
 						@endforeach
@@ -63,8 +63,8 @@
 					<div class="card-overlay-flex">
 						@foreach($articles->images as $key => $img)
 						@if($key<4 && $key>1)
-						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
+						<a class="card-overlay card-overlay-sm outline-effect" title="{{$key+2}}/{{count($articles->images)}}" href="{{asset('')}}data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/product/{{$img->img}}');"></span>
 						</a>
 						<i class="btn-plus"></i>
 						@endif
@@ -72,7 +72,7 @@
 					</div>
 					<div class="more-item">
 						@foreach($articles->images as $key => $img)
-						<a class="card-overlay" title="{{$key+2}}/{{count($articles->images)}}" href="data/product/{{$img->img}}"></a>
+						<a class="card-overlay" title="{{$key+2}}/{{count($articles->images)}}" href="{{asset('')}}data/product/{{$img->img}}"></a>
 						@endforeach
 					</div>
 				</div>
@@ -88,14 +88,14 @@
 			<div class="swiper gallery-mobile">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a class="card-overlay outline-effect" title="1/4" href="data/product/{{$articles->img}}">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$articles->img}}');"></span>
+						<a class="card-overlay outline-effect" title="1/4" href="{{asset('')}}data/product/{{$articles->img}}">
+							<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/product/{{$articles->img}}');"></span>
 						</a>
 					</div>
 					@foreach($articles->images as $key => $img)
 					<div class="swiper-slide">
-						<a class="card-overlay outline-effect" title="1/4" href="data/product/{{$img->img}}">
-							<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/product/{{$img->img}}');"></span>
+						<a class="card-overlay outline-effect" title="1/4" href="{{asset('')}}data/product/{{$img->img}}">
+							<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/product/{{$img->img}}');"></span>
 						</a>
 					</div>
 					@endforeach
@@ -132,30 +132,29 @@
 										<div class="product-contact">
 											<h2 class="d-none d-lg-block line-b"></h2>
 											<a class="btn btn-tel"><i class="icon-phone-filled"></i></a>
-											<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail-filled"></i></a>
+											<a class="btn btn-mail" href="{{asset('')}}#info-customer" data-bs-toggle="modal"><i class="icon-mail-filled"></i></a>
 										</div>
 									</div>
 									<div id="fix-ft-anchor"></div>
 								</div>
-								<div class="product-dt-header-icons">
+								<!-- <div class="product-dt-header-icons">
 									<div class="product-dt-header-icons-wrap product-dt-header-icons-left">
 										<span><i class="icon-acreage"></i>50m2</span>
 										<span><i class="icon-bed"></i>2PN</span>
 										<span><i class="icon-bathroom"></i>2WC</span>
 									</div>
 									<div class="product-dt-header-icons-wrap product-dt-header-icons-right">
-										<a href="#"><i class="icon-deagree"></i>VR360</a>
-										<a href="#"><i class="icon-brochure"></i>Brochure</a>
+										<a href="{{asset('')}}#"><i class="icon-deagree"></i>VR360</a>
+										<a href="{{asset('')}}#"><i class="icon-brochure"></i>Brochure</a>
 									</div>
-								</div>
+								</div> -->
 							</div>
 							<div class="main-article">
 								<div class="product-overview" id="overview">
 									<ul class="nav scrollspy-product" id="scrollspy-product">
 										@foreach($articles->section as $key => $section)
 										<li class="nav-item">
-											<!-- <a class="nav-link {{ $key==0? 'active':'' }}" href="#{{$section->slug}}">{{$section->tab_heading}}</a> -->
-											<a class="nav-link {{ $key==0? 'active':'' }}" href="{{$articles->category->slug}}/{{$articles->slug}}#{{$section->slug}}">{{$section->tab_heading}}</a>
+											<a class="nav-link {{ $key==0? 'active':'' }}" href="#{{$section->slug}}">{{$section->tab_heading}}</a>
 										</li>
 										@endforeach
 									</ul>
@@ -174,7 +173,7 @@
 														<div class="swiper-wrapper">
 															@foreach($section->images as $img)
 															<div class="swiper-slide">
-																<span><img src="frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
+																<span><img src="{{asset('')}}frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url('{{asset('')}}data/product/{{$img->img}}');" alt="..."></span>
 															</div>
 															@endforeach
 														</div>
@@ -193,8 +192,8 @@
 														@foreach($section->images as $img)
 														<div class="swiper-slide">
 															<picture>
-																<source media="(min-width: 992px)" srcset="frontend/images/space-5.gif" class="mw-100 thumb" style="background-image: url('data/product/{{$img->img}}')">
-																<img src="frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url(data/product/{{$img->img}});">
+																<source media="(min-width: 992px)" srcset="frontend/images/space-5.gif" class="mw-100 thumb" style="background-image: url('{{asset('')}}data/product/{{$img->img}}')">
+																<img src="{{asset('')}}frontend/images/space-5.gif" class="w-100 thumb" style="background-image: url(data/product/{{$img->img}});">
 															</picture>
 														</div>
 														@endforeach
@@ -207,7 +206,7 @@
 														<div class="swiper-wrapper">
 															@foreach($section->images as $img)
 															<div class="swiper-slide">
-																<img src="frontend/images/space-4.gif" style="background-image: url('data/product/{{$img->img}}')" alt="" class="w-100 thumb">
+																<img src="{{asset('')}}frontend/images/space-4.gif" style="background-image: url('{{asset('')}}data/product/{{$img->img}}')" alt="" class="w-100 thumb">
 															</div>
 															@endforeach
 														</div>
@@ -221,7 +220,7 @@
 														<div class="swiper-wrapper">
 															@foreach($section->images as $img)
 															<div class="swiper-slide">
-																<span><img src="frontend/images/space-4.gif" class="w-100 thumb" style="background-image: url('data/product/{{$img->img}}');" alt="..."></span>
+																<span><img src="{{asset('')}}frontend/images/space-4.gif" class="w-100 thumb" style="background-image: url('{{asset('')}}data/product/{{$img->img}}');" alt="..."></span>
 															</div>
 															@endforeach
 														</div>
@@ -312,7 +311,7 @@
 
 								<div class="product-contact">
 									<a class="btn btn-tel"><i class="icon-phone"></i>0972029093</a>
-									<a class="btn btn-mail" href="#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i>Liên hệ ngay</a>
+									<a class="btn btn-mail" href="{{asset('')}}#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i>Liên hệ ngay</a>
 								</div>
 							</div>
 							
@@ -324,16 +323,16 @@
 			<div class="col-lg-3 d-none d-lg-block">
 
 				<div class="card card-s card-s3 widget widget-broker">
-					<a href="#"><span class=""><img src="frontend/images/space-2.gif" class="card-img-top" style="background-image: url('data/user/{{$articles->user->avatar}}');" alt="..."></span></a>
+					<a href="{{asset('')}}#"><span class=""><img src="{{asset('')}}frontend/images/space-2.gif" class="card-img-top" style="background-image: url('{{asset('')}}data/user/{{$articles->user->avatar}}');" alt="..."></span></a>
 					<div class="card-body">
 						<div class="card-body-wrap">
 							<div class="px-lg-2">
 								<small class="text-sub">Chuyên viên tư vấn</small>
-								<h5 class="card-title"><a href="#" class="text-truncate">{{$articles->user->your_name}}</a></h5>
+								<h5 class="card-title"><a href="{{asset('')}}#" class="text-truncate">{{$articles->user->your_name}}</a></h5>
 							</div>
 							<!-- <div class="mb-3 widget-broker-btn">
-								<a href="#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
-								<a href="#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
+								<a href="{{asset('')}}#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
+								<a href="{{asset('')}}#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
 							</div> -->
 							<div class="card-info px-lg-2">
 								<span><i class="icon-call me-2"></i>{{$articles->user->phone}}</span>
@@ -361,16 +360,16 @@
 						</div>
 						<div class="mb-3 datepicker">
 							<input type="date" class="form-control" id="" placeholder="Ngày xem">
-							<i><img src="frontend/images/ico-datepicker.svg" alt=""></i>
+							<i><img src="{{asset('')}}frontend/images/ico-datepicker.svg" alt=""></i>
 						</div>
-						<div class="text-center"><div class="cta-btn ir"><a class="" href="register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
+						<div class="text-center"><div class="cta-btn ir"><a class="" href="{{asset('')}}register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
 					</form>
 				</div>
 				
 				<div class="widget widget-list widget-news mb-3">
 					<h4><span>Tin tức nổi bật</span></h4>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('');" alt="" class="w-100"></span>
+					<a href="{{asset('')}}#" class="news-item">
+						<span><img src="{{asset('')}}frontend/images/space-3.gif" style="background-image: url('{{asset('')}}');" alt="" class="w-100"></span>
 						<div class="news-item-body">
 							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
 							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
@@ -390,9 +389,9 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 	  <div class="modal-content">
 		<div class="modal-body">
-			<button type="button" class="close" data-bs-dismiss="modal"><img src="frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
+			<button type="button" class="close" data-bs-dismiss="modal"><img src="{{asset('')}}frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
 			<div class="info-customer-wrap">
-				<img src="frontend/images/info-customer-figure.png" class="" alt="">
+				<img src="{{asset('')}}frontend/images/info-customer-figure.png" class="" alt="">
 				<div class="info-customer-content">
 					<div class="primary-form">
 						<div class="account-form-content px-md-4 pt-3 pt-md-0">
@@ -421,7 +420,7 @@
 								</div>
 								<div class="load-more text-center mt-4 pt-2">
 									<div class="cta-btn ir">
-										<a class="" data-bs-dismiss="modal" href="#info-system" data-bs-toggle="modal"><span class="cta-text font-weight-semibold">Gửi đi</span><span class="cta-ico"><i class="icon-next"></i></span></a>
+										<a class="" data-bs-dismiss="modal" href="{{asset('')}}#info-system" data-bs-toggle="modal"><span class="cta-text font-weight-semibold">Gửi đi</span><span class="cta-ico"><i class="icon-next"></i></span></a>
 									</div>
 								</div>
 							</form>
@@ -440,9 +439,9 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 	  <div class="modal-content">
 		<div class="modal-body">
-			<button type="button" class="close" data-bs-dismiss="modal"><img src="frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
+			<button type="button" class="close" data-bs-dismiss="modal"><img src="{{asset('')}}frontend/images/fs-p-close.png" class="mw-100" alt=""></button>
 			<div class="info-customer-wrap">
-				<img src="frontend/images/info-customer-figure.png" class="" alt="">
+				<img src="{{asset('')}}frontend/images/info-customer-figure.png" class="" alt="">
 				<div class="info-customer-content">
 					<div class="primary-form">
 						<div class="account-form-content px-md-4 pt-3 pt-md-0">
@@ -465,12 +464,12 @@
 @endsection
 @section('script')
 
-<script src="frontend/js/bootstrap.bundle.min.js"></script>
-<script src="frontend/js/swiper-bundle.min.js"></script>
-<script src="frontend/js/custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="frontend/js/simpleLightbox.min.js"></script>
-<script src="frontend/js/smoothscroll.js"></script>
+<script src="{{asset('')}}frontend/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('')}}frontend/js/swiper-bundle.min.js"></script>
+<script src="{{asset('')}}frontend/js/custom.js"></script>
+<script src="{{asset('')}}https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{asset('')}}frontend/js/simpleLightbox.min.js"></script>
+<script src="{{asset('')}}frontend/js/smoothscroll.js"></script>
 
 <script>
 		var swiper = new Swiper(".related-sec .mySwiper", {

@@ -2,7 +2,7 @@
 <html lang="vi-VN">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-<base href="{{asset('')}}">
+<!-- <base href="{{asset('')}}"> -->
 <!-- seo -->
 <title>@yield('title')</title>
 <meta name="description" content="@yield('description')"/>
@@ -37,7 +37,7 @@
 
 @yield('css')
 <!-- ================= js ================== --> 
-<link href="frontend/css/tuan.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/tuan.css" rel="stylesheet">
 
 {!! $head_setting->codeheader !!}
 
