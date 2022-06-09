@@ -163,7 +163,9 @@
 										<div id="{{$section->slug}}" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h2 class="line-b">{{$section->heading}}</h2>
-												{!!$section->content!!}
+												<div class="box-km">
+													{!!$section->content!!}
+												</div>
 											</div>
 											@if($section->note == 'style 1')
 											@if(isset($section->images) && count($section->images) > 0)

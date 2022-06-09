@@ -395,6 +395,12 @@
     .input_section:focus{
         box-shadow: none;
     }*/
+    .chinhsach{
+        display: flex;justify-content: space-between;
+    }
+    .chinhsach .checkbox.style-e .checkbox__checkmark{
+        top: -14px;
+    }
 </style>
 
 <script>

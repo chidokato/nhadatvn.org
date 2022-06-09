@@ -4,18 +4,18 @@
 @section('description'){{$articles->description}}@endsection
 @section('keywords'){{$articles->keywords}}@endsection
 @section('robots'){{ $articles->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
-@section('url'){{asset('').$articles->category->slug.'/'.$articles->slug.'.html'}}@endsection
+@section('url'){{asset('').$articles->category->slug.'/'.$articles->slug}}@endsection
 
 @section('css')
-<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
-<link href="frontend/css/swiper-bundle.min.css" rel="stylesheet">
-<link href="frontend/css/fonts.css" rel="stylesheet">
-<link href="frontend/css/common.css" rel="stylesheet">
-<link href="frontend/css/header.css" rel="stylesheet">
-<link href="frontend/css/footer.css" rel="stylesheet">
-<link href="frontend/css/widget.css" rel="stylesheet">
-<link href="frontend/css/card.css" rel="stylesheet">
-<link href="frontend/css/article.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/swiper-bundle.min.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/fonts.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/common.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/header.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/footer.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/widget.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/card.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/article.css" rel="stylesheet">
 @endsection
 @section('content')
 
@@ -24,8 +24,8 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{{asset('')}}">Trang chủ</a></li>
-			<li class="breadcrumb-item"><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
+			<li class="breadcrumb-item"><a href="{{asset('')}}{{asset('')}}">Trang chủ</a></li>
+			<li class="breadcrumb-item"><a href="{{asset('')}}{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
 			<li class="breadcrumb-item active" aria-current="page">{{$articles->name}}</li>
 			</ol>
 		</nav>
@@ -53,8 +53,8 @@
 							<div class="share-social affix">
 								<span><small>Share</small></span>
 								<ul>
-									<li><a href="#"><i class="icon-facebook"></i></a></li>
-									<li><a href="#"><i class="icon-zalo"></i></a></li>
+									<li><a href="{{asset('')}}#"><i class="icon-facebook"></i></a></li>
+									<li><a href="{{asset('')}}#"><i class="icon-zalo"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -72,7 +72,7 @@
 				<div class="tags">
 					<span>tags</span>
 					<ul>
-						<li><a href="#">Bất động sản</a></li>
+						<li><a href="{{asset('')}}#">Bất động sản</a></li>
 					</ul>
 				</div>
 			</div>
@@ -81,14 +81,14 @@
 				<div class="widget widget-list mb-3">
 					<h4><span>Tin tức</span></h4>
 					<ul>
-						<li><a href="#"><i class="icon-next me-2"></i>Thị trường bất động sản</a></li>
+						<li><a href="{{asset('')}}#"><i class="icon-next me-2"></i>Thị trường bất động sản</a></li>
 					</ul>
 				</div>
 
 				<div class="widget widget-list widget-news mb-3">
 					<h4><span>Tin tức nổi bật</span></h4>
-					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
+					<a href="{{asset('')}}#" class="news-item">
+						<span><img src="{{asset('')}}frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
 						<div class="news-item-body">
 							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
 							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
@@ -122,13 +122,13 @@
 						
 						<div class="swiper-slide">
 							<div class="card card-s card-s4">
-								<a href="#">
-									<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="..."></span>
+								<a href="{{asset('')}}#">
+									<span><img src="{{asset('')}}frontend/images/space-3.gif" class="card-img-top" style="background-image: url('https://eaglereal.net/wp-content/uploads/2020/04/phoi-canh-du-an-green-square-1024x768.jpg');" alt="..."></span>
 									<span class="view-more">Chi tiết</span>
 								</a>
 								<div class="card-body">
 									<div class="card-body-wrap">
-										<h5 class="card-title"><a href="#" class="text-truncate-set text-truncate-set-2">Nhà tiền chế cấp 4 nhiều phòng ngủ</a></h5>
+										<h5 class="card-title"><a href="{{asset('')}}#" class="text-truncate-set text-truncate-set-2">Nhà tiền chế cấp 4 nhiều phòng ngủ</a></h5>
 										<div class="card-info">
 											<span><i class="icon-time me-2"></i>15/02/2022</span>
 										</div>
@@ -153,9 +153,9 @@
 
 @endsection
 @section('script')
-<script src="frontend/js/bootstrap.bundle.min.js"></script>
-<script src="frontend/js/swiper-bundle.min.js"></script>
-<script src="frontend/js/custom.js"></script>
+<script src="{{asset('')}}frontend/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('')}}frontend/js/swiper-bundle.min.js"></script>
+<script src="{{asset('')}}frontend/js/custom.js"></script>
 <!-- Initialize Swiper -->
 <script>
 	var swiper = new Swiper(".mySwiper", {

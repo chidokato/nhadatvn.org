@@ -54,5 +54,11 @@
 @yield('script')
 
 {!! $head_setting->codebody !!}
+
+<div class="zalo-chat-widget" data-oaid="407043876158733101" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="" data-height=""></div>
+
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+
 </body>
 </html>
