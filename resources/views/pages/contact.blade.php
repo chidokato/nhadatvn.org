@@ -1,126 +1,150 @@
 @extends('layout.index')
 
-@section('title')
-<?php if ( $category['title'] == '' ) echo $category['name']; else echo $category['title']; ?>
+@section('title'){{ isset($category->title) ? $category->title : $category->name }}@endsection
+@section('description'){{$category->description}}@endsection
+@section('keywords'){{$category->keywords}}@endsection
+@section('robots'){{ $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
+@section('url'){{asset('').$category['slug']}}@endsection
+@section('css')
+<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="frontend/css/fonts.css" rel="stylesheet">
+<link href="frontend/css/common.css" rel="stylesheet">
+<link href="frontend/css/header.css" rel="stylesheet">
+<link href="frontend/css/footer.css" rel="stylesheet">
+<link href="frontend/css/contact.css" rel="stylesheet">
 @endsection
-@section('description')
-<?php echo $category['desc']; ?>
-@endsection
-@section('keywords')
-<?php echo $category['key']; ?>
-@endsection
-@section('robots')
-<?php if ( $category['robot'] == 0 ) echo "index, follow";  elseif ( $category['robot'] == 1 ) echo "noindex, nofollow"; ?>
-@endsection
-@section('url')
-<?php echo asset('').$category['slug']; ?>
-@endsection
-
 @section('content')
-<div class="breadcrumb_container " data-depth="2">
-<div class="container">
-<nav data-depth="2" class="breadcrumb">
-<ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
-<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-<a itemprop="item" href="http://demo2.posthemes.com/pos_rozer/en/">
-<span itemprop="name">Home</span>
-</a>
-<meta itemprop="position" content="1">
-</li>
-<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-<a itemprop="item" href="http://demo2.posthemes.com/pos_rozer/en/contact-us">
-<span itemprop="name">Contact us</span>
-</a>
-<meta itemprop="position" content="2">
-</li>
-</ol>
-</nav>
-</div>
-</div>
 
-
-<div id="wrapper">
-<div class="container">
-<div class="row">
-<div id="left-column" class="col-xs-12 col-sm-4 col-md-3">
-<div class="contact-rich">
-<h4>Store information</h4>
-<div class="block">
-<div class="icon"><i class="material-icons"></i></div>
-<div class="data">Rozer Responsive Prestashop Theme<br>United States</div>
-</div>
-<hr>
-<div class="block">
-<div class="icon"><i class="material-icons"></i></div>
-<div class="data">
-Call us:<br>
-<a href="tel:(+123)8889999">(+123)8889999</a>
-</div>
-</div>
-<hr>
-<div class="block">
-<div class="icon"><i class="material-icons"></i></div>
-<div class="data email">
-Email us:<br>
-</div>
-<a href="mailto:demo@posthemes.com">demo@posthemes.com</a>
-</div>
-</div>
-</div>
-<div id="content-wrapper" class="left-column col-xs-12 col-sm-8 col-md-9">
-<section id="main">
-<section id="content" class="page-content card card-block">
-<section class="contact-form">
-<form action="http://demo2.posthemes.com/pos_rozer/en/contact-us" method="post" enctype="multipart/form-data">
-<section class="form-fields">
-<div class="form-group row">
-<div class="col-md-9 col-md-offset-3">
-<h3>Contact us</h3>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 form-control-label">Subject</label>
-<div class="col-md-6">
-<select name="id_contact" class="form-control form-control-select">
-<option value="2">Customer service</option>
-<option value="1">Webmaster</option>
-</select>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 form-control-label">Email address</label>
-<div class="col-md-6">
-<input class="form-control" name="from" type="email" value="" placeholder="your@email.com">
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-md-3 form-control-label">Message</label>
-<div class="col-md-9">
-<textarea class="form-control" name="message" placeholder="How can we help?" rows="3"></textarea>
-</div>
-</div>
-<div class="form-group row">
-<div class="offset-md-3">
-</div>
-</div>
+<!------------------- BREADCRUMB ------------------->
+<section class="sec-breadcrumb">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Liên hệ</li>
+			</ol>
+		</nav>
+	</div>
 </section>
-<footer class="form-footer text-sm-right">
+<!------------------- END: BREADCRUMB ------------------->
 
-<input type="text" name="url" value="">
-<input type="hidden" name="token" value="08807d8b83be76d7159043fe0bd354d2">
-<input class="btn btn-primary" type="submit" name="submitMessage" value="Send">
-</footer>
-</form>
-</section>
-</section>
-<footer class="page-footer">
+<!------------------- COVER ------------------->
+<section class="sec-cover">
+	<picture>
+		<source media="(min-width: 768px)" srcset="frontend/images/cover-contact.jpg" class="mw-100">
+		<img src="frontend/images/space-9.gif" class="w-100 thumb" style="background-image: url(frontend/images/cover-contact.jpg);">
+	</picture>
+	<div class="container">
+		<div class="cover-content cover-footer-wrap">
+			<div class="cover-title">
+				<h3><span class="cover-title-filled">Liên hệ</span><span class="position-relative">Nhà đất VN</span></h3>
+			</div>
+			<!-- <p>Trụ sở <b>NHÀ Ở NGAY</b></p> -->
 
-</footer>
+			<div class="cover-ct">
+				<div class="container">
+					<div class="row row-cols-1 row-cols-md-3 g-4">
+						<div class="col">
+							<div class="cover-ct-item">
+								<div class="cover-ct-item-text">
+									<h6>Hotline tư vấn</h6>
+									<span class="phone">0919.51.18.81</span>
+								</div>
+								<span class="cover-ct-item-img"><i class="icon-phone-filled"></i></span>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cover-ct-item">
+								<div class="cover-ct-item-text">
+									<h6>email</h6>
+									<span>cskh@nhaongay.vn</span>
+								</div>
+								<span class="cover-ct-item-img"><i class="icon-mail-filled"></i></span>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cover-ct-item">
+								<div class="cover-ct-item-text">
+									<h6>Địa chỉ văn phòng</h6>
+									<span>61 Ngụy Như Kon Tum, Quận Thanh Xuân, Hà Nội</span>
+								</div>
+								<span class="cover-ct-item-img"><i class="icon-building-filled"></i></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-</div>
-</div>
-</div>
-</div>
+<!------------------- END COVER ------------------->
 
+<!------------------- CARD ------------------->
+<section class="contact-sec">
+	<div class="google-map"><img src="frontend/previews/map.jpg" alt="" class="w-100"></div>
+	<div class="contact-title-wrap">
+		<div class="container">
+			<div class="text-center">
+				<div class="primary-title">
+					<h3><span class="cover-title-filled">Liên hệ</span><span class="position-relative">Với chúng tôi</span></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="contact-form">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<form class="row g-3">
+						<div class="col-12">
+							<div class="form-floating">
+								<input type="text" class="form-control" id="yourName" placeholder="Họ tên">
+								<label for="yourName">Họ tên</label>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-floating">
+								<input type="text" class="form-control" id="yourAddress" placeholder="Địa chỉ">
+								<label for="yourAddress">Địa chỉ</label>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-floating">
+								<input type="number" class="form-control" id="yourPhone" placeholder="Số điện thoại">
+								<label for="yourPhone">Số điện thoại</label>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-floating">
+								<input type="email" class="form-control" id="yourEmail" placeholder="email">
+								<label for="yourEmail">Email</label>
+							</div>
+						</div>
+					
+						<div class="col-12">
+							<div class="form-floating">
+								<textarea class="form-control" id="yourContent" placeholder="Nội dung" rows="4"></textarea>
+								<label for="yourContent">Nội dung</label>
+							</div>
+						</div>
+					
+						<div class="load-more text-center mt-4 pt-2">
+							<div class="cta-btn ir">
+								<a class="" href="#"><span class="cta-text font-weight-semibold">Gửi thông tin</span><span class="cta-ico"><i class="icon-next"></i></span></a>
+							</div>
+						</div>
+					</form>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!------------------- END CARD ------------------->
+
+@endsection
+
+@section('script')
+<!------------------- JS core------------------->
+<script src="frontend/js/bootstrap.bundle.min.js"></script>
+<script src="frontend/js/custom.js"></script>
 @endsection
