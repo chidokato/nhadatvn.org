@@ -1,10 +1,10 @@
 @extends('layout.index')
 
-@section('title'){{ isset($category->title) ? $category->title : $category->name }}@endsection
-@section('description'){{$category->description}}@endsection
-@section('keywords'){{$category->keywords}}@endsection
-@section('robots'){{ $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
-@section('url'){{asset('').$category['slug']}}@endsection
+@section('title'){{ isset($category->title) ? $category->title : '' }}@endsection
+@section('description'){{ isset($category->description)? $category->description:'' }}@endsection
+@section('keywords'){{ isset($category->keywords)? $category->keywords:'' }}@endsection
+@section('robots'){{ isset($category->robot) && $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
+@section('url'){{asset('')}}{{ isset($category['slug'])?$category['slug']:'' }}@endsection
 @section('css')
 <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
 <link href="frontend/css/fonts.css" rel="stylesheet">
@@ -15,6 +15,14 @@
 <link href="frontend/css/widget.css" rel="stylesheet">
 <link href="frontend/css/sort.css" rel="stylesheet">
 <link href="frontend/css/card.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<style type="text/css">
+	.select2-container {
+	    margin-top: 20px !important;
+	    margin-left: 5px !important;
+	}
+	.flex-search{ display: flex; flex-wrap: nowrap; }
+</style>
 @endsection
 @section('content')
 
@@ -22,37 +30,30 @@
 <section class="sec-fiter-search floating-label">
 	<div class="container">
 		<div data-bs-toggle="button" class="d-md-none"><button type="button" class="btn btn-circle btn-toggle"><span class="icon-search"></span></button></div>
-		<form>
+		<form action="search" type="{{ url('/search') }}" method="GET">
 			<div class="row g-3 justify-content-lg-end">
 				<div class="col-lg-3">
 					<div class="input-group search-input">
 						<span class="input-group-text"><i class="icon-search"></i></span>
-						<input type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
+						<input name="name" value="{{ isset($key_name)? $key_name : '' }}" type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
 					</div>
 				</div>
-				<div class="col-lg">
-					<div class="row g-3">
+				<div class="col-lg-9">
+					<div class="row g-3 flex-search">
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select" id="floatingSelectType">
-								  <option selected>Mua bán</option>
-								  <option value="1">...</option>
+								<select name="category_slug" class="form-select select2">
+									<!-- <option value="">Tất cả</option> -->
+								  	@foreach($cat_pro as $val)
+									<option <?php if(isset($key_cat_slug) && $key_cat_slug == $val->slug){ echo 'selected'; } ?> value="{{$val->slug}}">{{$val->name}}</option>
+									@endforeach
 								</select>
 								<label for="floatingSelectType">Hình thức</label>
 							  </div>
 						</div>
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select select2-floating" id="floatingSelectType">
-								  <option selected>Tất cả</option>
-								  <option value="1">...</option>
-								</select>
-								<label for="floatingSelectType">Loại hình</label>
-							  </div>
-						</div>
-						<div class="col-lg">
-							<div class="form-floating">
-								<select class="form-select select2-floating" id="floatingSelectCity">
+								<select class="form-select select2" id="floatingSelectCity">
 								  <option selected>Tất cả</option>
 								  <option value="1">...</option>
 								  <option value="2">...</option>
@@ -63,7 +64,7 @@
 						</div>
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select" id="floatingSelectDistrict">
+								<select class="form-select select2" id="floatingSelectDistrict">
 								  <option selected>Tất cả</option>
 								  <option value="1">...</option>
 								</select>
@@ -72,16 +73,16 @@
 						</div>
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select" id="floatingSelectWard">
+								<select class="form-select select2" id="floatingSelectWard">
 								  <option selected>Tất cả</option>
 								  <option value="1">...</option>
 								</select>
 								<label for="floatingSelectGrid">Mức giá</label>
 							  </div>
 						</div>
+						<div class="col-lg-1"><button type="submit" class="btn btn-circle"><i class="icon-search"></i> Tìm Kiếm</button></div>
 					</div>
 				</div>
-				<div class="col-lg-1"><button type="submit" class="btn btn-circle"><i class="icon-search"></i></button></div>
 			</div>
 		</form>
 	</div>
@@ -165,7 +166,7 @@
 <!------------------- CARD ------------------->
 <section class="card-grid sales-sec">
 	<div class="container">
-		<h3 class="text-uppercase title-subpage">{{$category->name}}</h3>
+		<h3 class="text-uppercase title-subpage">{{ isset($category->name)? $category->name:'' }}</h3>
 		<div class="row">
 			<div class="col-lg-9">
 				<div class="sort-box">
@@ -186,28 +187,30 @@
 					</div>
 				</div>
 				<div class="row row-cols-2 row-cols-md-3 g-4 grid-view" id="show-setting">
-					@foreach($product as $val)
-					<div class="col">
-						<div class="card card-s card-s4">
-							<!-- <span class="hot"><img src="frontend/images/new-label.png"></span> -->
-							<a href="{{$val->category->slug}}/{{$val->slug}}">
-								<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/300/{{$val->img}}');" alt="..."></span>
-							</a>
-							<div class="card-body">
-								<div class="card-body-wrap">
-									<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
-									<div class="card-info">
-										<span><i class="icon-location me-2"></i>Nam Từ Liêm, Hà Nội</span>
+					@if(count($product)>0)
+						@foreach($product as $val)
+						<div class="col">
+							<div class="card card-s card-s4">
+								<!-- <span class="hot"><img src="frontend/images/new-label.png"></span> -->
+								<a href="{{$val->category->slug}}/{{$val->slug}}">
+									<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/300/{{$val->img}}');" alt="..."></span>
+								</a>
+								<div class="card-body">
+									<div class="card-body-wrap">
+										<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
+										<div class="card-info">
+											<span><i class="icon-location me-2"></i>{{ isset($val->product->district->name)? $val->product->district->name.', ' : '' }}{{$val->product->province->name}}</span>
+										</div>
+										<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
 									</div>
-									<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
-								</div>
-								<div class="card-footer">
-									<div class="card-price">Giá: <span class="current-price">{{$val->product->price}} tỷ</span><span class="old-price">5,6 tỷ</span></div>
+									<div class="card-footer">
+										<div class="card-price">Giá: <span class="current-price">{{$val->product->price}} tỷ</span><span class="old-price">5,6 tỷ</span></div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					@endforeach
+						@endforeach
+					@endif
 				</div>
 				<div class="load-more text-center mt-4 pt-2">
 					<div class="cta-btn ir">
@@ -244,6 +247,9 @@
 <!------------------- JS core------------------->
 <script src="frontend/js/bootstrap.bundle.min.js"></script>
 <script src="frontend/js/custom.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="frontend/js/select2.min.js"></script>
+<script src="frontend/js/select2-searchInputPlaceholder.js"></script>
 
 <!------------------- SLIDER ON MOBILE ------------------->
 
@@ -269,5 +275,14 @@
 				return new bootstrap.Dropdown(dropdownToggleEl)
 			})
 		}
+</script>
+<script>
+	$('.select2').select2({
+		searchInputPlaceholder: "Tìm danh mục",
+	});
+	// $('.select2-inner-dropdown').select2({ 
+	// 	searchInputPlaceholder: "Nhập từ khóa",
+	// 	dropdownParent: $('.form-more .dropdown-menu') 
+	// });
 </script>
 @endsection

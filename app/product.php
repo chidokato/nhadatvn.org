@@ -23,4 +23,8 @@ class product extends Model
     {
         return $this->belongsTo('App\ward','ward_id','id');
     }
+    public function articles()
+    {
+        return $this->hasMany('App\articles','articles_id','id');
+    }
 }

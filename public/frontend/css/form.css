@@ -63,7 +63,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .floating-label .col-lg-2 {width: 14%;}
 
     .floating-label .row > div {position:relative;}
-    .floating-label .row > div:nth-of-type(n+2)::after {position:absolute; content:''; top:12px; bottom:12px; right:0; width:1px; background:#edebeb}
+    /*.floating-label .row > div:nth-of-type(n+2)::after {position:absolute; content:''; top:12px; bottom:12px; right:0; width:1px; background:#edebeb}*/
     .floating-label .row > div:nth-last-of-type(-n+2)::after {display:none}
 
     .floating-label .form-floating .form-select {border: none;}

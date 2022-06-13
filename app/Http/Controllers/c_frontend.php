@@ -23,7 +23,7 @@ class c_frontend extends Controller
         $head_logo = themes::where('note','logo')->first();
         $head_logo_trang = themes::where('note','logo ân bản')->first();
         $head_setting = setting::where('id',1)->first();
-        $cat_pro = menu::where('classify','Product menu')->where('status','true')->where('parent', 0)->orderBy('view','asc')->get();
+        $cat_pro = category::where('status','true')->where('sort_by', '1')->get();
         $menu = menu::where('classify','Main menu')->where('status','true')->where('parent', 0)->orderBy('view','asc')->get();
         
         view()->share( [
@@ -128,21 +128,41 @@ class c_frontend extends Controller
         }
     }
 
-    public function post_search(Request $Request)
-    {
+    // tìm kiếm
+    // public function search(Request $Request)
+    // {
+    //     // $articles = articles::orderBy('id','desc')->where('id','!=' , 0);
+    //     // if($Request->name){
+    //     //     $articles->where('name','like',"%$Request->name%");
+    //     // }
+    //     // if($Request->category_slug){
+    //     //     $articles->where('category_id', $Request->name->category_id);
+    //     // }
+    //     // // if($Request->ngay1 && $Request->ngay2){
+    //     // //     $product->whereBetween('ngayketthuc', array($Request->ngay1, $Request->ngay2));
+    //     // // }
+    //     // $articles = $articles->paginate(30);
+
+    //     return redirect('chung-cu');
+    // }
+
+    public function search(){
+        $category = '';
         $articles = articles::orderBy('id','desc')->where('id','!=' , 0);
-        if($Request->mebe){
-            $articles->where('category_sku','like',"%$Request->mebe%");
+        if($_GET['name']){
+            $articles->where('name','like','%'.$_GET['name'].'%');
         }
-        // if($Request->mebe){
-        //     $articles->where('name','like',"%$Request->name%");
-        // }
-        // if($Request->ngay1 && $Request->ngay2){
-        //     $product->whereBetween('ngayketthuc', array($Request->ngay1, $Request->ngay2));
-        // }
+        if($_GET['category_slug']){
+            $category = category::where('slug',$_GET['category_slug'])->first();
+            $articles->where('category_id',$category->id);
+        }
         $articles = $articles->paginate(30);
-        return view('pages.home',[
-            'articles'=>$articles,
+        return view('pages.product',[
+            'category' => $category,
+            'product' => $articles,
+
+            'key_name' => $_GET['name'],
+            'key_cat_slug' => $_GET['category_slug'],
         ]);
     }
 
@@ -152,6 +172,7 @@ class c_frontend extends Controller
         $news = news::where('status','true')->where('name','like',"%$key%")->orderBy('id','desc')->paginate(24);
         return view('pages.search',['news'=>$news, 'key'=>$key]);
     }
+    // end tìm kiếm
 
 	public function dangky(Request $Request)
     {

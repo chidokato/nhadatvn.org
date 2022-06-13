@@ -115,7 +115,17 @@ header .navbar .logo{
     height: 48px;
     line-height: 13px;
 }
-.floating-label .btn-circle, .sec-search .btn-circle.btn-toggle {background: #f2f2f2 !important; color: #6e6e6e; flex-direction: row-reverse; justify-content: space-between;padding: 10px;}
+.floating-label .btn-circle i {
+    margin-right: 3px;
+}
+.floating-label .btn-circle, .sec-search .btn-circle.btn-toggle {
+    background: #0e5d52 !important;
+    color: #fff;
+    padding: 0;
+    font-size: 1rem;
+    width: 105px;
+    border-radius: 5px;
+}
 .grid-view .card-contact span, .grid-view .card-info p {
     display: block;
 }
@@ -398,6 +408,9 @@ border-radius: 3px;
     position:absolute;
     top: 0;
     right: 10px;
+}
+.floating-label {
+    padding: 12px 0px;
 }
 
 

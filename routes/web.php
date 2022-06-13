@@ -226,6 +226,7 @@ Route::get('signup','c_frontend@get_signup');
 Route::get('resetpassword','c_frontend@getresetpassword');
 Route::get('profile','c_frontend@profile');
 Route::get('messages','c_frontend@messages');
+Route::get('/search','c_frontend@search');
 
 Route::get('update_status_messages/{id}','c_ajax@update_status_messages');
 Route::get('del_messages/{id}','c_ajax@del_messages');
@@ -239,4 +240,4 @@ Route::get('my-account','c_frontend@myaccount');
 Route::get('{curl}','c_frontend@category');
 Route::get('{curl}/{arurl}','c_frontend@articles');
 Route::POST('dang-ky','c_frontend@dangky');
-Route::POST('search','c_frontend@post_search');
+Route::get('/search','c_frontend@search');
