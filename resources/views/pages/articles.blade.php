@@ -22,9 +22,15 @@
 #contents{padding: 0px; }
 #toc ul{padding: 0; margin: 0; }
 #toc ul li{ list-style:none; padding:0px; margin-bottom: 8px; }
-#toc>ul>ul>li{ margin-left: 0px; margin-bottom: 8px; text-align: left; }
-#toc>ul>ul>li>ul{margin-left: 0px}
-#toc>ul>ul>li>ul>li{margin-bottom: 0px;}
+#toc>ul>ul>li{ margin-left: 0px; margin-bottom: 0px; text-align: left; }
+#toc>ul>ul>li>ul{}
+#toc>ul>ul>li>ul>li{margin-bottom: 0px; position: relative;padding-left: 8px;}
+#toc>ul>ul>li>ul>li::before{
+    content: '-';
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
 #toc ul li a{ text-decoration:none; }
 #toc ul li a:hover{ color: red }
 #toc ul li .active{color: red}

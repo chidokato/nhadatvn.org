@@ -422,9 +422,9 @@ border-radius: 3px;
 }
 #contents ul{ margin-bottom: 1rem; display: flex;
     flex-direction: column;}
-#contents ul li{ padding-left: 15px; position: relative; margin-bottom: 7px; }
+#contents ul li{ padding-left: 13px; position: relative; margin-bottom: 7px; }
 #contents ul li::before {
-    content: '+';
+    content: '-';
     position: absolute;
     left: 0;
     top: -2px;
