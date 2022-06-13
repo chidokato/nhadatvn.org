@@ -24,7 +24,7 @@
 #toc ul li{ list-style:none; padding:0px; margin-bottom: 8px; }
 #toc>ul>ul>li{ margin-left: 0px; margin-bottom: 8px; text-align: left; }
 #toc>ul>ul>li>ul{margin-left: 0px}
-#toc>ul>ul>li>ul>li{margin-bottom: 8px;}
+#toc>ul>ul>li>ul>li{margin-bottom: 0px;}
 #toc ul li a{ text-decoration:none; }
 #toc ul li a:hover{ color: red }
 #toc ul li .active{color: red}
@@ -303,7 +303,7 @@ function TableOfContents(container, output) {
 
 $(window).scroll(function() {
     var scrollDistance = $(window).scrollTop() + 20;
-    $('h2').each(function(i) {
+    $('h2,h3').each(function(i) {
         if ($(this).position().top <= scrollDistance) {
             $('#toc ul ul li a.active').removeClass('active');
             $('#toc a').eq(i).addClass('active');

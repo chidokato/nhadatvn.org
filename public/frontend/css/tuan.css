@@ -404,11 +404,30 @@ border-radius: 3px;
 .floating-label {
     padding: 12px 0px;
 }
+#contents h3{
+    font-size: 1.1rem;    padding-top: 70px;
+    margin-top: -78px;
+    margin-bottom: 0;
+    padding-bottom: 8px;
+    -webkit-text-stroke-width: 0.5px;
+    letter-spacing: .8px;
+}
 #contents h2{
     padding-top: 70px;
     margin-top: -78px;
     margin-bottom: 10px;
     padding-bottom: 8px;
+    -webkit-text-stroke-width: 0.7px;
+    letter-spacing: .8px;
+}
+#contents ul{ margin-bottom: 1rem; display: flex;
+    flex-direction: column;}
+#contents ul li{ padding-left: 15px; position: relative; margin-bottom: 7px; }
+#contents ul li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    top: -2px;
 }
 
 
