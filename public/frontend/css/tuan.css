@@ -160,15 +160,7 @@ header .navbar .logo{
 .cover-title-home {
     padding-top: 50px;
 }
-.cover-title-home h2:after{
-    position: absolute;
-    content: '';
-    height: 3px;
-    left: 0;
-    width: 80px;
-    background-color: var(--sub-color);
-    bottom: 18px;
-}
+
 .cover-title-home h2{
 	font-weight: bold;
 }
@@ -411,6 +403,12 @@ border-radius: 3px;
 }
 .floating-label {
     padding: 12px 0px;
+}
+#contents h2{
+    padding-top: 70px;
+    margin-top: -78px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
 }
 
 
