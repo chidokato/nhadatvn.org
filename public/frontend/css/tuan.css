@@ -384,10 +384,20 @@ border-radius: 3px;
     color: #fff;position: relative;
 }
 .box-km::before{
-    content: url('../images/search.png');
+   /* content: url('../images/csbh.png');
     position: absolute;
-    left: 12px;
-    top: 10px;z-index: 9;
+    right: 10px;
+    top: 10px;
+    z-index: 9;*/
+
+    content: "";
+    background-image:url('../images/csbh.png');
+    background-size: 100% 100%;
+    height: 40px;
+    width:40px;
+    position:absolute;
+    top: 0;
+    right: 10px;
 }
 
 
@@ -449,14 +459,17 @@ border-radius: 3px;
 }
 
 @media (max-width: 414px){
-.sec-product-hot .primary-title h3 {font-size: 48px;display: flex;}
-.sec-product-hot .primary-title .cover-title-filled {
-	font-size: 25px; bottom: 0;margin-right: 5px;
-}
-.cover-content h3:after, .primary-title h3:after{ left: 0; }
-.sec-product-hot .primary-title .position-relative{
-	font-size: 32px;bottom: 8px;
-}
+    .sec-product-hot .primary-title h3 {font-size: 48px;display: flex;}
+    .sec-product-hot .primary-title .cover-title-filled {
+    	font-size: 25px; bottom: 0;margin-right: 5px;
+    }
+    .cover-content h3:after, .primary-title h3:after{ left: 0; }
+    .sec-product-hot .primary-title .position-relative{
+    	font-size: 32px;bottom: 8px;
+    }
+    .main-content .main-article h2{ margin-bottom: 0px; }
+    #chinh-sach .box-km {padding: 69px 10px 10px 10px;margin-top: -65px;}
+
 
 
 
