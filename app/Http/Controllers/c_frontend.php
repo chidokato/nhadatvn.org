@@ -10,9 +10,11 @@ use App\home;
 use App\slider;
 use App\images;
 use App\district;
+use App\province;
 use App\mausac;
 use App\size;
 use App\messages;
+use App\seo;
 use Mail;
 use Auth;
 
@@ -25,6 +27,8 @@ class c_frontend extends Controller
         $head_setting = setting::where('id',1)->first();
         $cat_pro = category::where('status','true')->where('sort_by', '1')->get();
         $menu = menu::where('classify','Main menu')->where('status','true')->where('parent', 0)->orderBy('view','asc')->get();
+        $province = province::where('status','true')->orderBy('id','asc')->get();
+
         
         view()->share( [
             'head_logo'=>$head_logo,
@@ -32,6 +36,7 @@ class c_frontend extends Controller
             'head_setting'=>$head_setting,
             'cat_pro'=>$cat_pro,
             'menu'=>$menu,
+            'province'=>$province,
         ]);
     }
 
@@ -147,7 +152,7 @@ class c_frontend extends Controller
     // }
 
     public function search(){
-        $category = '';
+        $seo = seo::where('id', '168')->first();
         $articles = articles::orderBy('id','desc')->where('id','!=' , 0);
         if($_GET['name']){
             $articles->where('name','like','%'.$_GET['name'].'%');
@@ -158,7 +163,7 @@ class c_frontend extends Controller
         }
         $articles = $articles->paginate(30);
         return view('pages.product',[
-            'category' => $category,
+            'category' => $seo,
             'product' => $articles,
 
             'key_name' => $_GET['name'],

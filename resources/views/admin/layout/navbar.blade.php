@@ -44,6 +44,7 @@
                 <a class="collapse-item" href="admin/menu/list">Menu</a>
                 <a class="collapse-item" href="admin/themes/list">Giao diện</a>
                 <a class="collapse-item" href="admin/setting/list">Cài đặt</a>
+                <a class="collapse-item" href="admin/seo/list">Seo</a>
             </div>
         </div>
     </li>

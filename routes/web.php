@@ -96,6 +96,17 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('delete_all','c_themes@delete_all');
 		Route::post('search','c_themes@search');
 	});
+	Route::group(['prefix'=>'seo'],function(){
+		Route::get('list','c_seo@getlist')->middleware('can:superadmin');
+		Route::get('add','c_seo@getadd');
+		Route::post('add','c_seo@postadd');
+		Route::get('edit/{id}','c_seo@getedit');
+		Route::get('double/{id}','c_seo@double');
+		Route::post('edit/{id}','c_seo@postedit');
+		Route::get('delete/{id}','c_seo@getdelete');
+		Route::post('delete_all','c_seo@delete_all');
+		Route::post('search','c_seo@search');
+	});
 	Route::group(['prefix'=>'slider'],function(){
 		Route::get('list','c_slider@getlist')->middleware('can:superadmin');
 		Route::get('add','c_slider@getadd');

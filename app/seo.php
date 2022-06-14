@@ -11,4 +11,8 @@ class seo extends Model
 	{
 		return $this->hasMany('App\category','seo_id','id');
 	}
+	public function articles()
+	{
+		return $this->hasMany('App\articles','seo_id','id');
+	}
 }

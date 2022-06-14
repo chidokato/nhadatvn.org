@@ -1,9 +1,9 @@
 @extends('layout.index')
 
-@section('title'){{ isset($category->title) ? $category->title : '' }}@endsection
-@section('description'){{ isset($category->description)? $category->description:'' }}@endsection
-@section('keywords'){{ isset($category->keywords)? $category->keywords:'' }}@endsection
-@section('robots'){{ isset($category->robot) && $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
+@section('title'){{ isset($category->seo->title) ? $category->seo->title : '' }}@endsection
+@section('description'){{ isset($category->seo->description)? $category->seo->description:'' }}@endsection
+@section('keywords'){{ isset($category->seo->keywords)? $category->seo->keywords:'' }}@endsection
+@section('robots'){{ isset($category->seo->robot) && $category->seo->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
 @section('url'){{asset('')}}{{ isset($category['slug'])?$category['slug']:'' }}@endsection
 @section('css')
 <link href="frontend/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
 						<div class="col-lg">
 							<div class="form-floating">
 								<select name="category_slug" class="form-select select2">
-									<!-- <option value="">Tất cả</option> -->
+									<option value="">Tất cả</option>
 								  	@foreach($cat_pro as $val)
 									<option <?php if(isset($key_cat_slug) && $key_cat_slug == $val->slug){ echo 'selected'; } ?> value="{{$val->slug}}">{{$val->name}}</option>
 									@endforeach
@@ -54,10 +54,10 @@
 						<div class="col-lg">
 							<div class="form-floating">
 								<select class="form-select select2" id="floatingSelectCity">
-								  <option selected>Tất cả</option>
-								  <option value="1">...</option>
-								  <option value="2">...</option>
-								  <option value="3">...</option>
+								  <option value="">Tất cả</option>
+								  @foreach($province as $val)
+								  <option value="{{$val->id}}">{{$val->name}}</option>
+								  @endforeach
 								</select>
 								<label for="floatingSelectGrid">Tỉnh/Thành</label>
 							  </div>
