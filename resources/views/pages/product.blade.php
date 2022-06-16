@@ -25,7 +25,7 @@
 </style>
 @endsection
 @section('content')
-
+<?php use App\district; ?>
 <!------------------- FILTER SEARCH ------------------->
 <section class="sec-fiter-search floating-label">
 	<div class="container">
@@ -42,10 +42,10 @@
 					<div class="row g-3 flex-search">
 						<div class="col-lg">
 							<div class="form-floating">
-								<select name="category_slug" class="form-select select2">
+								<select name="key_category" class="form-select select2">
 									<option value="">Tất cả</option>
 								  	@foreach($cat_pro as $val)
-									<option <?php if(isset($key_cat_slug) && $key_cat_slug == $val->slug){ echo 'selected'; } ?> value="{{$val->slug}}">{{$val->name}}</option>
+									<option <?php if(isset($key_category) && $key_category == $val->slug){ echo 'selected'; } ?> value="{{$val->slug}}">{{$val->name}}</option>
 									@endforeach
 								</select>
 								<label for="floatingSelectType">Hình thức</label>
@@ -53,10 +53,10 @@
 						</div>
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select select2" id="floatingSelectCity">
+								<select name="key_province" class="form-select select2" id="province">
 								  <option value="">Tất cả</option>
 								  @foreach($province as $val)
-								  <option value="{{$val->id}}">{{$val->name}}</option>
+								  <option <?php if(isset($key_province) && $key_province==$val->id){ echo 'selected'; } ?> value="{{$val->id}}">{{$val->name}}</option>
 								  @endforeach
 								</select>
 								<label for="floatingSelectGrid">Tỉnh/Thành</label>
@@ -64,22 +64,26 @@
 						</div>
 						<div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select select2" id="floatingSelectDistrict">
-								  <option selected>Tất cả</option>
-								  <option value="1">...</option>
+								<select name="key_district" class="form-select select2" id="district">
+								  <option value="">Tất cả</option>
+								  @if(isset($key_province))
+								  <?php $district = district::where('province_id',$key_province)->get(); ?>
+								  @foreach($district as $val)
+								  <option <?php if(isset($key_district) && $key_district==$val->id){ echo 'selected'; } ?> value="{{$val->id}}">{{$val->name}}</option>
+								  @endforeach
+								  @endif
 								</select>
 								<label for="floatingSelectGrid">Quận/Huyện</label>
 							  </div>
 						</div>
-						<div class="col-lg">
+						<!-- <div class="col-lg">
 							<div class="form-floating">
-								<select class="form-select select2" id="floatingSelectWard">
-								  <option selected>Tất cả</option>
-								  <option value="1">...</option>
+								<select name="key_price" class="form-select select2" id="floatingSelectWard">
+								  	<option value="">Tất cả</option>
 								</select>
-								<label for="floatingSelectGrid">Mức giá</label>
+								<label for="floatingSelectGrid">Giá tiền</label>
 							  </div>
-						</div>
+						</div> -->
 						<div class="col-lg-1"><button type="submit" class="btn btn-circle"><i class="icon-search"></i> Tìm Kiếm</button></div>
 					</div>
 				</div>
@@ -199,12 +203,12 @@
 									<div class="card-body-wrap">
 										<h5 class="card-title"><a href="{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
 										<div class="card-info">
-											<span><i class="icon-location me-2"></i>{{ isset($val->product->district->name)? $val->product->district->name.', ' : '' }}{{$val->product->province->name}}</span>
+											<span><i class="icon-location me-2"></i>{{ isset($val->product->district->name)? $val->product->district->name.', ' : '' }}{{ isset($val->product->province->name)? $val->product->province->name : '' }}</span>
 										</div>
 										<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
 									</div>
 									<div class="card-footer">
-										<div class="card-price">Giá: <span class="current-price">{{$val->product->price}} tỷ</span><span class="old-price">5,6 tỷ</span></div>
+										<div class="card-price">Giá: <span class="current-price">{{ isset($val->product->price)? $val->product->price:'' }} tỷ</span><span class="old-price">5,6 tỷ</span></div>
 									</div>
 								</div>
 							</div>
@@ -284,5 +288,15 @@
 	// 	searchInputPlaceholder: "Nhập từ khóa",
 	// 	dropdownParent: $('.form-more .dropdown-menu') 
 	// });
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $("#province").change(function(){
+	        var id = $(this).val();
+	        $.get("ajax/change_province/"+id,function(data){
+	            $("#district").html(data);
+	        });
+	    });
+	});
 </script>
 @endsection

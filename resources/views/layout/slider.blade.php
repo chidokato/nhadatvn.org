@@ -23,6 +23,8 @@
 			</div>
 			<div class="hero-search">
 				<form action="search" type="{{ url('/search') }}" method="GET">
+					<input type="hidden" value="" name="key_province">
+					<input type="hidden" value="" name="key_district">
 				<div class="row g-0 justify-content-center">
 					<div class="col-lg-8">
 						<div class="tab-content">
@@ -30,8 +32,8 @@
 								<div class="hero-search-wrap">
 									<div class="row g-0">
 										<div class="col-3">
-											<select name="category_slug" class="form-select select2">
-												<!-- <option value="">Tất cả</option> -->
+											<select name="key_category" class="form-select select2">
+												<option value="">Tất cả</option>
 												@foreach($cat_pro as $val)
 												<option value="{{$val->slug}}">{{$val->name}}</option>
 												@endforeach

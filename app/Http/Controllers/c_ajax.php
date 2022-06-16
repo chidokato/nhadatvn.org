@@ -97,7 +97,7 @@ class c_ajax extends Controller
     {
         if(Request::ajax()){
             $quanlykho = quanlykho::where('articles_id',$a_id)->where('mausac_id',$id)->get();
-            echo "<option value=''>...</option>";
+            echo "<option value=''>Tất cả</option>";
             foreach ($quanlykho as $key => $value) {
                 echo "<option value='".$value->size."'>".$value->size."</option>";
             }
@@ -200,7 +200,7 @@ class c_ajax extends Controller
     {
         if(Request::ajax()){
             $district = district::where('province_id', $id)->get();
-            echo "<option value=''>...</option>";
+            echo "<option value=''>Tất cả</option>";
             foreach ($district as $key => $value) {
                 echo "<option value='".$value->id."' >".$value->name."</option>";
             }

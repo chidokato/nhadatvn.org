@@ -153,13 +153,19 @@ class c_frontend extends Controller
 
     public function search(){
         $seo = seo::where('id', '168')->first();
-        $articles = articles::orderBy('id','desc')->where('id','!=' , 0);
+        $articles = articles::join('product', 'product.id', '=', 'articles.product_id')->orderBy('articles.id','desc')->where('articles.id','!=' , 0)->where('articles.sort_by',1);
         if($_GET['name']){
-            $articles->where('name','like','%'.$_GET['name'].'%');
+            $articles->where('articles.name','like','%'.$_GET['name'].'%');
         }
-        if($_GET['category_slug']){
-            $category = category::where('slug',$_GET['category_slug'])->first();
-            $articles->where('category_id',$category->id);
+        if($_GET['key_category']){
+            $category = category::where('slug',$_GET['key_category'])->first();
+            $articles->where('articles.category_id',$category['id']);
+        }
+        if($_GET['key_province']){
+            $articles->where('product.province_id',$_GET['key_province']);
+        }
+        if($_GET['key_district']){
+            $articles->where('product.district_id',$_GET['key_district']);
         }
         $articles = $articles->paginate(30);
         return view('pages.product',[
@@ -167,7 +173,9 @@ class c_frontend extends Controller
             'product' => $articles,
 
             'key_name' => $_GET['name'],
-            'key_cat_slug' => $_GET['category_slug'],
+            'key_category' => $_GET['key_category'],
+            'key_province' => $_GET['key_province'],
+            'key_district' => $_GET['key_district'],
         ]);
     }
 
