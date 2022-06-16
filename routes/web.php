@@ -159,7 +159,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 	// bất động sản
 	Route::group(['prefix'=>'province'],function(){
 		Route::get('list','c_province@getlist')->middleware('can:superadmin');
-		Route::post('loc','c_province@loc');
+		Route::post('search','c_province@search');
 	});
 	Route::group(['prefix'=>'district'],function(){
 		Route::get('list','c_district@getlist')->middleware('can:superadmin');

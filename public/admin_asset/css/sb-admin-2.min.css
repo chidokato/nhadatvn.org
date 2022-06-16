@@ -79,7 +79,8 @@ label {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.pagination span, .pagination a{background: #2f56c8;margin-right: 5px;padding: 5px 10px;color: #fff;}
+.pagination{padding-left: 10px;}
+.pagination span, .pagination a{background: #2f56c8;margin-right: 5px;padding: 5px 11px;color: #fff;border-radius: 100px;}
 .pagination span{background: #202d54;}
 
 .container{display:block;position:relative;padding-left:0px;margin-bottom:24px;cursor:pointer;font-size:22px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.container input{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.checkmark{position:absolute;top:2px;left:0;height:16px;width:16px;background-color:#eee}.container:hover input ~ .checkmark{background-color:#ccc}.container input:checked ~ .checkmark{background-color:#5f91b9}.checkmark:after{content:"";position:absolute;display:none}.container input:checked ~ .checkmark:after{display:block}.container .checkmark:after{left:6px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}

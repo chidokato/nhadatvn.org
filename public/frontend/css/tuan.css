@@ -293,7 +293,7 @@ header .navbar-brand img {
     box-shadow: 0px 0px 2px 2px;
 }
 .main-article p{
-	text-align: justify;
+	text-align: justify; margin-bottom: 7px;
 }
 .fullscreen-slider .swiper-button-next {
     right: calc(7% - (86px/2));
@@ -406,7 +406,7 @@ border-radius: 3px;
 }
 #contents h3{
     font-size: 1.1rem;    padding-top: 70px;
-    margin-top: -78px;
+    margin-top: -70px;
     margin-bottom: 0;
     padding-bottom: 8px;
     -webkit-text-stroke-width: 0.5px;
@@ -414,13 +414,13 @@ border-radius: 3px;
 }
 #contents h2{
     padding-top: 70px;
-    margin-top: -78px;
+    margin-top: -70px;
     margin-bottom: 10px;
     padding-bottom: 8px;
     -webkit-text-stroke-width: 0.7px;
     letter-spacing: .8px;
 }
-#contents ul{ margin-bottom: 1rem; display: flex;
+#contents ul{ margin-bottom: 7px; display: flex;
     flex-direction: column;}
 #contents ul li{ padding-left: 13px; position: relative; margin-bottom: 7px; }
 #contents ul li::before {

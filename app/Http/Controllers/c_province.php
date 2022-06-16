@@ -19,16 +19,16 @@ class c_province extends Controller
         ]);
     }
 
-    public function loc(Request $Request)
+    public function search(Request $Request)
     {
 
         $province = province::orderBy('status','desc')->where('id','!=' , 0);
         if($Request->key){
             $province->where('name','like',"%$Request->key%");
         }
-        // if($Request->ngay1 && $Request->ngay2){
-        //     $product->whereBetween('ngayketthuc', array($Request->ngay1, $Request->ngay2));
-        // }
+        if($Request->ngay1 && $Request->ngay2){
+            $product->whereBetween('ngayketthuc', array($Request->ngay1, $Request->ngay2));
+        }
         $province = $province->paginate($Request->paginate);
         $count = count($province);
         return view('admin.province.list',[

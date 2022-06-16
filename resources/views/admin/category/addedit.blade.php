@@ -7,7 +7,7 @@
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow sticky">
     <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
     <ul class="navbar-nav ">
-        <li class="nav-item"> <a class="nav-link line-1" href="admin/category/list" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách sản phẩm</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link line-1" href="admin/category/list" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách danh mục</span> </a> </li>
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item mobile-hide">
