@@ -29,7 +29,7 @@ body,html{margin:0;padding:0;height:100%;background:#60a3bc!important}.user_card
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
-                    <form method="post" action="admin/login">
+                    <form method="post" action="login">
                         <input type="hidden" name="_token" value="{{csrf_token()}}" />
                         <div class="input-group mb-3">
                             <div class="input-group-append">

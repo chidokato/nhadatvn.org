@@ -214,7 +214,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group add-fats" style="position: relative;">
-                    <label><span>Danh mục</span> <!-- <span data-toggle="modal" data-target="#add_category" id="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</span> --></label>
+                    <label><span>Danh mục</span> <span data-toggle="modal" data-target="#add_category" id="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</span></label>
                     <select name='category_id' class="form-control select2">
                         <option value="">-- Select --</option>
                         @if(isset($data))

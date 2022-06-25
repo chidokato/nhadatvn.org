@@ -420,7 +420,7 @@ border-radius: 3px;
     -webkit-text-stroke-width: 0.7px;
     letter-spacing: .8px;
 }
-#contents ul{ margin-bottom: 7px; display: flex;
+#contents ul{ display: flex;
     flex-direction: column;}
 #contents ul li{ padding-left: 13px; position: relative; margin-bottom: 7px; }
 #contents ul li::before {
@@ -429,6 +429,7 @@ border-radius: 3px;
     left: 0;
     top: -2px;
 }
+
 
 
 @media (min-width: 1600px){
@@ -499,10 +500,11 @@ border-radius: 3px;
     }
     .main-content .main-article h2{ margin-bottom: 0px; }
     #chinh-sach .box-km {padding: 69px 10px 10px 10px;margin-top: -65px;}
-
-
-
-
+    .sec-hero, .sec-hero .swiper-slide, .sec-hero .hero-slider, .hero-content{height: 45vh;}
+    .home-page .cover-title>h2{ font-size: 1.6rem; margin-bottom: 1rem;}
+    .home-page .cover-title>button{ display: none; }
+    .review-project .man-house::before {width: 21.5vw;}
+    .review-project .man-house img {max-width: 120px !important;}
 }
 
 

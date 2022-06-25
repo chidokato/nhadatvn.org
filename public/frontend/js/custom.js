@@ -1,8 +1,3 @@
-var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  target: '#review-4-phuong',
-  offset: 100
-})
-
 var prevScrollpos = window.pageYOffset;
 var myDiv = document.querySelector('body')
 window.onscroll = function () {
@@ -30,37 +25,37 @@ window.onscroll = function () {
   var fixBottomElement = document.getElementById('fix-ft')
   var fixBottomAnchor = document.getElementById('fix-ft-anchor')
   
-  var fixBottom = fixBottomAnchor.getBoundingClientRect().top
+  // var fixBottom = fixBottomAnchor.getBoundingClientRect().top
 
-  if(fixBottom < 0) {
-    console.log('currentScrollPos: ', currentScrollPos)
-    console.log('fixBottom: ', fixBottom)
-    fixBottomElement.classList.add("fixBottom");
-  } else {
-    fixBottomElement.classList.remove("fixBottom");
-  }
+  // if(fixBottom < 0) {
+  //   fixBottomElement.classList.add("fixBottom");
+  // } else {
+  //   fixBottomElement.classList.remove("fixBottom");
+  // }
 }
+
+
+
 
 
 var mainMenu = document.getElementById('navbarToggler');
     mainMenu.onclick = function() {toggleActive()}
     function toggleActive() {
       mainMenu.classList.toggle("active");
-      document.querySelector('.navhome').classList.toggle("show");
+      document.querySelector('header').classList.toggle("show");
     }
     
-var expandSearchBtn = document.getElementById('expand-search-btn');
-    expandSearchBtn.onclick = function() {toggleClassActive()}
+// var expandSearchBtn = document.getElementById('expand-search-btn');
+    // expandSearchBtn.onclick = function() {toggleClassActive()}
 
-var closeSearchBtn = document.querySelector('#expand-search .btn-close')
-    closeSearchBtn.onclick = function() {toggleClassActive()}
-    function toggleClassActive() {
-      expandSearchBtn.classList.toggle("active");
-    }
+// var closeSearchBtn = document.querySelector('#expand-search .btn-close')
+//     closeSearchBtn.onclick = function() {toggleClassActive()}
+//     function toggleClassActive() {
+//       expandSearchBtn.classList.toggle("active");
+//     }
 
 
 function myFunctLink(element) {
   location.href = element.attributes.href.value;
 }
-
 

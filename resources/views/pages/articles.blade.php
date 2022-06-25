@@ -99,14 +99,16 @@
 				</div>
 			</div>
 			<div class="col-lg-3 d-none d-lg-block">
+				@if($articles->style == 'on')
 				<div class="widget affix widget-list mb-3">
 					<div class="position-sticky" style="top: 4.5rem;">
 					<h4><span>Mục lục</span></h4>
 					<div id="toc"  ></div>
 					</div>
 				</div>
+				@else
 
-				<!-- <div class="widget widget-list mb-3">
+				<div class="widget widget-list mb-3">
 					<h4><span>Tin tức</span></h4>
 					<ul>
 						<li><a href="{{asset('')}}#"><i class="icon-next me-2"></i>Thị trường bất động sản</a></li>
@@ -123,7 +125,9 @@
 						</div>
 					</a>
 					
-				</div> -->
+				</div>
+				
+				@endif
 
 			</div>
 		</div>

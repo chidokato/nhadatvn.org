@@ -1,14 +1,16 @@
 <?php
 
-Route::get('admin','usercontroller@getlogin');
-Route::get('admin_login','usercontroller@getlogin');
-Route::post('admin/login','usercontroller@postlogin');
-Route::get('admin/logout','usercontroller@getlogout');
-Route::post('registration','usercontroller@registration');
-Route::post('resetacconut','usercontroller@resetacconut');
-Route::get('logout','usercontroller@logout');
-Route::post('registration/{id}','usercontroller@postedit');
-
+Route::get('admin','usercontroller@getlogin'); // login vào admin
+Route::get('admin_login','usercontroller@getlogin'); // login vào admin
+Route::post('login','usercontroller@postlogin'); // xử lý login
+Route::post('registration','usercontroller@registration'); // thêm người dùng
+Route::post('resetacconut','usercontroller@resetacconut'); // cài đặt lại tài khoản
+Route::post('registration/{id}','usercontroller@postedit'); // sửa người dùng
+Route::get('logout','usercontroller@logout'); // logout
+Route::get('logout','usercontroller@getlogout'); // logout khỏi admin
+Route::get('signin','c_frontend@get_signin'); // đăng nhập
+Route::get('signup','c_frontend@get_signup'); // đăng ký
+Route::get('resetpassword','c_frontend@getresetpassword'); // quên mật khẩu
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
@@ -231,10 +233,6 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 });
 
 Route::get('/','c_frontend@home');
-
-Route::get('signin','c_frontend@get_signin');
-Route::get('signup','c_frontend@get_signup');
-Route::get('resetpassword','c_frontend@getresetpassword');
 Route::get('profile','c_frontend@profile');
 Route::get('messages','c_frontend@messages');
 Route::get('/search','c_frontend@search');

@@ -65,7 +65,7 @@
 </section>
 
 <!------------------- PRODUCT SALE ------------------->
-<section class="sec-product-sale">
+<section class="sec-product-sale home-page">
 	<div class="container">
 		<div class="cover-title-home">
 			<div class="text-start">
@@ -114,13 +114,12 @@
 			</div>
 			<div class="col-lg-8">
 				<div class="review-project-content cover-title-home">
-					<div class="cover-title-home">
-						<div class="text-start">
-							<div class="cover-title">
-								<h2><span class="cover-title-filled text-main">Tin tức nổi bật</span></h2>
-							</div>
+					<div class="text-start cover-content">
+						<div class="cover-title">
+							<h3><span class="cover-title-filled">Tin tức</span><span class="position-relative">Mới nhất</span></h3>
 						</div>
 					</div>
+
 					<div class="position-relative pt-3">
 						@foreach($articles_news as $key => $val)
 						@if($key==0)
@@ -165,7 +164,7 @@
 </section>
 
 <!------------------- SERVICE ------------------->
-<section class="sec-productcity-hp">
+<section class="sec-productcity-hp home-page">
 	<div class="container position-relative">
 		<div class="cover-title-home">
 			<div class="text-start">
@@ -272,141 +271,142 @@
 <script src="frontend/js/bootstrap.bundle.min.js"></script>
 <script src="frontend/js/select2.min.js"></script>
 <script src="frontend/js/select2-searchInputPlaceholder.js"></script>
-<script src="frontend/js/custom.js"></script>
+
 <script src="frontend/js/swiper-bundle.min.js"></script>
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="frontend/js/chart.nhaongay.js"></script>
 <script>
-	const myChart = new Chart(
-	  document.getElementById('fluctuatingPrice'),
-	  fluctuatingPrice,
-	);
+	// const myChart = new Chart(
+	//   document.getElementById('fluctuatingPrice'),
+	//   fluctuatingPrice,
+	// );
 
 	new SimpleLightbox({elements: '.main-ads-slider a'});
 </script>
 <!-- Initialize Swiper -->
 <script>
-		var swiper1 = new Swiper(".broker-slider .swiper", {
-			slidesPerView: 2,
-			spaceBetween: 20,
-			pagination: {
-				el: ".broker-slider .swiper-pagination",
-				clickable: true,
-			},
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 2,
-					spaceBetween: 10
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 3,
-					spaceBetween: 30,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 4,
-					spaceBetween: 20,
-					navigation: {
-						nextEl: ".broker-slider .swiper-button-next",
-						prevEl: ".broker-slider .swiper-button-prev",
-					},
-				}
-			},
-		});
+        var swiper1 = new Swiper(".broker-slider .swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: ".broker-slider .swiper-pagination",
+                clickable: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is >= 480px
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                // when window width is >= 640px
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                    navigation: {
+                        nextEl: ".broker-slider .swiper-button-next",
+                        prevEl: ".broker-slider .swiper-button-prev",
+                    },
+                }
+            },
+        });
 
-		var swiper2 = new Swiper(".agent-partner-slider .swiper", {
-			slidesPerView: 2,
-			spaceBetween: 20,
-			pagination: {
-				el: ".agent-partner-slider .swiper-pagination",
-				clickable: true,
-			},
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 20
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 30,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-					navigation: {
-						nextEl: ".agent-partner-slider .swiper-button-next",
-						prevEl: ".agent-partner-slider .swiper-button-prev",
-					},
-				}
-			},
-		});
+        var swiper2 = new Swiper(".agent-partner-slider .swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: ".agent-partner-slider .swiper-pagination",
+                clickable: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is >= 480px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                // when window width is >= 640px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                    navigation: {
+                        nextEl: ".agent-partner-slider .swiper-button-next",
+                        prevEl: ".agent-partner-slider .swiper-button-prev",
+                    },
+                }
+            },
+        });
 
-		var swiper3 = new Swiper(".service-slider .swiper", {
-			slidesPerView: 2,
-			spaceBetween: 0,
-			pagination: {
-				el: ".service-slider .swiper-pagination",
-				clickable: true,
-			},
-			// Responsive breakpoints
-			breakpoints: {
-				// when window width is >= 320px
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0
-				},
-				// when window width is >= 480px
-				768: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-				},
-				// when window width is >= 640px
-				1024: {
-					slidesPerView: 2,
-					spaceBetween: 0,
-				}
-			},
-		});
+        var swiper3 = new Swiper(".service-slider .swiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            pagination: {
+                el: ".agent-partner-slider .swiper-pagination",
+                clickable: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 0
+                },
+                // when window width is >= 480px
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                // when window width is >= 640px
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                }
+            },
+        });
 
-		var swiper4 = new Swiper(".review-project-content .swiper", {
-			slidesPerView: 2,
-			spaceBetween: 0,
-			pagination: {
-				el: ".review-project-content .swiper-pagination",
-				clickable: true,
-			},	
-		});
+        var swiper4 = new Swiper(".review-project-content .swiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            pagination: {
+                el: ".review-project-content .swiper-pagination",
+                clickable: true,
+            },
+        });
 
-		var swiper5 = new Swiper(".thumb-ads-slider .swiper", {
-			spaceBetween:2,
-			lazy: true,
-			slidesPerView:"auto",
-			freeMode: true,
-			watchSlidesProgress: true,
-			// autoplay: {
-			//   delay: 2500,
-			// },
-		});
-    	var swiper6 = new Swiper(".main-ads-slider .swiper", {
-			spaceBetween:0,
-			lazy: true,
-			autoplay: {
-			  delay: 2500,
-			  disableOnInteraction: false,
-			},
-			thumbs: {
-				swiper: swiper5,
-			},
-    	});
-		var swiper7 = new Swiper(".product-hot-slider .swiper", {
+        var swiper5 = new Swiper(".thumb-ads-slider .swiper", {
+            spaceBetween: 1,
+            lazy: true,
+            slidesPerView: "auto",
+            freeMode: true,
+            watchSlidesProgress: true,
+            // autoplay: {
+            //   delay: 2500,
+            // },
+        });
+        var swiper6 = new Swiper(".main-ads-slider .swiper", {
+            spaceBetween: 0,
+            lazy: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            thumbs: {
+                swiper: swiper5,
+            },
+        });
+
+        var swiper7 = new Swiper(".product-hot-slider .swiper", {
 			slidesPerView: 3,
 			loop: true,
 			spaceBetween: 30,
@@ -429,8 +429,12 @@
 			breakpoints: {
 				// when window width is >= 320px
 				320: {
-					slidesPerView: 1,
-					spaceBetween: 0
+					slidesPerView: 2,
+					spaceBetween: 0,
+					coverflowEffect: {
+						
+						depth: 10,
+					}
 				},
 				// when window width is >= 480px
 				768: {
@@ -449,26 +453,26 @@
 			},	
 		});
 
-		
-		var swiper8 = new Swiper(".hero-slider .swiper", {
-			spaceBetween: 0,
-			effect: "fade",
-			lazy: true,
-			loop: true,
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-			},
-			pagination: {
-				el: ".hero-slider .swiper-pagination",
-				type: "fraction",
-			},
-			navigation: {
-				nextEl: ".hero-slider .swiper-button-next",
-				prevEl: ".hero-slider .swiper-button-prev",
-			},
-		});
-</script>
+
+        var swiper8 = new Swiper(".hero-slider .swiper", {
+            spaceBetween: 0,
+            effect: "fade",
+            lazy: true,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".hero-slider .swiper-pagination",
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: ".hero-slider .swiper-button-next",
+                prevEl: ".hero-slider .swiper-button-prev",
+            },
+        });
+    </script>
 <script>
 	$('.select2').select2({
 		searchInputPlaceholder: "Tìm danh mục",
@@ -478,4 +482,5 @@
 	// 	dropdownParent: $('.form-more .dropdown-menu') 
 	// });
 </script>
+<script src="frontend/js/custom.js"></script>
 @endsection

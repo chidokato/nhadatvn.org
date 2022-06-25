@@ -141,6 +141,7 @@ class c_news extends Controller
         $articles->detail = $Request->detail;
         $articles->content = $Request->content;
         $articles->category_id = $Request->cat_id;
+        $articles->style = $Request->style;
         if ($Request->hasFile('img')) {
             // xóa ảnh cũ
             if(File::exists('data/news/'.$articles->img)) { 

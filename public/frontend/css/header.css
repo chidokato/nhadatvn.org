@@ -40,7 +40,7 @@ header nav li a.active, header nav li a:hover {color: var(--sub-color) !importan
 
 header nav li a.active.dropdown-toggle img, header nav li a.dropdown-toggle:hover img {filter: hue-rotate(-32deg) saturate(7);}
 
-.toggle-menu {margin-left: 92px;border: 1px solid var(--sub-color) !important;margin-top: 6px;margin-bottom: 8px;border-radius: 0.25rem;height: 40px;width: 40px;justify-content: center;display: none;align-items: center;}
+.toggle-menu {margin-left: 110px;border: 1px solid var(--sub-color) !important;margin-top: 6px;margin-bottom: 8px;border-radius: 0.25rem;height: 40px;width: 40px;justify-content: center;display: none;align-items: center;}
 .ico-menu {display: flex;position: relative;width: 24px;padding: 8px 0px !important;}
 .ico-menu span {background: var(--sub-color);position: absolute;height: 2px;left: 0;right: 0;}
 .ico-menu span:nth-of-type(1) {

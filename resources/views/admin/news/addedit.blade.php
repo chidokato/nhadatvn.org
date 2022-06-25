@@ -92,6 +92,17 @@
                         @endif
                     </select>
                 </div>
+
+                <div class="form-group add-fats">
+                    <label><span>Tags</span> <span data-toggle="modal" data-target="#add_category" id="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</span></label>
+                    <select name='tag' class="form-control  select2" multiple>
+                        <option>ádasd</option>
+                        <option>ádasd</option>
+                        <option>ádasd</option>
+                        <option>ádasd</option>
+                    </select>
+                </div>
+
             </div>
         </div>
         
@@ -120,6 +131,29 @@
                         <input name="img" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="card shadow mb-2">
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="checkboxes__item">
+                      <label class="checkbox style-e">
+                        <input name="style" {{ isset($data) && $data->style == 'on' ? 'checked':'' }} type="checkbox"/>
+                        <div class="checkbox__checkmark"></div>
+                        <div class="checkbox__body">Style</div>
+                      </label>
+                    </div>
+                </div>
+                <!-- <hr class="lines">
+                <div class="form-group">
+                    <div class="checkboxes__item">
+                      <label class="checkbox style-e">
+                        <input type="checkbox" checked="checked"/>
+                        <div class="checkbox__checkmark"></div>
+                        <div class="checkbox__body">Style E</div>
+                      </label>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>

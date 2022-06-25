@@ -203,6 +203,7 @@ class usercontroller extends Controller
         Auth::logout();
         return redirect('/');
     }
+    
     public function registration(Request $Request){
         $this->validate($Request,
             [
@@ -240,9 +241,6 @@ class usercontroller extends Controller
         }else{
             return redirect()->back()->with('Success','Email không tồn tại !');
         }
-        
-
-        
     }
     
 }
