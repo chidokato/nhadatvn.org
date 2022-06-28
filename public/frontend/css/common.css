@@ -48,6 +48,7 @@ button:focus, .btn {outline: none!important;box-shadow: none!important;}
 
 h1, h2, h3, h4, h5, h6 {font-family: var(--title-fontface); line-height: 1.35;}
 
+h1 {font-size: 32px;}
 h2 {font-size: 32px;}
 h4 {font-size: 25px;}
 h5 {font-family: var(--subtitle-fontface); font-size: 19px;}
@@ -177,7 +178,8 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 .cover-content p {text-transform:uppercase;margin-top: -8px;}
 .cover-content h3, .primary-title h3 {text-transform:uppercase;font-size: 72px;letter-spacing: 6px;font-weight: bold;color: rgba(255,255,255,0);-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: var(--sub-color);position: relative;top: -32px;right: -24px;display: inline-block;margin-bottom: 0;text-align: left;}
 .cover-content h3:after, .primary-title h3:after {content:'';background:var(--sub-color);height: 4px;width: 80px;position:absolute;right: 5px;bottom: -8px;}
-
+.cover-content h3, .primary-title div {text-transform:uppercase;font-size: 72px;letter-spacing: 6px;font-weight: bold;color: rgba(255,255,255,0);-webkit-text-stroke-width: 2px;-webkit-text-stroke-color: var(--sub-color);position: relative;top: -32px;right: -24px;display: inline-block;margin-bottom: 0;text-align: left;}
+.cover-content h3:after, .primary-title div:after {content:'';background:var(--sub-color);height: 4px;width: 80px;position:absolute;right: 5px;bottom: -8px;}
 
 .cover-review::before {content:'';left:0;bottom:0;top:0;position: absolute;background: var(--sub-color) url('../images/bg-ft-left.svg') no-repeat bottom left;width: calc((100% - 1140px + 271px)/2);background-size: 180px;}
 .cover-man {position: absolute;bottom: 0;top: 0;display: flex;align-items: end;}
@@ -197,6 +199,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 
 .primary-title {padding-top:16px;}
 .primary-title h3 {-webkit-text-stroke-width: initial;color: var(--sub-color);font-size: 40px;letter-spacing: .4px;right: 0;}
+.primary-title div {-webkit-text-stroke-width: initial;color: var(--sub-color);font-size: 40px;letter-spacing: .4px;right: 0;}
 .primary-title .cover-title-filled {color:#8d8d8d;left:0;font-size: 25px;bottom: -8px;}
 
 
@@ -334,7 +337,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 .loader {
 	border: 5px solid #f3f3f3; /* Light grey */
 	border-top: 5px solid var(--main-color); /* Blue */
-	border-radius: 50%; width: 56px; height: 56px; animation: spin 1s linear infinite; margin:20px auto;}
+	border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin-left:15px;}
   
   @keyframes spin {
 	0% { transform: rotate(0deg); }
@@ -354,6 +357,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 .info-customer-wrap {display: flex;}
 .info-customer-wrap img {max-width: 372px;}
 .info-customer-wrap .primary-title h3 {font-size: 32px;letter-spacing: 0;top: 0;margin-top: 20px;}
+.info-customer-wrap .primary-title div {font-size: 32px;letter-spacing: 0;top: 0;margin-top: 20px;line-height:1.35}
 .info-customer-wrap .primary-title .cover-title-filled {font-size:20px}
 
 .info-customer-wrap h2 {font-size: 24px;color:var(--main-color);font-weight:bold;text-transform: uppercase;margin-top: 2rem;}
@@ -447,6 +451,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 @media (max-width: 768px) {
 	.partner-sec, .broker-sec, .project-sec {padding-top:32px}
 	.primary-title h3 {font-size: 32px;}
+	.primary-title div {font-size: 32px;}
     .primary-title .cover-title-filled {font-size: 20px;}
     .swiper-button-next, .swiper-button-prev {display:none}
 
@@ -504,6 +509,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 	.modal.info-customer .modal-body .info-customer-content {padding: 5rem 1.5rem 0;background: url(../images/lg-hd.svg) no-repeat center top;background-size: 128px;}
 	.modal.info-customer .modal-body .info-customer-content .text-center.text-md-start {text-align:left !important}
 	.info-customer-wrap .primary-title h3 {font-size:28px}
+	.info-customer-wrap .primary-title h4 {font-size:28px}
 	.info-customer-wrap h2 {text-align:center}
 	.info-customer-wrap h2::after {right:0;margin: auto;}
 }

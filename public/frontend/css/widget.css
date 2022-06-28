@@ -1,4 +1,5 @@
 .widget.affix {top:64px}
+.widget.affix-widget {top:64px}
 .widget-list {background: #f5f5f5;border: 1px solid rgb(0 0 0 / 6%);border-radius: 0.25rem;padding: .75rem 1rem;font-size: 14px;}
 .widget-list h4, .scrollspy > a {font-size: 17px;-webkit-text-stroke-width: .4px;/* padding-bottom: 12px; */margin-bottom: 12px;border-bottom: 1px solid rgb(0 0 0 / 6%); text-transform:uppercase; color:var(--main-color)}
 .widget-list h4 span, .scrollspy > a span {position: relative;display: inline-block;padding-bottom: 10px;}
@@ -21,7 +22,7 @@
 .widget-list .scrollspy > nav {margin-bottom:16px}
 .widget-list .scrollspy a:hover, .widget-list .scrollspy a:focus, .widget-list nav .nav-link.active {color:var(--main-color); background: none;}
 
-.widget-hightlight {background-color:var(--sub-color); color: rgba(255, 255, 255, 1);}
+.widget-hightlight {background-color:var(--sub-color); color: rgba(255, 255, 255, 1);}  
 .widget-hightlight h4 {color:#fff}
 .widget-hightlight h4 span:before {background-color:#fff}
 .widget-hightlight .form-check .form-check-input {border:none}
@@ -115,4 +116,3 @@
     .widget-broker.card-s3 .card-body-wrap .btn-outline {font-size:10px}
     .widget-appointment .cta-text {font-size:12px}
 }
-

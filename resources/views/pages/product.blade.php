@@ -16,13 +16,6 @@
 <link href="frontend/css/sort.css" rel="stylesheet">
 <link href="frontend/css/card.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<style type="text/css">
-	.select2-container {
-	    margin-top: 20px !important;
-	    margin-left: 5px !important;
-	}
-	.flex-search{ display: flex; flex-wrap: nowrap; }
-</style>
 @endsection
 @section('content')
 <?php use App\district; ?>
@@ -32,13 +25,13 @@
 		<div data-bs-toggle="button" class="d-md-none"><button type="button" class="btn btn-circle btn-toggle"><span class="icon-search"></span></button></div>
 		<form action="search" type="{{ url('/search') }}" method="GET">
 			<div class="row g-3 justify-content-lg-end">
-				<div class="col-lg-5">
+				<div class="col-lg-4">
 					<div class="input-group search-input">
 						<span class="input-group-text"><i class="icon-search"></i></span>
 						<input name="name" value="{{ isset($key_name)? $key_name : '' }}" type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
 					</div>
 				</div>
-				<div class="col-lg-7">
+				<div class="col-lg-8">
 					<div class="row g-3 flex-search">
 						<div class="col-lg">
 							<div class="form-floating">
@@ -84,7 +77,7 @@
 								<label for="floatingSelectGrid">Giá tiền</label>
 							  </div>
 						</div> -->
-						<div class="col-lg-1"><button type="submit" class="btn btn-circle"><i class="icon-search"></i> Tìm Kiếm</button></div>
+						<div class="col-lg-2"><button type="submit" class="btn btn-circle"><i class="icon-search"></i> Tìm Kiếm</button></div>
 					</div>
 				</div>
 			</div>
