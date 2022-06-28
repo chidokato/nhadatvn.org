@@ -34,26 +34,48 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Quản lý tin tức</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
+                
             </div>
             <div class="card-body">
+    
                 <table class="table">
                     <thead>
-                        
+                        <tr>
+                            <th>Tháng</th>
+                            <th>Dư nợ đầu kỳ</th>
+                            <th>Trả gốc trong kỳ</th>
+                            <th>Trả lãi trong kỳ</th>
+                            <th>Số tiền trả trong kỳ</th>
+                            <th>Dư nợ cuối kỳ</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        
+                        <?php
+                        $khoanvay = 100000000;
+                        $laisuat = 12;
+                        $thoihan = 12;
+                        $array=[];
+                        for ($i=1; $i <= 12; $i++) { 
+                            $array[] = $i;
+                        }
+                        // view
+                        echo 'Khoản vay: '.number_format($khoanvay).'đ';
+                        echo "<br>";
+                        echo 'Lãi suất: '.$laisuat.'%';
+                        echo "<br>";
+                        echo 'Thời hạn: '.$thoihan.' tháng';
+                        ?>
+
+                        @foreach($array as $key => $val)
+                        <tr>
+                            <td>{{$key+1}}</td>
+                            <td>{{ number_format($khoanvay).'đ' }}</td>
+                            <td>{{ number_format($khoanvay/$thoihan).'đ' }}</td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ number_format($khoanvay - $khoanvay/$thoihan).'đ' }}</td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

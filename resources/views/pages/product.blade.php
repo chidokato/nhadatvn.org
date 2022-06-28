@@ -32,13 +32,13 @@
 		<div data-bs-toggle="button" class="d-md-none"><button type="button" class="btn btn-circle btn-toggle"><span class="icon-search"></span></button></div>
 		<form action="search" type="{{ url('/search') }}" method="GET">
 			<div class="row g-3 justify-content-lg-end">
-				<div class="col-lg-3">
+				<div class="col-lg-5">
 					<div class="input-group search-input">
 						<span class="input-group-text"><i class="icon-search"></i></span>
 						<input name="name" value="{{ isset($key_name)? $key_name : '' }}" type="text" class="form-control" placeholder="Nhập từ khóa tìm kiếm">
 					</div>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-7">
 					<div class="row g-3 flex-search">
 						<div class="col-lg">
 							<div class="form-floating">
@@ -90,10 +90,10 @@
 			</div>
 		</form>
 	</div>
-	<button class="btn toggle-nv d-none d-md-flex" type="button" data-bs-toggle="button">
+	<!-- <button class="btn toggle-nv d-none d-md-flex" type="button" data-bs-toggle="button">
 		<i class="icon-next"></i>
-	</button>
-	<div class="navbar-vertical d-none d-md-flex scrollbar">
+	</button> -->
+	<!-- <div class="navbar-vertical d-none d-md-flex scrollbar">
 		<div class="nv-header">
 			<a class="navbar-brand" href="#"><img src="images/lg-hd.svg" alt="" class="mw-100"></a>
 			<ul>
@@ -149,7 +149,7 @@
 				</li>
 			</ul>
 		</div>
-	</div>
+	</div> -->
 </section>
 <!------------------- END: FILTER SEARCH ------------------->
 
@@ -168,9 +168,9 @@
 
 
 <!------------------- CARD ------------------->
-<section class="card-grid sales-sec">
+<section class="card-grid sales-sec list-tindang">
 	<div class="container">
-		<h3 class="text-uppercase title-subpage">{{ isset($category->name)? $category->name:'' }}</h3>
+		<h1 class="title-subpage">{{ isset($category->name)? $category->name:'' }}</h1>
 		<div class="row">
 			<div class="col-lg-9">
 				<div class="sort-box">

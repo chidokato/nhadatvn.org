@@ -1,6 +1,6 @@
 <?php use App\menu; ?>
 <!------------------- NAVIGATOR ------------------->
-<header class="">
+<header class="navhome">
 	<nav class="navbar navbar-expand-lg navbar-dark" aria-label="Ninth navbar example">
 		<div class="container">
 		  <a class="navbar-brand logo" href="{{asset('')}}"><img src="{{asset('')}}data/themes/{{$head_logo->img}}" alt="" class="mw-100"></a>
@@ -40,8 +40,10 @@
 				@endif
 				@endforeach
 			</ul>
+			
+
 		  </div>
 		</div>
-	  </nav>
+  	</nav>
 </header>
 <!------------------- END NAVIGATOR ------------------->

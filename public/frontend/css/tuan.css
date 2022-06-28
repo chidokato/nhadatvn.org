@@ -123,7 +123,6 @@ header .navbar .logo{
     color: #fff;
     padding: 0;
     font-size: 1rem;
-    width: 105px;
     border-radius: 5px;
 }
 .grid-view .card-contact span, .grid-view .card-info p {
@@ -176,7 +175,7 @@ header .navbar .logo{
 }
 .product-dt-header-title h1 {
     color: var(--main-color);
-    font-weight: bold;text-transform: uppercase;
+    font-weight: bold;
     line-height: 1.2;
     font-size: 25px;
     margin-bottom: 16px;
@@ -249,8 +248,6 @@ header .navbar-brand img {
 }
 
 .product-detail h2{
-	text-transform: uppercase;
-    font-weight: bold;
     color: var(--main-color);
     font-size: 16px !important;
     border-bottom: 1px solid #dfdfdf;
@@ -386,20 +383,14 @@ border-radius: 3px;
     color: #fff;position: relative;
 }
 .box-km::before{
-   /* content: url('../images/csbh.png');
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 9;*/
-
-    content: "";
+   /* content: "";
     background-image:url('../images/csbh.png');
     background-size: 100% 100%;
     height: 40px;
     width:40px;
     position:absolute;
     top: 0;
-    right: 10px;
+    right: 10px;*/
 }
 .floating-label {
     padding: 12px 0px;
@@ -429,7 +420,12 @@ border-radius: 3px;
     left: 0;
     top: -2px;
 }
-
+.main-content .main-article h2 { -webkit-text-stroke-width: 0.8px !important;}
+.list-tindang h1{font-size: 1.7rem; margin-bottom: 15px;}
+.list-tindang{ padding-top: 0px; }
+.setting-view {max-width: 30px;height: 30px;}
+.setting-view {padding: 0px 4px;}
+.sort-box {margin-bottom: 5px; display: none;}
 
 
 @media (min-width: 1600px){
@@ -505,6 +501,13 @@ border-radius: 3px;
     .home-page .cover-title>button{ display: none; }
     .review-project .man-house::before {width: 21.5vw;}
     .review-project .man-house img {max-width: 120px !important;}
+    .product-dt-header-title {margin-bottom: 0;}
+    .sale-detail-sec .col-lg-9 .product-dt-header-title .d-md-none{ margin-bottom: 0px; }
+    .list-tindang h1{font-size: 1.4rem; }
+    /*.floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: '';}*/
+    /*.floating-label {padding: 12px 0px;position: absolute;top: 0;right: 0;z-index: 99999;}*/
+    /*.floating-label .btn-circle, .sec-search .btn-circle.btn-toggle {background: #fff !important;color: #0e5d52;padding: 0;font-size: 1rem;border-radius: 100px;padding: 10px;margin-top: 0;}*/
+    header .navbar-brand img {width: 59px;}
 }
 
 
