@@ -21,7 +21,7 @@
 				<h2>TÌM KIẾM NGAY</h2>
 				<!-- <p><b>NHÀ ĐẤT VN</b> - CÓ <b>NGAY NHÀ Ở</b></p> -->
 			</div>
-			<div class="hero-search">
+			<div class="hero-search search-home">
 				<form action="search" type="{{ url('/search') }}" method="GET">
 					<input type="hidden" value="" name="key_province">
 					<input type="hidden" value="" name="key_district">

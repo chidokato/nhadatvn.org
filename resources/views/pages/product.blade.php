@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<div class="row g-3 flex-search">
+					<div class="row g-3 flex-search search-cat">
 						<div class="col-lg">
 							<div class="form-floating">
 								<select name="key_category" class="form-select select2">

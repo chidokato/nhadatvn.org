@@ -328,9 +328,7 @@ header .navbar-brand img {
 .select2-container--default .select2-selection--single {
     border: none;
 }
-.select2-container {
-    margin-top: 10px;
-}
+
 .select2-container--open .select2-dropdown--below {
     border: none;
     border-radius: 5px;
@@ -426,7 +424,12 @@ border-radius: 3px;
 .setting-view {max-width: 30px;height: 30px;}
 .setting-view {padding: 0px 4px;}
 .sort-box {margin-bottom: 5px; display: none;}
-
+.search-home .select2-selection--single{ margin-bottom: 0px; }
+.search-home .select2-selection__rendered{ padding-top: 4px !important; }
+.search-home .select2-selection__arrow b::before {position: absolute; top: -2px;}
+.search-home .row>.col-9{padding-left: 5px; border-left: 1px solid #ddd;}
+.search-cat button[type=submit]{ width: 100%; }
+.search-home .select2-container {margin-top: 10px;}
 
 @media (min-width: 1600px){
     .horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {
@@ -483,6 +486,7 @@ border-radius: 3px;
         bottom: 0;bottom: -20px;
     }
     .floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: 'Tìm kiếm sản phẩm';}
+    .search-home .row>.col-9{padding-left: 5px; border-left: none;}
 }
 
 @media (max-width: 414px){
