@@ -513,7 +513,7 @@ border-radius: 3px;
     .review-project .man-house::before {width: 21.5vw;}
     .review-project .man-house img {max-width: 120px !important;}
     .product-dt-header-title {margin-bottom: 0;}
-    .sale-detail-sec .col-lg-9 .product-dt-header-title .d-md-none{ margin-bottom: 0px;    position: fixed;bottom: 0;z-index: 2;width: 92%; }
+    .sale-detail-sec .col-lg-9 .product-dt-header-title .d-md-none{ margin-bottom: 0px;    position: fixed;bottom: 0;z-index: 3;width: 100%;     background: #018572;    padding: 5px;  left: 0;}
     .list-tindang h1{font-size: 1.4rem; }
     /*.floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: '';}*/
     /*.floating-label {padding: 12px 0px;position: absolute;top: 0;right: 0;z-index: 99999;}*/
