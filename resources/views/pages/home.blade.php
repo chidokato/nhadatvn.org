@@ -110,7 +110,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 align-self-end ps-lg-0">
-				<div class="man-house"><img src="frontend/images/man-lg.png" alt="" class="mw-100"></div>
+				<!-- <div class="man-house"><img src="frontend/images/man-lg.png" alt="" class="mw-100"></div> -->
+				<div class="man-house"><img src="frontend/images/bg.png" alt="" class="mw-100"></div>
 			</div>
 			<div class="col-lg-8">
 				<div class="review-project-content cover-title-home">
@@ -287,7 +288,7 @@
 <!-- Initialize Swiper -->
 <script>
         var swiper1 = new Swiper(".broker-slider .swiper", {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
             pagination: {
                 el: ".broker-slider .swiper-pagination",
@@ -318,7 +319,7 @@
         });
 
         var swiper2 = new Swiper(".agent-partner-slider .swiper", {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
             pagination: {
                 el: ".agent-partner-slider .swiper-pagination",
@@ -349,7 +350,7 @@
         });
 
         var swiper3 = new Swiper(".service-slider .swiper", {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 0,
             pagination: {
                 el: ".agent-partner-slider .swiper-pagination",
@@ -376,7 +377,7 @@
         });
 
         var swiper4 = new Swiper(".review-project-content .swiper", {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 0,
             pagination: {
                 el: ".review-project-content .swiper-pagination",
@@ -385,7 +386,7 @@
         });
 
         var swiper5 = new Swiper(".thumb-ads-slider .swiper", {
-            spaceBetween: 1,
+            spaceBetween: 2,
             lazy: true,
             slidesPerView: "auto",
             freeMode: true,
