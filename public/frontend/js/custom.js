@@ -1,3 +1,8 @@
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#review-4-phuong',
+  offset: 100
+})
+
 var prevScrollpos = window.pageYOffset;
 var myDiv = document.querySelector('body')
 window.onscroll = function () {

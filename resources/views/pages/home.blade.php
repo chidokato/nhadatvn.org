@@ -106,21 +106,20 @@
 </section>
 
 <!------------------- REVIEW ------------------->
-<section class="review-project">
+<section class="review-project new-home">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 align-self-end ps-lg-0">
-				<!-- <div class="man-house"><img src="frontend/images/man-lg.png" alt="" class="mw-100"></div> -->
+			<!-- <div class="col-lg-4 align-self-end ps-lg-0">
+				<div class="man-house"><img src="frontend/images/man-lg.png" alt="" class="mw-100"></div>
 				<div class="man-house"><img src="frontend/images/bg.png" alt="" class="mw-100"></div>
+			</div> -->
+			<div class="text-start cover-content">
+				<div class="cover-title">
+					<h3><span class="cover-title-filled">Tin tức</span><span class="position-relative">Mới nhất</span></h3>
+				</div>
 			</div>
 			<div class="col-lg-8">
-				<div class="review-project-content cover-title-home">
-					<div class="text-start cover-content">
-						<div class="cover-title">
-							<h3><span class="cover-title-filled">Tin tức</span><span class="position-relative">Mới nhất</span></h3>
-						</div>
-					</div>
-
+				<div class="review-project-content ">
 					<div class="position-relative pt-3">
 						@foreach($articles_news as $key => $val)
 						@if($key==0)
@@ -138,25 +137,27 @@
 						</div>
 						@endif
 						@endforeach
-						<div class="swiper">
-							<div class="swiper-wrapper">
-								@foreach($articles_news as $key => $val)
-								@if($key>0)
-								<div class="swiper-slide review-project-item review-project-item-sm">
-									<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
-										<span><img src="frontend/images/space-4.gif" style="background-image: url('data/news/{{$val->img}}')" alt="" class="w-100 thumb"></span>
-										<div class="news-item-body">
-											<p class="text-truncate-set text-truncate-set-3">{{$val->name}}</p>
-											<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
-										</div>
-									</a>
-								</div>
-								@endif
-								@endforeach
-							</div>
-							<div class="swiper-pagination"></div>
-						</div>
 						
+						
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 align-self-end ps-lg-0">
+				<div class="">
+					<div class="">
+						@foreach($articles_news as $key => $val)
+						@if($key>0)
+						<div class=" review-project-item review-project-item-sm">
+							<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
+								<span><img src="frontend/images/space-4.gif" style="background-image: url('data/news/{{$val->img}}')" alt="" class="w-100 thumb"></span>
+								<div class="news-item-body">
+									<p class="text-truncate-set text-truncate-set-3">{{$val->name}}</p>
+									<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->created_at))}}</span>
+								</div>
+							</a>
+						</div>
+						@endif
+						@endforeach
 					</div>
 				</div>
 			</div>
