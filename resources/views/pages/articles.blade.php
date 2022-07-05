@@ -34,7 +34,7 @@
 #toc ul li a{ text-decoration:none; }
 #toc ul li a:hover{ color: red }
 #toc ul li .active{color: red}
-#toc ul li{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+/*#toc ul li{white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}*/
 .position-sticky h4{font-size: 1.2rem; border-bottom: 1px solid #ddd; }
 
 </style>
