@@ -436,7 +436,7 @@ border-radius: 3px;
 header .navbar-brand img {width: 59px;}
 .new-home {position: unset;padding-bottom: 30px;}
 .new-home .cover-content {position: unset;}
-.new-home .cover-content h3{font-size: 60px;}
+.new-home .cover-content h3{font-size: 54px;}
 .new-home .cover-content .cover-title-filled{font-size: 36px;}
 
 @media (min-width: 1600px){
@@ -505,6 +505,7 @@ header .navbar-brand img {width: 59px;}
     }
     .floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: 'Tìm kiếm sản phẩm';}
     .search-home .row>.col-9{padding-left: 5px; border-left: none;}
+    .new-home .cover-content .cover-title-filled{left: -33px;}
 }
 
 @media (max-width: 414px){
