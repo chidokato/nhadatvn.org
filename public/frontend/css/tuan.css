@@ -434,8 +434,10 @@ border-radius: 3px;
 .search-cat button[type=submit]{ width: 100%; }
 .search-home .select2-container {margin-top: 10px;}
 header .navbar-brand img {width: 59px;}
-.new-home {position: unset;}
+.new-home {position: unset;padding-bottom: 30px;}
 .new-home .cover-content {position: unset;}
+.new-home .cover-content h3{font-size: 60px;}
+.new-home .cover-content .cover-title-filled{font-size: 36px;}
 
 @media (min-width: 1600px){
     .horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {
