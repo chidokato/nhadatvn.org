@@ -572,6 +572,5 @@ header .navbar-brand img {width: 59px;}
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-eye{ display: flex; font-size: 11px !important; }
-.icon-eye:before {
-  content: "\e900";
-}
+.icon-eye:before {content: "\e900";}
+.icon-download3:before {content: "\e9c7";}

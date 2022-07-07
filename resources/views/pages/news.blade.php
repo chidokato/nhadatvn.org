@@ -129,10 +129,10 @@
 				<div class="widget widget-list widget-news mb-3">
 					<h4><span>Tin tức nổi bật</span></h4>
 					@foreach($news_hits as $val)
-					<a href="#" class="news-item">
+					<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
 						<span><img src="frontend/images/space-3.gif" style="background-image: url('data/news/80/{{$val->img}}');" alt="" class="w-100"></span>
 						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->updated_at))}} | <i class="icon-eye me-1"></i>100 view</span>
+							<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->updated_at))}} | <i class="icon-eye me-1"></i>{{$val->hits}} view</span>
 							<p class="mb-0 text-truncate-set text-truncate-set-2">{{$val->name}}</p>
 						</div>
 					</a>
