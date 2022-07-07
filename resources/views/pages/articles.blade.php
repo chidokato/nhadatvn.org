@@ -76,7 +76,7 @@
 								<span><small>Share</small></span>
 								<ul>
 									<li><a href="{{asset('')}}#"><i class="icon-facebook"></i></a></li>
-									<li><a href="{{asset('')}}#"><i class="icon-zalo"></i></a></li>
+									<div class="zalo-share-button" data-href="" data-oaid="3806913012913629376" data-layout="4" data-color="white" data-customize="false"></div>
 								</ul>
 							</div>
 						</div>

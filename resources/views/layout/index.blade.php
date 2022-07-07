@@ -42,6 +42,8 @@
 
 {!! $head_setting->codeheader !!}
 
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
 </head>
 @include('layout.function')
 <body> 

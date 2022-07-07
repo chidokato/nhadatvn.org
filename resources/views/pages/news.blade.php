@@ -120,20 +120,23 @@
 				<div class="widget widget-list mb-3">
 					<h4><span>Tin tức</span></h4>
 					<ul>
-						<li><a href="#"><i class="icon-next me-2"></i>Tư vấn tài chính</a></li>
+						@foreach($cat_new as $val)
+						<li><a href="{{$val->slug}}"><i class="icon-next me-2"></i>{{$val->name}}</a></li>
+						@endforeach
 					</ul>
 				</div>
 
 				<div class="widget widget-list widget-news mb-3">
 					<h4><span>Tin tức nổi bật</span></h4>
+					@foreach($news_hits as $val)
 					<a href="#" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('https://media.ex-cdn.com/EXP/media.taichinhdoanhnghiep.net.vn/files/news/2021/03/26/ha-noi-diem-danh-nhieu-ong-trum-bat-dong-san-tri-hoan-nop-tien-dat-134146.jpg');" alt="" class="w-100"></span>
+						<span><img src="frontend/images/space-3.gif" style="background-image: url('data/news/80/{{$val->img}}');" alt="" class="w-100"></span>
 						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
+							<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->updated_at))}}</span>
+							<p class="mb-0 text-truncate-set text-truncate-set-2">{{$val->name}}</p>
 						</div>
 					</a>
-					
+					@endforeach
 				</div>
 
 			</div>

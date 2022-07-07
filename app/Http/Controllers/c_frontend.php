@@ -26,17 +26,22 @@ class c_frontend extends Controller
         $head_logo_trang = themes::where('note','logo ân bản')->first();
         $head_setting = setting::where('id',1)->first();
         $cat_pro = category::where('status','true')->where('sort_by', '1')->get();
+        $cat_new = category::where('status','true')->where('sort_by', '2')->where('parent','!=', '0')->get();
         $menu = menu::where('classify','Main menu')->where('status','true')->where('parent', 0)->orderBy('view','asc')->get();
         $province = province::where('status','true')->orderBy('id','asc')->get();
 
+        $news_hits = articles::where('sort_by','2')->where('status','true')->orderBy('hits','desc')->paginate(10);
         
         view()->share( [
             'head_logo'=>$head_logo,
             'head_logo_trang'=>$head_logo_trang,
             'head_setting'=>$head_setting,
             'cat_pro'=>$cat_pro,
+            'cat_new'=>$cat_new,
             'menu'=>$menu,
             'province'=>$province,
+
+            'news_hits'=>$news_hits,
         ]);
     }
 
@@ -117,8 +122,8 @@ class c_frontend extends Controller
         $articles = articles::where('slug',$arurl)->first();
         
         $id = $articles['id'];
-        // $articles->hits = $articles['hits'] + 1;
-        // $articles->save();
+        $articles->hits = $articles['hits'] + 1;
+        $articles->save();
 
         $lienquan = articles::where('status','true')
             ->where('category_id',$articles['category_id'])
