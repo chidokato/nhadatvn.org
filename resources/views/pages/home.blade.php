@@ -29,6 +29,14 @@
 <!------------------- PRODUCT HOT ------------------->
 <section class="sec-product-hot">
 	<div class="container">
+		<div class="cover-title-home">
+			<div class="text-start">
+				<div class="cover-title">
+					<h2><span class="cover-title-filled cover-title-sub">Sản phẩm nổi bật</span></h2>
+				</div>
+			</div>
+		</div>
+
 		<div class="product-hot-slider">
 			<div class="position-relative grid-view">
 				<div class="swiper">

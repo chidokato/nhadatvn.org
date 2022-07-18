@@ -156,6 +156,10 @@ header .navbar .logo{
 .card-s:hover .card-img-top {
     transform: scale(1.05);
 }
+.sec-product-hot {
+    padding-top: 20px;
+}
+.sec-product-hot .cover-title-home .cover-title h2{ font-size: 3rem; }
 .cover-title-home {
     padding-top: 50px;
 }
@@ -531,10 +535,9 @@ header .navbar-brand img {width: 59px;}
     .product-dt-header-title {margin-bottom: 0;}
     .sale-detail-sec .col-lg-9 .product-dt-header-title .d-md-none{ margin-bottom: 0px;    position: fixed;bottom: 0;z-index: 3;width: 100%;     background: #018572;    padding: 5px;  left: 0;}
     .list-tindang h1{font-size: 1.4rem; }
-    /*.floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: '';}*/
-    /*.floating-label {padding: 12px 0px;position: absolute;top: 0;right: 0;z-index: 99999;}*/
-    /*.floating-label .btn-circle, .sec-search .btn-circle.btn-toggle {background: #fff !important;color: #0e5d52;padding: 0;font-size: 1rem;border-radius: 100px;padding: 10px;margin-top: 0;}*/
-    
+    .sec-product-hot .cover-title-home .cover-title h2{ font-size: 1.8rem; }
+    .sec-product-hot .cover-title-home {padding-top: 20px;}
+    .sec-productcity-hp .cover-title h2{ font-size: 1.2rem; }
 }
 
 
