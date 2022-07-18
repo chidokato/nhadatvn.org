@@ -6,13 +6,13 @@
 @section('robots'){{ $category->robot == 0 ? 'index, follow' : 'noindex, nofollow' }}@endsection
 @section('url'){{asset('').$category['slug']}}@endsection
 @section('css')
-<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
-<link href="frontend/css/fonts.css" rel="stylesheet">
-<link href="frontend/css/common.css" rel="stylesheet">
-<link href="frontend/css/header.css" rel="stylesheet">
-<link href="frontend/css/footer.css" rel="stylesheet">
-<link href="frontend/css/widget.css" rel="stylesheet">
-<link href="frontend/css/card.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/fonts.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/common.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/header.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/footer.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/widget.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/card.css" rel="stylesheet">
 @endsection
 @section('content')
 <!------------------- BREADCRUMB ------------------->
@@ -40,7 +40,7 @@
 						@if($key==0)
 						<div class="col-md-8">
 							<a class="card-overlay outline-effect" href="{{$val->category->slug}}/{{$val->slug}}">
-								<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/news/{{$val->img}}');"></span>
+								<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/news/{{$val->img}}');"></span>
 								<div class="card-overlay-body">
 									<div class="card-overlay-body-wrap">
 										<div class="time-box">
@@ -59,7 +59,7 @@
 								@foreach($articles as $key => $val)
 								@if($key==1)
 								<a class="card-overlay card-overlay-sm outline-effect" href="{{$val->category->slug}}/{{$val->slug}}">
-									<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/news/{{$val->img}}');"></span>
+									<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/news/{{$val->img}}');"></span>
 									<div class="card-overlay-body">
 										<div class="card-overlay-body-wrap">
 											<div class="time-box">
@@ -73,7 +73,7 @@
 								@endif
 								@if($key==2)
 								<a class="card-overlay card-overlay-sm outline-effect" href="{{$val->category->slug}}/{{$val->slug}}">
-									<span class="card-overlay-img"><img src="frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('data/news/{{$val->img}}');"></span>
+									<span class="card-overlay-img"><img src="{{asset('')}}frontend/images/space-4.gif" alt="" class="w-100" style="background-image: url('{{asset('')}}data/news/{{$val->img}}');"></span>
 									<div class="card-overlay-body">
 										<div class="card-overlay-body-wrap">
 											<div class="time-box">
@@ -96,7 +96,7 @@
 					<div class="col">
 						<div class="card card-s card-s4">
 							<a href="{{$val->category->slug}}/{{$val->slug}}">
-								<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/news/{{$val->img}}');" alt="..."></span>
+								<span><img src="{{asset('')}}frontend/images/space-3.gif" class="card-img-top" style="background-image: url('{{asset('')}}data/news/{{$val->img}}');" alt="..."></span>
 							</a>
 							<div class="card-body">
 								<div class="card-body-wrap">
@@ -130,7 +130,7 @@
 					<h4><span>Tin tức nổi bật</span></h4>
 					@foreach($news_hits as $val)
 					<a href="{{$val->category->slug}}/{{$val->slug}}" class="news-item">
-						<span><img src="frontend/images/space-3.gif" style="background-image: url('data/news/80/{{$val->img}}');" alt="" class="w-100"></span>
+						<span><img src="{{asset('')}}frontend/images/space-3.gif" style="background-image: url('{{asset('')}}data/news/80/{{$val->img}}');" alt="" class="w-100"></span>
 						<div class="news-item-body">
 							<span class="date"><i class="icon-time me-1"></i>{{date('d/m/Y',strtotime($val->updated_at))}} | <i class="icon-eye me-1"></i>{{$val->hits}} view</span>
 							<p class="mb-0 text-truncate-set text-truncate-set-2">{{$val->name}}</p>
@@ -147,7 +147,7 @@
 
 @endsection
 
-@section('css')
-<script src="frontend/js/bootstrap.bundle.min.js"></script>
-<script src="frontend/js/custom.js"></script>
+@section('script')
+<script src="{{asset('')}}frontend/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('')}}frontend/js/custom.js"></script>
 @endsection

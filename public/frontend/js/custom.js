@@ -61,6 +61,7 @@ function myFunctLink(element) {
   location.href = element.attributes.href.value;
 }
 
+
 var scrollSpy = new bootstrap.ScrollSpy(document.body, {
   target: '#review-4-phuong',
   offset: 100
