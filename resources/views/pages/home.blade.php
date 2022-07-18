@@ -70,8 +70,7 @@
 		<div class="cover-title-home">
 			<div class="text-start">
 				<div class="cover-title">
-					<h2><span class="cover-title-filled text-main">Sản phẩm đang bán</span></h2>
-					<button>Xem thêm</button>
+					<h2><span class="cover-title-filled">Sản phẩm đang bán</span></h2>
 				</div>
 			</div>
 		</div>
@@ -108,16 +107,14 @@
 <!------------------- REVIEW ------------------->
 <section class="new-home">
 	<div class="container">
-		<div class="row">
-			<!-- <div class="col-lg-4 align-self-end ps-lg-0">
-				<div class="man-house"><img src="frontend/images/man-lg.png" alt="" class="mw-100"></div>
-				<div class="man-house"><img src="frontend/images/bg.png" alt="" class="mw-100"></div>
-			</div> -->
-			<div class="text-start cover-content">
+		<div class="cover-title-home">
+			<div class="text-start">
 				<div class="cover-title">
-					<h3><span class="cover-title-filled">Tin tức</span><span class="position-relative">Mới nhất</span></h3>
+					<h2><span class="cover-title-filled cover-title-sub">Tin tức mới nhất</span></h2>
 				</div>
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-lg-8">
 				<div class="review-project-content ">
 					<div class="position-relative pt-3">
@@ -171,7 +168,7 @@
 		<div class="cover-title-home">
 			<div class="text-start">
 				<div class="cover-title">
-					<h2><span class="cover-title-filled text-main">Sản phẩm trên toàn quốc</span></h2>
+					<h2><span class="cover-title-filled">Sản phẩm trên toàn quốc</span></h2>
 				</div>
 			</div>
 		</div>

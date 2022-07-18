@@ -157,7 +157,7 @@ header .navbar .logo{
     transform: scale(1.05);
 }
 .cover-title-home {
-    /*padding-top: 50px;*/
+    padding-top: 50px;
 }
 .cover-title-home .cover-content .cover-title-filled {
     bottom: -20px;
@@ -166,16 +166,20 @@ header .navbar .logo{
 .cover-title-home h2{
     font-weight: bold;
 }
+
 .cover-title-home .cover-title{
-    display: flex;justify-content: space-between;align-items: center;
+    text-align: center;
+    color: rgba(255,255,255,0);
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
-.cover-title-home .cover-title button{
-    background: #fff; border: 1px solid var(--sub-color); padding: 6px 18px 9px 18px; border-radius: 30px; 
-    color: var(--sub-color);
+
+.cover-title-home .cover-title-sub{
+    -webkit-text-stroke-color: var(--sub-color);
 }
-.cover-title-home .cover-title button:hover{
-    background: var(--sub-color); color: #fff; border: #fff;
-}
+
 .product-dt-header-title h1 {
     color: var(--main-color);
     font-weight: bold;
@@ -434,7 +438,7 @@ border-radius: 3px;
 .search-cat button[type=submit]{ width: 100%; }
 .search-home .select2-container {margin-top: 10px;}
 header .navbar-brand img {width: 59px;}
-.new-home {position: unset;padding-bottom: 30px;}
+.new-home {position: unset;padding-bottom: 30px; background: var(--main-color);}
 .new-home .cover-content {position: unset;}
 .new-home .cover-content h3{font-size: 54px;}
 .new-home .cover-content .cover-title-filled{font-size: 36px;}
