@@ -106,7 +106,7 @@
 </section>
 
 <!------------------- REVIEW ------------------->
-<section class="review-project new-home">
+<section class="new-home">
 	<div class="container">
 		<div class="row">
 			<!-- <div class="col-lg-4 align-self-end ps-lg-0">
@@ -179,25 +179,22 @@
 			<div class="row g-3">
 				<div class="col-lg-6">
 					<a class="card-overlay card-overlay-lg outline-effect" href="#">
-						<span class="card-overlay-img"><i class="thumb" style="background-image: url('https://shelter.vn/wp-content/uploads/2021/02/thitruongbdsss.jpg');"></i></span>
+						<span class="card-overlay-img"><i class="thumb" style="background-image: url('data/home/hanoi.jpg');"></i></span>
 						<div class="card-overlay-body">
-							<h2><span>Hà</span><span>Nội</span></h2>
+							<h2><span>Hà Nội</span></h2>
 							<div>100 sản phẩm</div>
 						</div>
 						<div class="load-more overlay-center text-center">
 							<div class="zoom-ico"><i class="icon-search"></i></div>
-							<!-- <div class="cta-btn ir">
-								<button><span class="cta-text font-weight-semibold">Chi tiết</span><span class="cta-ico"><i class="icon-next"></i></span></button>
-							</div> -->
 						</div>
 					</a>
 				</div>
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
 						<a class="card-overlay card-overlay-sm outline-effect" href="#">
-							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('https://sayhi.vn/blog/wp-content/uploads/2019/09/image7-1.png');"></span>
+							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('data/home/quangninh.jpg');"></span>
 							<div class="card-overlay-body">
-								<h2><span>Thanh</span><span>Hóa</span></h2>
+								<h2><span>Quảng Ninh</span></h2>
 								<div>100 sản phẩm</div>
 							</div>
 							<div class="load-more overlay-center text-center">
@@ -209,9 +206,9 @@
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
 						<a class="card-overlay card-overlay-sm outline-effect" href="#">
-							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('http://motorbiketoursinvietnam.com/wp-content/uploads/2014/11/Danang-City.jpg');"></span>
+							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('data/home/vinhphuc.jpg');"></span>
 							<div class="card-overlay-body">
-								<h2><span>Quảng</span><span>Ninh</span></h2>
+								<h2><span>Vĩnh phúc</span></h2>
 								<div>100 sản phẩm</div>
 							</div>
 							<div class="load-more overlay-center text-center">
@@ -223,9 +220,9 @@
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
 						<a class="card-overlay card-overlay-sm outline-effect" href="#">
-							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('https://files.customs.gov.vn/CustomsCMS/ckeditor/images/haiphong1%20(1).jpg');"></span>
+							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('data/home/haiphong.jpg');"></span>
 							<div class="card-overlay-body">
-								<h2><span>Hải</span><span>Phòng</span></h2>
+								<h2><span>Hải Phòng</span></h2>
 								<div>100 sản phẩm</div>
 							</div>
 							<div class="load-more overlay-center text-center">
@@ -237,9 +234,9 @@
 				<div class="col-lg-3">
 					<div class="card-overlay-flex">
 						<a class="card-overlay card-overlay-sm outline-effect" href="#">
-							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('https://scwcontent.affino.com/AcuCustom/Sitename/DAM/015/Hanoi_Adobe.jpg');"></span>
+							<span class="card-overlay-img"><img src="frontend/images/space-2.gif" alt="" class="w-100 thumb" style="background-image: url('data/home/bacninh.jpg');"></span>
 							<div class="card-overlay-body">
-								<h2><span>Vĩnh</span><span>Phúc</span></h2>
+								<h2><span>Bắc Ninh</span></h2>
 								<div>100 sản phẩm</div>
 							</div>
 							<div class="load-more overlay-center text-center">
@@ -250,9 +247,9 @@
 				</div>
 				<div class="col-lg-6">
 					<a class="card-overlay card-overlay-lg outline-effect" href="#">
-						<span class="card-overlay-img"><i class="thumb" style="background-image: url('https://merger.vn/wp-content/uploads/2021/09/41.jpg');"></i></span>
+						<span class="card-overlay-img"><i class="thumb" style="background-image: url('data/home/phutho.jpg');"></i></span>
 						<div class="card-overlay-body">
-							<h2><span>Thành phố</span><span>Hồ Chí Minh</span></h2>
+							<h2><span>Phú Thọ</span></h2>
 							<div>100 sản phẩm</div>
 						</div>
 						<div class="load-more overlay-center text-center">
@@ -270,7 +267,7 @@
 
 @section('script')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="frontend/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="frontend/js/bootstrap.bundle.min.js"></script> -->
 <script src="frontend/js/select2.min.js"></script>
 <script src="frontend/js/select2-searchInputPlaceholder.js"></script>
 

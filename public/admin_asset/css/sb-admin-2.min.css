@@ -169,7 +169,7 @@ label.error{
                         .default{ opacity: 0.4 }
                         .default:hover{ opacity: 1; color: #000; }
 
-.sticky{
+.fixed{
     position: fixed;
     width: 100%;
     right: 0px;
@@ -452,3 +452,12 @@ label {color: #46515F;}
     border: none;
     box-shadow: 0px 3px 4px 2px #d1d3e2;
 }
+
+
+
+#wrapper #content-wrapper {overflow-x: inherit;}
+.position_sticky{ position: sticky; }
+.list_cat{ padding-left: 0; }
+.list_cat li{ list-style: none; }
+.list_cat .checkmark {top: 5px;}
+.list_cat label{ padding-left: 20px; font-size: 1.1rem; margin-bottom: 10px; }

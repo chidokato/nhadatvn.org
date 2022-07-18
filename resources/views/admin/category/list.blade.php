@@ -7,6 +7,7 @@
     <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">Danh sách danh mục</h2>
     <a class="add-iteam" href="admin/category/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a>
 </div>
+
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">

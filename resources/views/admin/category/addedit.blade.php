@@ -4,7 +4,7 @@
 @include('admin.errors.alerts')
 <form id="validateForm" action="admin/category/{{ isset($data) ? 'edit/'.$data->id : 'add' }}" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow sticky">
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow fixed">
     <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
     <ul class="navbar-nav ">
         <li class="nav-item"> <a class="nav-link line-1" href="admin/category/list" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách danh mục</span> </a> </li>
