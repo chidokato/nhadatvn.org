@@ -1,7 +1,4 @@
-var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  target: '#review-4-phuong',
-  offset: 100
-})
+
 
 var prevScrollpos = window.pageYOffset;
 var myDiv = document.querySelector('body')
@@ -64,3 +61,7 @@ function myFunctLink(element) {
   location.href = element.attributes.href.value;
 }
 
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#review-4-phuong',
+  offset: 100
+})

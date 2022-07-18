@@ -279,16 +279,8 @@
 <script src="frontend/js/swiper-bundle.min.js"></script>
 <script src="frontend/js/simpleLightbox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="frontend/js/chart.nhaongay.js"></script>
-<script>
-	// const myChart = new Chart(
-	//   document.getElementById('fluctuatingPrice'),
-	//   fluctuatingPrice,
-	// );
+<script src="frontend/js/custom.js"></script>
 
-	new SimpleLightbox({elements: '.main-ads-slider a'});
-</script>
-<!-- Initialize Swiper -->
 <script>
         var swiper1 = new Swiper(".broker-slider .swiper", {
             slidesPerView: 2,
@@ -486,5 +478,5 @@
 	// 	dropdownParent: $('.form-more .dropdown-menu') 
 	// });
 </script>
-<script src="frontend/js/custom.js"></script>
+
 @endsection
