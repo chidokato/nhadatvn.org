@@ -114,7 +114,7 @@
 			<div class="col-lg-9">
 				<div class="main-content product-subpage">
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-12">
 							<div class="product-dt-header">
 								<div class="product-dt-header-title">
 									<h1>{{$articles->name}}</h1>
@@ -137,17 +137,6 @@
 									</div>
 									<div id="fix-ft-anchor"></div>
 								</div>
-								<!-- <div class="product-dt-header-icons">
-									<div class="product-dt-header-icons-wrap product-dt-header-icons-left">
-										<span><i class="icon-acreage"></i>50m2</span>
-										<span><i class="icon-bed"></i>2PN</span>
-										<span><i class="icon-bathroom"></i>2WC</span>
-									</div>
-									<div class="product-dt-header-icons-wrap product-dt-header-icons-right">
-										<a href="{{asset('')}}#"><i class="icon-deagree"></i>VR360</a>
-										<a href="{{asset('')}}#"><i class="icon-brochure"></i>Brochure</a>
-									</div>
-								</div> -->
 							</div>
 							<div class="main-article">
 								<div class="product-overview" id="overview">
@@ -303,83 +292,39 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2 d-none d-md-block pd-0">
-							<div class="product-price affix">
-								<div class="new-price">
-									<span>Giá bán</span> 
-									<h5>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h5>
-								</div>
-								<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
-
-								<div class="product-contact">
-									<a class="btn btn-tel"><i class="icon-phone"></i><span>0972029093</span></a>
-									<a class="btn btn-mail" href="{{asset('')}}#info-customer" data-bs-toggle="modal"><i class="icon-mail"></i><span>Liên hệ ngay</span></a>
-								</div>
-							</div>
-							
-						</div>
+						
 					</div>
 					
 				</div>
 			</div>
 			<div class="col-lg-3 d-none d-lg-block">
-
-				<div class="card card-s card-s3 widget widget-broker">
-					<a href="{{asset('')}}#"><span class=""><img src="{{asset('')}}frontend/images/space-2.gif" class="card-img-top" style="background-image: url('{{asset('')}}data/user/{{$articles->user->avatar}}');" alt="..."></span></a>
-					<div class="card-body">
-						<div class="card-body-wrap">
-							<div class="px-lg-2">
-								<small class="text-sub">Chuyên viên tư vấn</small>
-								<h5 class="card-title"><a href="{{asset('')}}#" class="text-truncate">{{$articles->user->your_name}}</a></h5>
+				<div class="product-price affix">
+					<div class="new-price">
+						<span>Giá bán</span> 
+						<h5>@if($articles->product->price!='') {{$articles->product->price}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @else Liên hệ @endif</h5>
+					</div>
+					<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
+					
+					<div class="widget widget-appointment">
+						<h4 class="line-b">Đăng ký nhận thông tin</h4>
+						<form>
+							<div class="mb-3">
+								<input type="text" class="form-control" id="" placeholder="Họ tên của bạn">
 							</div>
-							<!-- <div class="mb-3 widget-broker-btn">
-								<a href="{{asset('')}}#" class="btn btn-outline">100 tin rao <i class="icon-next"></i></a>
-								<a href="{{asset('')}}#" class="btn btn-outline btn-outline-subcolor"><i class="icon-shop"></i> Xem sàn <i class="icon-next"></i></a>
-							</div> -->
-							<div class="card-info px-lg-2">
-								<span><i class="icon-call me-2"></i>{{$articles->user->phone}}</span>
-								<span><i class="icon-location me-2"></i>Thanh Xuân, Hà Nội</span>
-								<span><i class="icon-experience me-2"></i>8 năm kinh nghiệm</span>
+							<div class="mb-3">
+								<input type="email" class="form-control" id="" placeholder="Nhập email">
 							</div>
-						</div>
-						<!-- <div class="card-ct px-lg-2">
-							<button type="button" class="btn btn-outline"><span>Tư vấn ngay <i class="icon-chat ms-1"></i></span></button>
-						</div> -->
+							<div class="mb-3">
+								<input type="number" class="form-control" id="" placeholder="Nhập số điện thoại">
+							</div>
+							<div class="mb-3 datepicker">
+								<input type="date" class="form-control" id="" placeholder="Ngày xem">
+								<i><img src="{{asset('')}}frontend/images/ico-datepicker.svg" alt=""></i>
+							</div>
+							<div class="text-center"><div class="cta-btn ir"><a class="" href="{{asset('')}}register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
+						</form>
 					</div>
 				</div>
-
-				<div class="widget widget-appointment">
-					<h4 class="line-b">Đăng ký nhận thông tin</h4>
-					<form>
-						<div class="mb-3">
-							<input type="text" class="form-control" id="" placeholder="Họ tên của bạn">
-						</div>
-						<div class="mb-3">
-							<input type="email" class="form-control" id="" placeholder="Nhập email">
-						</div>
-						<div class="mb-3">
-							<input type="number" class="form-control" id="" placeholder="Nhập số điện thoại">
-						</div>
-						<div class="mb-3 datepicker">
-							<input type="date" class="form-control" id="" placeholder="Ngày xem">
-							<i><img src="{{asset('')}}frontend/images/ico-datepicker.svg" alt=""></i>
-						</div>
-						<div class="text-center"><div class="cta-btn ir"><a class="" href="{{asset('')}}register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
-					</form>
-				</div>
-				
-				<div class="widget widget-list widget-news mb-3">
-					<h4><span>Tin tức nổi bật</span></h4>
-					<a href="{{asset('')}}#" class="news-item">
-						<span><img src="{{asset('')}}frontend/images/space-3.gif" style="background-image: url('{{asset('')}}');" alt="" class="w-100"></span>
-						<div class="news-item-body">
-							<span class="date"><i class="icon-time me-1"></i>2 ngày trước</span>
-							<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn hộ diện tích 80m2</p>
-						</div>
-					</a>
-					
-				</div>
-
 			</div>
 		</div>
 	</div>
