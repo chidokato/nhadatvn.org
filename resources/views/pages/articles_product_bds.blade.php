@@ -227,7 +227,7 @@
 
 										
 
-										<div id="product-detail" class="scrolloverview">
+										<!-- <div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">Chi tiết</h5>
 												<div class="row g-5 justify-content-between">
@@ -285,7 +285,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										
 										
 									</div>

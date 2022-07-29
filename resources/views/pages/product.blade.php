@@ -198,10 +198,18 @@
 										<div class="card-info">
 											<span><i class="icon-location me-2"></i>{{ isset($val->product->district->name)? $val->product->district->name.', ' : '' }}{{ isset($val->product->province->name)? $val->product->province->name : '' }}</span>
 										</div>
-										<p class="mb-0 text-truncate-set text-truncate-set-2">Chính chủ cần chuyển nhượng gấp căn 2 ngủ diện tích thông thủy 78m2 full đồ, khách mua chỉ cần dọn quần áo đến có thể ở ngay</p>
 									</div>
 									<div class="card-footer">
-										<div class="card-price">Giá: <span class="current-price">{{ isset($val->product->price)? $val->product->price:'' }} tỷ</span><span class="old-price">5,6 tỷ</span></div>
+										<div class="card-price">Giá: 
+											@if($val->product->price!='')
+											<span class="current-price">{{ isset($val->product->price)? $val->product->price:'' }} <?php if($val->product->unit_price==1000000000){ echo "Tỷ"; }elseif($val->product->unit_price==1000000){ echo "Triệu"; }elseif($val->product->unit_price==1){ echo "VNĐ"; } ?></span>
+											@else
+											<span class="current-price">Liên hệ</span>
+											@endif
+											@if($val->product->oldprice!='')
+											<span class="old-price">{{ $val->product->oldprice }} <?php if($val->product->unit_price==1000000000){ echo "Tỷ"; }elseif($val->product->unit_price==1000000){ echo "Triệu"; }elseif($val->product->unit_price==1){ echo "VNĐ"; } ?></span>
+											@endif
+										</div>
 									</div>
 								</div>
 							</div>
