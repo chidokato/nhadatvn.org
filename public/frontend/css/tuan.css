@@ -448,6 +448,25 @@ header .navbar-brand img {width: 59px;}
 .new-home .cover-content .cover-title-filled{font-size: 36px;}
 .current-price {margin-right: 6px;}
 .grid-view .card-footer{border: none;padding-top: 0; margin-top: 0; }
+.related-sec h3{ font-size: 1.4rem; -webkit-text-stroke-width: 0.8px !important; color: var(--main-color); margin-bottom: 20px; position: relative; }
+.related-sec h3::after{ width: 64px;content: '';position: absolute;height: 2px;background-color: var(--sub-color);left: 0;bottom: -6px; }
+
+.comment-input form{ display: flex;  }
+.comment-input input{ border: 1px solid #ddd; border-radius: 3px 0px 0px 3px; background:#f0f2f5; border-radius: 20px; padding-left: 20px; position: relative; }
+.comment-input button{ border: 1px solid #ddd; border-radius: 0px 3px 3px 0px; position: absolute; right: 0;  }
+.comment-list{ max-height: 450px; overflow: auto; display: flex; flex-direction: column; padding-top: 15px;}
+.comment-item{ display: flex;margin-bottom: 10px; }
+.comment-item h4{ font-size: 1rem; font-weight: bold; margin-bottom: 0px; }
+.comment-item p{ font-size: .9rem; line-height: 1.1rem; margin-bottom: 0; }
+.comment-item .content-comment{ background: #f0f2f5;border-radius: 20px; padding: 6px 12px; position: relative; margin-bottom: 20px; position: relative; }
+.comment-item .content-comment .dell-comment{     position: absolute;top: -13px;right: -13px;color: #224abe;background: #ddd;border-radius: 10px;padding: 1px 5px;font-size: .8rem;box-shadow: 2px 2px 5px 0px; border: none; }
+.comment-item .content-comment .info{ font-size: .8rem; position: absolute; bottom: -22px; width: 200px; }
+.comment-item .content-comment .info span{ font-weight: bold; margin-right: 15px;cursor: pointer; }
+.comment-item .content-comment .info span:hover{ text-decoration: underline; }
+.comment-item .avatar{ position: relative; width: 49px; }
+.comment-item .avatar img{ width: 38px; height: 38px; border-radius: 100px; margin-right: 5px;  }
+.comment-item-rep{ margin-left: 43px; }
+.comment-item-rep .avatar img{ width: 30px; height: 30px; }
 
 @media (min-width: 1600px){
     .horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {

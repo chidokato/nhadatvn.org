@@ -225,6 +225,40 @@
 										</div>
 										@endforeach
 
+										<div id="product-detail" class="scrolloverview">
+											<div class="product-detail product-utilities">
+												<h5 class="line-b">Bình luận</h5>
+												<div class="comment-input">
+							                        <form id="add_comment" class="comment-item" method="post" action="post_comment">
+							                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
+							                            <div class="avatar">
+							                                <img src="{{asset('')}}data/user.png">
+							                            </div>
+							                            <input id="input" class="form-control" placeholder="Viết bình luận ..." type="" name="content">
+							                        </form>
+							                    </div>
+							                    <div class="comments">
+								                    <div class="comment-list" id="load_comment">
+								                        <div class="comment-item" id="comment_item">
+								                            <input type="hidden" id="id" name="" value="" />
+								                            <div class="avatar">
+								                                <img src="{{asset('')}}data/user.png">
+								                            </div>
+								                            <div class="content-comment">
+								                                <h4>Nguyễn Văn tuấn <span style="font-weight: 100; font-size: .9rem"></span></h4>
+								                                <p>asasda asd asdas asd asda asd ádasd</p>
+								                                <div class="info">
+								                                    <span id="rep">Trả lời</span>
+								                                    <i>52/5/2002</i>
+								                                    <span style="margin-left: 10px;" onClick="delete_row(this)" id="dell_comment">Xóa</span>
+								                                </div>
+								                                
+								                            </div>
+								                        </div>
+								                    </div>
+								                </div>
+											</div>
+										</div>
 										
 
 										<!-- <div id="product-detail" class="scrolloverview">
@@ -331,6 +365,46 @@
 </section>
 <!------------------- END CARD ------------------->
 
+<section class="related-sec">
+	<div class="container">
+		<h3 class="title-subpage">Sản phẩm liên quan</h3>
+		<div class="row row-cols-2 row-cols-md-4 g-4 grid-view" id="show-setting">
+			@if(count($lienquan)>0)
+				@foreach($lienquan as $val)
+				<div class="col">
+					<div class="card card-s card-s4">
+						<!-- <span class="hot"><img src="frontend/images/new-label.png"></span> -->
+						<a href="{{asset('')}}{{$val->category->slug}}/{{$val->slug}}">
+							<span><img src="{{asset('')}}frontend/images/space-3.gif" class="card-img-top" style="background-image: url('{{asset('')}}data/product/300/{{$val->img}}');" alt="..."></span>
+						</a>
+						<div class="card-body">
+							<div class="card-body-wrap">
+								<h5 class="card-title"><a href="{{asset('')}}{{$val->category->slug}}/{{$val->slug}}" class="text-truncate">{{$val->name}}</a></h5>
+								<div class="card-info">
+									<span><i class="icon-location me-2"></i>{{ isset($val->product->district->name)? $val->product->district->name.', ' : '' }}{{ isset($val->product->province->name)? $val->product->province->name : '' }}</span>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="card-price">Giá: 
+									@if($val->product->price!='')
+									<span class="current-price">{{ isset($val->product->price)? $val->product->price:'' }} <?php if($val->product->unit_price==1000000000){ echo "Tỷ"; }elseif($val->product->unit_price==1000000){ echo "Triệu"; }elseif($val->product->unit_price==1){ echo "VNĐ"; } ?></span>
+									@else
+									<span class="current-price">Liên hệ</span>
+									@endif
+									@if($val->product->oldprice!='')
+									<span class="old-price">{{ $val->product->oldprice }} <?php if($val->product->unit_price==1000000000){ echo "Tỷ"; }elseif($val->product->unit_price==1000000){ echo "Triệu"; }elseif($val->product->unit_price==1){ echo "VNĐ"; } ?></span>
+									@endif
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			@endif
+		</div>
+	</div>
+</section>
+
 <!-- INFO CUSTOMER -->
 <div class="modal fade info-customer" id="info-customer">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
@@ -410,7 +484,7 @@
 
 @endsection
 @section('script')
-
+<script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 <script src="{{asset('')}}frontend/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('')}}frontend/js/swiper-bundle.min.js"></script>
 <script src="{{asset('')}}frontend/js/custom.js"></script>
@@ -553,6 +627,58 @@
 			swiper: swiper5,
 		},
 	});
+</script>
+
+<script type="text/javascript">
+    $('form#add_comment').submit(function(event) {
+        $.ajax({
+            method: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(datas){
+                $('#load_comment').html(datas);
+                $('#add_comment')[0].reset();
+            }
+
+        }).done(function(response) {
+            // alert('thành công');
+        });
+        event.preventDefault(); // <- avoid reloading
+    });
+
+    $(document).ready(function(){
+        $("button#download").click(function(){
+            var id = $(this).parents('#downloadlist').find('input[id="id"]').val();
+            // alert(id);
+            $.ajax({
+                url:  'admin/ajax/update_hits_articles/'+id, type: 'GET', cache: false, data: {
+                    "id":id
+                },
+                success: function(data){
+                    $('#luottai').html(data);
+                }
+            });
+        });
+    }); // update status
+
+    $(document).ready(function(){
+        $("span#dell_comment").click(function(){
+            var id = $(this).parents('#comment_item').find('input[id="id"]').val();
+            // alert(id);
+            $.ajax({
+                url: 'admin/ajax/dell_comment/'+id,
+                type: 'GET',
+                cache: false,
+                data: {
+                    "id":id
+                },
+            });
+        });
+    }); // xóa ảnh trong db
+
+    function delete_row(e) {
+        e.parentElement.parentElement.parentElement.remove();
+    }
 </script>
 
 
