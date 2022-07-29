@@ -61,7 +61,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9">
-				<div class="label-subpage"><span>{{$articles->category->name}}</span></div>
+				<!-- <div class="label-subpage"><span>{{$articles->category->name}}</span></div> -->
 				<div class="title-subpage">
 					<div class="time-box">
 						<span>{{date('d/m',strtotime($articles->created_at))}}</span>
@@ -71,7 +71,7 @@
 				</div>
 				<div class="main-content">
 					<div class="row">
-						<div class="col-md-1">
+						<!-- <div class="col-md-1">
 							<div class="share-social affix">
 								<span><small>Share</small></span>
 								<ul>
@@ -79,8 +79,8 @@
 									<div class="zalo-share-button" data-href="" data-oaid="3806913012913629376" data-layout="4" data-color="white" data-customize="false"></div>
 								</ul>
 							</div>
-						</div>
-						<div class="col-md-11">
+						</div> -->
+						<div class="col-md-12">
 							<div class="main-article" id="contents">
 								<div class="description">
 									{{$articles->detail}}
@@ -98,12 +98,19 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-3 d-none d-lg-block">
+			<div class="col-lg-3 d-lg-block">
 				@if($articles->style == 'on')
 				<div class="widget affix widget-list mb-3">
 					<div class="position-sticky" style="top: 4.5rem;">
 					<h4><span>Mục lục</span></h4>
 					<div id="toc"  ></div>
+					</div>
+					<div class="button">
+						<button class="ico-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
 					</div>
 				</div>
 				@else
@@ -185,10 +192,23 @@
 
 @endsection
 @section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="{{asset('')}}frontend/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('')}}frontend/js/swiper-bundle.min.js"></script>
 <script src="{{asset('')}}frontend/js/custom.js"></script>
 <!-- Initialize Swiper -->
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button.ico-menu").click(function(){
+    $(".widget.affix").toggleClass("show");
+  });
+  
+  $("a.scroll-to").click(function(){
+    $(".widget.affix").removeClass("show");
+  });
+});
+</script>
+
 <script>
 	var swiper = new Swiper(".mySwiper", {
 			slidesPerView: 1,
@@ -320,5 +340,9 @@ $(window).scroll(function() {
         }
     });
 }).scroll();
+
+
+
+
 </script>
 @endsection

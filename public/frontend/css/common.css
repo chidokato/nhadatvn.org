@@ -130,11 +130,11 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 .swiper-button-next {right:-80px}
 .swiper-button-next:hover, .swiper-button-prev:hover {background-color:var(--sub-color); border-color:var(--sub-color); color:#fff}
 
-.breadcrumb {margin-bottom:0}
+.breadcrumb {margin-bottom:0; margin-top: 6px;}
 .breadcrumb .breadcrumb-item {padding:16px 0 18px; font-size:14px}
 .breadcrumb-item+.breadcrumb-item::before {padding-left:.25rem; padding-right:.25rem}
 
-.title-subpage {margin-bottom: 24px;}
+/*.title-subpage {margin-bottom: 24px;}*/
 
 
 .cta-btn {display:inline-block}
@@ -457,7 +457,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 
 	.container {padding-left: 16px;padding-right: 16px;}
 
-	.breadcrumb .breadcrumb-item {padding-top:8px;padding-bottom:10px;font-size: 12px;}
+	.breadcrumb .breadcrumb-item {padding-top:0;padding-bottom:0;font-size: 12px;}
 	 .main-content-wrap, .main-content-wrap .primary-title {padding-top:0}
 	 .main-content-wrap .primary-title {padding-bottom:12px}
 	.text-quote span:nth-of-type(1), .text-quote span:nth-of-type(2) {display:none}
