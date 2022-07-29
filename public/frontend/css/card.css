@@ -7,10 +7,10 @@
 .card-s {height: 100%;border: none; background: none;}
 .card-s .card-img, .card-s .card-img-top {border-radius:.25rem}
 .card-s .card-body {margin: -16px 6px 0;background: #fff;border: 1px solid rgb(0 0 0 / 6%);border-radius: 0.25rem;box-shadow: 0 0 2px rgb(0 0 0 / 10%);font-size: 14px;position: relative;padding: 15px 12px 8px;}
-.card-info {display: flex;align-items: center;justify-content: space-between;/* font-style: italic; */margin-bottom: 8px;color: #888;flex-wrap: wrap;}
-.card-info i {font-size: 18px;margin-right: 6px !important;margin-top: 3px;}
+.card-info {display: flex;align-items: center;justify-content: space-between;/* font-style: italic; *//*margin-bottom: 8px;*/color: #888;flex-wrap: wrap;}
+.card-info i {font-size: .9rem;margin-right: 2px !important;margin-top: 5px;}
 .card-s .card-title {font-size: 17px;position: relative;margin-bottom: 18px;-webkit-text-stroke-width: 0.25px;}
-.card-s .card-title::after {position: absolute;content: '';height: 2px;left: 0;width: 40px;background-color: var(--sub-color);bottom: -8px;}
+/*.card-s .card-title::after {position: absolute;content: '';height: 2px;left: 0;width: 40px;background-color: var(--sub-color);bottom: -8px;}*/
 .card-s .card-title a {display: block;line-height: 1.5;}
 .card-s a {color: #222;}
 .card-s a:hover {color: var(--main-color);}
@@ -34,7 +34,7 @@
 .product-status span:nth-last-of-type(n+2) {border-right:1px solid #fff;}
 
 
-.current-price {color:var(--main-color);font-weight:bold;font-size: 20px;padding-right: 6px;}
+.current-price {color:var(--main-color);font-size: 20px;padding-right: 6px;    -webkit-text-stroke-width: 0.6px !important;letter-spacing: 0.6px;}
 .old-price {color: #888;text-decoration:line-through;}
 
 .card-s .card-footer {background-color: transparent;padding-bottom: 0;padding-top: 8px;margin-left: -12px;margin-right: -12px;border-top-color: rgba(0,0,0,.072);margin-top: 12px;}

@@ -87,7 +87,7 @@ header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon.notification .dropdown-me
     color: #fff !important;text-decoration: revert;
 }
 header .navbar .logo{
-    background: #fff; padding: 10px; box-shadow: 0px 0px 5px 1px var(--main-color);border-radius: 0px 0px 3px 3px;
+    background: #fff; padding: 9px; box-shadow: 0px 0px 5px 1px var(--main-color);border-radius: 0px 0px 3px 3px;
 }
 
 .sr-hd-nav-box{
@@ -139,7 +139,7 @@ header .navbar .logo{
     height: 58px;
 }
 .grid-view .card-s .card-title {
-    padding-top: 0;
+    padding-top: 0; margin-bottom: 4px;
 }
 .cover-title-home .cover-content h3 {
     font-size: 30px;
@@ -446,6 +446,8 @@ header .navbar-brand img {width: 59px;}
 .new-home .cover-content {position: unset;}
 .new-home .cover-content h3{font-size: 54px;}
 .new-home .cover-content .cover-title-filled{font-size: 36px;}
+.current-price {margin-right: 6px;}
+.grid-view .card-footer{border: none;padding-top: 0; margin-top: 0; }
 
 @media (min-width: 1600px){
     .horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {
@@ -514,6 +516,7 @@ header .navbar-brand img {width: 59px;}
     .floating-label .btn-circle::after, .sec-search .btn-circle.btn-toggle::after {content: 'Tìm kiếm sản phẩm';}
     .search-home .row>.col-9{padding-left: 5px; border-left: none;}
     .new-home .cover-content .cover-title-filled{left: -33px;}
+    .current-price {font-size: .9rem; margin-right: 6px;}
 }
 
 @media (max-width: 414px){
@@ -546,7 +549,7 @@ header .navbar-brand img {width: 59px;}
     .card-info {font-size: .7rem;}
     .card-body-new .current-price { font-size: .9rem;}
     .card-body-new .card-contact i {height: 25px;flex: 0 0 25px;}
-    .current-price span,.card-body-new .old-price,.card-body-new .card-contact span, .card-body-new .card-info p {font-size: .6rem; line-height: 10px;}
+    .current-price span,.card-body-new .old-price,.card-body-new .card-contact span, .card-body-new .card-info p {font-size: .7rem; line-height: 10px;}
 }
 
 
