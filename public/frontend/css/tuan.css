@@ -35,7 +35,7 @@ header .navbar-expand-lg .navbar-nav .nav-link {
 }
 .scrollDown header .navbar-expand-lg .navbar-nav .nav-link{
     font-size: 13px;
-    padding: 17px 25px;
+    /*padding: 17px 25px;*/
 }
 
 .widget-broker.card-s3 .card-body {
