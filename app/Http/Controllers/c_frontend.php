@@ -61,11 +61,13 @@ class c_frontend extends Controller
 
     public function sitemap()
     {
-        $sitemap_category = category::where('status','true')->get();
+        $sitemap_category_pro = category::where('sort_by','1')->where('status','true')->get();
+        $sitemap_category_new = category::where('sort_by','2')->where('status','true')->get();
         $sitemap_articles_pro = articles::where('sort_by','1')->where('status','true')->get();
         $sitemap_articles_new = articles::where('sort_by','2')->where('status','true')->get();
         return response()->view('pages.sitemap', [
-            'sitemap_category' => $sitemap_category,
+            'sitemap_category_pro' => $sitemap_category_pro,
+            'sitemap_category_new' => $sitemap_category_new,
             'sitemap_articles_pro' => $sitemap_articles_pro,
             'sitemap_articles_new' => $sitemap_articles_new,
             ])->header('Content-Type', 'text/xml');

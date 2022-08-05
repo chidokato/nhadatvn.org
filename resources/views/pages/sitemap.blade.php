@@ -6,7 +6,7 @@
     <priority>1</priority>
 </url>
 
-@foreach ($sitemap_category as $val)
+@foreach ($sitemap_category_pro as $val)
 <url>
     <loc>{{asset('')}}{{$val->slug}}</loc>
     <changefreq>always</changefreq>
@@ -14,9 +14,17 @@
 </url>
 @endforeach
 
-@foreach ($sitemap_articles_pro as $val)
+@foreach ($sitemap_category_new as $val)
 <url>
     <loc>{{asset('')}}{{$val->slug}}</loc>
+    <changefreq>always</changefreq>
+    <priority>0.8</priority>
+</url>
+@endforeach
+
+@foreach ($sitemap_articles_pro as $val)
+<url>
+    <loc>{{asset('')}}{{$val->category->slug}}/{{$val->slug}}</loc>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
 </url>
@@ -24,7 +32,7 @@
 	
 @foreach ($sitemap_articles_new as $val)
 <url>
-    <loc>{{asset('')}}{{$val->slug}}</loc>
+    <loc>{{asset('')}}{{$val->category->slug}}/{{$val->slug}}</loc>
     <changefreq>always</changefreq>
     <priority>0.8</priority>
 </url>

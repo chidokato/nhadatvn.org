@@ -19,6 +19,8 @@
 <link href="{{asset('')}}frontend/css/widget.css" rel="stylesheet">
 <link href="{{asset('')}}frontend/css/article.css" rel="stylesheet">
 <link href="{{asset('')}}frontend/css/simpleLightbox.css" rel="stylesheet">
+<link href="{{asset('')}}frontend/css/captcha.css" rel="stylesheet">
+
 @endsection
 @section('content')
 
@@ -341,7 +343,7 @@
 					
 					<div class="widget widget-appointment">
 						<h4 class="line-b">Đăng ký nhận thông tin</h4>
-						<form>
+						<form action="dang-ky" id="dangky" method="post">
 							<div class="mb-3">
 								<input type="text" class="form-control" id="" placeholder="Họ tên của bạn">
 							</div>
@@ -351,12 +353,30 @@
 							<div class="mb-3">
 								<input type="number" class="form-control" id="" placeholder="Nhập số điện thoại">
 							</div>
-							<div class="mb-3 datepicker">
+							<!-- <div class="mb-3 datepicker">
 								<input type="date" class="form-control" id="" placeholder="Ngày xem">
 								<i><img src="{{asset('')}}frontend/images/ico-datepicker.svg" alt=""></i>
-							</div>
-							<div class="text-center"><div class="cta-btn ir"><a class="" href="{{asset('')}}register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div>
+							</div> -->
+
+							<!-- <div id="captchaBackground">
+					            <canvas id="captcha">captcha text</canvas>
+					            <input id="textBox" type="text" name="text">
+					            <div id="buttons">
+					                <input id="submitButton" type="submit">
+					                <button id="refreshButton" type="button">Refresh</button>
+					            </div>
+					            <span id="output"></span>
+					        </div> -->
+
+					        <button type="submit">đăng ký</button>
+
+							<!-- <div class="text-center"><div class="cta-btn ir"><a class="" href="{{asset('')}}register2.htm"><span class="cta-text font-weight-semibold">Đăng ký ngay</span><span class="cta-ico"><i class="icon-next"></i></span></a></div></div> -->
 						</form>
+
+						
+
+
+
 					</div>
 				</div>
 			</div>
@@ -491,6 +511,25 @@
 <script src="{{asset('')}}https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{asset('')}}frontend/js/simpleLightbox.min.js"></script>
 <script src="{{asset('')}}frontend/js/smoothscroll.js"></script>
+<script src="{{asset('')}}frontend/js/captcha.js"></script>
+
+<script type="text/javascript">
+	$('form#dangky').submit(function(event) {
+	    $.ajax({
+	        method: $(this).attr('method'),
+	        url: $(this).attr('action'),
+	        data: $(this).serialize(),
+	        success: function(datas){
+	            $('#load_comment').html(datas);
+	            $('#add_comment')[0].reset();
+	        }
+
+	    }).done(function(response) {
+	        // alert('thành công');
+	    });
+	    event.preventDefault(); // <- avoid reloading
+	});
+</script>
 
 <script>
 		var swiper = new Swiper(".related-sec .mySwiper", {
@@ -679,6 +718,46 @@
     function delete_row(e) {
         e.parentElement.parentElement.parentElement.remove();
     }
+</script>
+
+
+
+<script type="text/javascript">
+let captcha;
+let alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+console.log(alphabets.length);
+let status = document.getElementById('status');
+status.innerText = "Captcha Generator";
+
+generate = () => {
+// console.log(status)
+let first = alphabets[Math.floor(Math.random() * alphabets.length)];
+let second = Math.floor(Math.random() * 10);
+let third = Math.floor(Math.random() * 10);
+let fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let sixth = Math.floor(Math.random() * 10);
+captcha = first.toString()+second.toString()+third.toString()+fourth.toString()+fifth.toString()+sixth.toString();
+console.log(captcha);
+document.getElementById('generated-captcha').value = captcha;
+document.getElementById("entered-captcha").value = '';
+status.innerText = "Captcha Generator"
+}
+check = () => {
+// console.log(status)
+let userValue = document.getElementById("entered-captcha").value;
+console.log(captcha);
+console.log(userValue);
+if(userValue == captcha){
+// status.innerText = "Correct!!"
+
+
+
+}else{
+status.innerText = "Try Again!!"
+document.getElementById("entered-captcha").value = '';
+}
+}
 </script>
 
 
