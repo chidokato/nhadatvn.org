@@ -132,7 +132,7 @@
 											<div class="old-price">@if($articles->product->oldprice>0) {{$articles->product->oldprice}} {{$articles->product->unit_price==1? 'VNĐ':''}}{{$articles->product->unit_price==1000000? 'Tr':''}}{{$articles->product->unit_price==1000000000? 'Tỷ':''}} @endif</div>
 										</div>
 										<div class="product-contact">
-											<h2 class="d-none d-lg-block line-b"></h2>
+											<!-- <h2 class="d-none d-lg-block line-b"></h2> -->
 											<a class="btn btn-tel"><i class="icon-phone-filled"></i></a>
 											<a class="btn btn-mail" href="{{asset('')}}#info-customer" data-bs-toggle="modal"><i class="icon-mail-filled"></i></a>
 										</div>
