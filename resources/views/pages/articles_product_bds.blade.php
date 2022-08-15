@@ -23,6 +23,7 @@
 
 @endsection
 @section('content')
+<?php use App\section; ?>
 
 <!------------------- BREADCRUMB ------------------->
 <section class="sec-breadcrumb">
@@ -140,17 +141,18 @@
 									<div id="fix-ft-anchor"></div>
 								</div>
 							</div>
+							<?php $section_list = section::where('articles_id', $articles->id)->orderBy('number','asc')->get(); ?>
 							<div class="main-article">
 								<div class="product-overview" id="overview">
 									<ul class="nav scrollspy-product" id="scrollspy-product">
-										@foreach($articles->section as $key => $section)
+										@foreach($section_list as $key => $section)
 										<li class="nav-item">
 											<a class="nav-link {{ $key==0? 'active':'' }}" href="#{{$section->slug}}">{{$section->tab_heading}}</a>
 										</li>
 										@endforeach
 									</ul>
 									<div>
-										@foreach($articles->section as $key => $section)
+										@foreach($section_list as $key => $section)
 										<div id="{{$section->slug}}" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h2 class="line-b">{{$section->heading}}</h2>
