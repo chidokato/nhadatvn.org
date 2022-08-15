@@ -315,6 +315,7 @@ class c_product extends Controller
             foreach($Request->id_section as $key => $id_section){
                 $section = section::find($id_section);
                 $section->tab_heading = $Request->tab_heading[$key];
+                $section->number = $Request->stt[$key];
                 $section->slug = changeTitle($Request->tab_heading[$key]);
                 $section->heading = $Request->heading[$key];
                 $section->content = $Request->content_section[$key];

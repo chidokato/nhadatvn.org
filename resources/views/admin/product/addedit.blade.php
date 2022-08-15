@@ -144,7 +144,10 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Tab Heading</label>
-                                    <input value="{{$val->tab_heading}}" class="form-control" type="text" name="tab_heading[]" placeholder="...">
+                                    <span class="flex number_header">
+                                        <input value="{{$val->number}}" class="form-control number" type="text" name="stt[]" placeholder="...">
+                                        <input value="{{$val->tab_heading}}" class="form-control tab_heading" type="text" name="tab_heading[]" placeholder="...">
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-md-9">
@@ -401,6 +404,9 @@
     .chinhsach .checkbox.style-e .checkbox__checkmark{
         top: -14px;
     }
+    .number_header{  }
+    .number_header .number{ width: 50px; border-radius: 5px 0px 0px 5px; }
+    .number_header .tab_heading{ border-radius: 0px 5px 5px 0px; }
 </style>
 
 <script>
