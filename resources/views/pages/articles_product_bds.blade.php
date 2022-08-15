@@ -229,6 +229,15 @@
 										</div>
 										@endforeach
 
+										<div class="tags" style="margin-bottom: 30px;">
+											<span>tags</span>
+											<ul style="z-index: 99999;">
+												<li><a href="{{asset('')}}">Nhà Đất VN</a></li>
+												<li><a href="{{asset('')}}{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
+												<li><a href="{{asset('')}}{{$articles->category->slug}}/{{$articles->slug}}">{{$articles->name}}</a></li>
+											</ul>
+										</div>
+
 										<div id="product-detail" class="scrolloverview">
 											<div class="product-detail product-utilities">
 												<h5 class="line-b">Bình luận</h5>
@@ -334,6 +343,7 @@
 					</div>
 					
 				</div>
+
 			</div>
 			<div class="col-lg-3 d-none d-lg-block">
 				<div class="product-price affix">
