@@ -225,9 +225,11 @@
 			</div>
 			<div class="col-lg-3 d-none d-lg-block">
 				<div class="widget widget-list mb-3">
-					<h4><span>Biểu đồ giá</span></h4>
+					<h4><span>Khu vực</span></h4>
 					<ul>
-						<li><a href="#"><i class="icon-next me-2"></i>Đường Ngụy Như Kontum</a></li>
+						@foreach($province as $val)
+						<li><a href="{{asset('')}}location/{{$category->slug}}/{{$val->slug}}"><i class="icon-next me-2"></i>{{$category->name}} {{$val->name}}</a></li>
+						@endforeach
 					</ul>
 				</div>
 

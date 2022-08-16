@@ -13,6 +13,14 @@ class c_province extends Controller
     {
         $province = province::orderBy('status','desc')->paginate(50);
         $count = province::orderBy('id','desc')->count();
+
+        // $updateprovince = province::get();
+        // foreach($updateprovince as $val){
+        //     $provinceedit = province::where('id', $val->id)->first();
+        //     $provinceedit->slug = changeTitle($provinceedit->name);
+        //     $provinceedit->save();
+        // }
+
     	return view('admin.province.list',[
             'province'=>$province,
             'count'=>$count,

@@ -51,6 +51,7 @@
                                     <button type="submit" onclick="dell()" class="btn btn-danger btn-sm  ml-2 delall"><i class="la la-trash"></i> Dell all</button>
                                 </th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th>Code</th>
                                 <th>User</th>
                                 <th>Status</th>
@@ -68,6 +69,7 @@
                                     {!! isset($val->img) ? '<img src="data/province/80/'.$val->img.'" class="thumbnail-img align-self-center" alt="" />' : '' !!}
                                     {{$val->name}}
                                 </td>
+                                <td>{{ $val->slug }}</td>
                                 <td>{{ $val->code }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
@@ -95,6 +97,7 @@
                                     <button type="submit" onclick="dell()" class="btn btn-danger btn-sm  ml-2 delall"><i class="la la-trash"></i> Dell all</button>
                                 </th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th>Code</th>
                                 <th>User</th>
                                 <th>Status</th>
@@ -113,6 +116,7 @@
                                     {!! isset($val->img) ? '<img src="data/province/80/'.$val->img.'" class="thumbnail-img align-self-center" alt="" />' : '' !!}
                                     {{$val->name}}
                                 </td>
+                                <td>{{ $val->slug }}</td>
                                 <td>{{ $val->code }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
@@ -141,6 +145,7 @@
                                     <button type="submit" onclick="dell()" class="btn btn-danger btn-sm  ml-2 delall"><i class="la la-trash"></i> Dell all</button>
                                 </th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th>Code</th>
                                 <th>User</th>
                                 <th>Status</th>
@@ -159,6 +164,7 @@
                                     {!! isset($val->img) ? '<img src="data/province/80/'.$val->img.'" class="thumbnail-img align-self-center" alt="" />' : '' !!}
                                     {{$val->name}}
                                 </td>
+                                <td>{{ $val->slug }}</td>
                                 <td>{{ $val->code }}</td>
                                 <td>{{ isset($val->user->name) ? $val->user->name : '' }}</td>
                                 <td>
