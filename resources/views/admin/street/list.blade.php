@@ -1,46 +1,55 @@
 @extends('admin.layout.index')
 @section('street') menu-item-active menu-item-open @endsection
 @section('content')
+@include('admin.layout.header')
 @include('admin.errors.alerts')
-<div class="d-sm-flex align-items-center justify-content-between mb-3">
-    <!-- <h1 class="h3 mb-0 text-gray-800">List Category</h1> -->
-    <form style="display: flex;" action="admin/street/loc" method="post">
-        <input type="hidden" name="_token" value="{{csrf_token()}}" />
-        <select style="width: 100px;" class="form-control mr-3" name="paginate">
-            <option <?php if(isset($paginate) && $paginate=='50'){echo "selected";} ?> value="50">50</option>
-            <option <?php if(isset($paginate) && $paginate=='100'){echo "selected";} ?> value="100">100</option>
-            <option <?php if(isset($paginate) && $paginate=='200'){echo "selected";} ?> value="200">200</option>
-        </select>
-        <div class="input-group">
-            <input value="{{ isset($key) ? $key : '' }}" name="name" type="text" class="form-control bg-light small" placeholder="Search for...">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
-        </div>
-    </form>
-    <!-- <a href="admin/category/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="far fa-file"></i> Add</a> -->
+<div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
+    <div class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">
+        <ul class="menu-tab">
+            <li><a href="admin/investor/list">Chủ đầu tư</a></li>
+            <li><a href="admin/province/list">Tỉnh Thành</a></li>
+            <li><a href="admin/district/list">Quận Huyện</a></li>
+            <li><a href="admin/ward/list">Phường Xã</a></li>
+            <li><a class="active" href="admin/street/list">Đường</a></li>
+        </ul>
+    </div>
+    <!-- <a class="add-iteam" href="admin/news/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a> -->
 </div>
 <div class="row">
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
+            <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                <ul class="nav nav-pills">
+                    <li><a data-toggle="tab" class="nav-link " href="#all">Tất cả</a></li>
+                    <li><a data-toggle="tab" class="nav-link active" href="#public">Hiển thị</a></li>
+                    <li><a data-toggle="tab" class="nav-link" href="#hidden">Ẩn</a></li>
+                </ul>
             </div>
-            <div class="card-body">
+
+            <div class="card-body mobile-hide">
+                <form class="search"  action="admin/district/loc" method="post"><input type="hidden" name="_token" value="{{csrf_token()}}" />
+                    <div class="form-group mr-3">
+                        <input value="{{ isset($key) ? $key : '' }}" name="key" type="text" class="form-control mr-3" placeholder="Name...">
+                    </div>
+                    <div class="form-group mr-3">
+                        <input type="text" class="form-control mr-3" name="datefilter" value="{{ isset($datefilter) ? $datefilter : '' }}" placeholder='Ngày đăng ...' />
+                    </div>
+                    <div class="form-group mr-3">
+                        <select class="form-control mr-3" name="paginate">
+                            <option <?php if(isset($paginate) && $paginate=='50'){echo "selected";} ?> value="50">50</option>
+                            <option <?php if(isset($paginate) && $paginate=='100'){echo "selected";} ?> value="100">100</option>
+                            <option <?php if(isset($paginate) && $paginate=='200'){echo "selected";} ?> value="200">200</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary form-control" type="submit">
+                            <i class="fas fa-search fa-sm"></i> Tìm kiếm
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="tab-content">
                 <table class="table">
                     <form method="post" action="admin/category/delete_all"> <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <thead>

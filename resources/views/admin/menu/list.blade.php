@@ -6,7 +6,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
     <div class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">
         <ul class="menu-tab">
-            <li><a href="admin/menu/list">Menu</a></li>
+            <li><a class="active" href="admin/menu/list">Menu</a></li>
             <li><a href="admin/themes/list">Giao diện</a></li>
             <li><a href="admin/setting/list">Cài đặt</a></li>
             <li><a href="admin/seo/list">SEO</a></li>

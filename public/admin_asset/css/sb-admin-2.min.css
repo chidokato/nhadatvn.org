@@ -454,8 +454,11 @@ label {color: #46515F;}
 }
 .menu-tab{ display: flex; padding-left: 0px; padding-top: 5px; margin-bottom: 0; }
 .menu-tab li{ list-style: none;border-right: 1px solid #ddd; }
-.menu-tab li a{ font-size: 1rem; padding: 5px; color: #000; font-weight: bold;  }
+.menu-tab li a{ font-size: 1rem; padding: 5px 15px; color: #000; font-weight: bold;  }
 .menu-tab li a:hover{ color: var(--blue); text-decoration: none; }
+.menu-tab li .active{ color: var(--blue); text-decoration: none; }
+.menu-tab li:last-child{ border-right: none; }
+.menu-tab li:first-child a{ padding-left: 0px; }
 
 
 #wrapper #content-wrapper {overflow-x: inherit;}

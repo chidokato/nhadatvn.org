@@ -4,7 +4,15 @@
 @include('admin.layout.header')
 @include('admin.errors.alerts')
 <div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
-    <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">Danh sách tỉnh thành</h2>
+    <div class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">
+        <ul class="menu-tab">
+            <li><a href="admin/investor/list">Chủ đầu tư</a></li>
+            <li><a class="active" href="admin/province/list">Tỉnh Thành</a></li>
+            <li><a href="admin/district/list">Quận Huyện</a></li>
+            <li><a href="admin/ward/list">Phường Xã</a></li>
+            <li><a href="admin/street/list">Đường</a></li>
+        </ul>
+    </div>
     <!-- <a class="add-iteam" href="admin/news/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a> -->
 </div>
 <div class="row">
