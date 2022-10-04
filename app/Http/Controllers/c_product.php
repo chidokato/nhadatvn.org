@@ -96,7 +96,7 @@ class c_product extends Controller
         $product->price = str_replace( array(',') , '', $Request->price );
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
         $product->unit_price = $Request->unit;
-        $product->search_price = $product->price*$Request->unit;
+        if(isset($product->price)){$product->search_price = $product->price*$Request->unit;}
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
         $product->investor_id = $Request->investor_id;

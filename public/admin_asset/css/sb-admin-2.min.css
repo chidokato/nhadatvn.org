@@ -452,7 +452,10 @@ label {color: #46515F;}
     border: none;
     box-shadow: 0px 3px 4px 2px #d1d3e2;
 }
-
+.menu-tab{ display: flex; padding-left: 0px; padding-top: 5px; margin-bottom: 0; }
+.menu-tab li{ list-style: none;border-right: 1px solid #ddd; }
+.menu-tab li a{ font-size: 1rem; padding: 5px; color: #000; font-weight: bold;  }
+.menu-tab li a:hover{ color: var(--blue); text-decoration: none; }
 
 
 #wrapper #content-wrapper {overflow-x: inherit;}

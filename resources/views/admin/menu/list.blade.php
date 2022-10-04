@@ -4,7 +4,14 @@
 @include('admin.layout.header')
 @include('admin.errors.alerts')
 <div class="d-sm-flex align-items-center justify-content-between mb-3 flex">
-    <h2 class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">Danh sách danh mục</h2>
+    <div class="h3 mb-0 text-gray-800 line-1 size-1-3-rem">
+        <ul class="menu-tab">
+            <li><a href="admin/menu/list">Menu</a></li>
+            <li><a href="admin/themes/list">Giao diện</a></li>
+            <li><a href="admin/setting/list">Cài đặt</a></li>
+            <li><a href="admin/seo/list">SEO</a></li>
+        </ul>
+    </div>
     <a class="add-iteam" href="admin/category/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a>
 </div>
 <div class="row">
