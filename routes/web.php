@@ -1,29 +1,26 @@
 <?php
+Route::get('admin','c_login@getlogin'); // login vào admin
+Route::get('login','c_login@getlogin'); // login vào admin
+Route::post('login','c_login@postlogin'); // xử lý login
+Route::get('resetpassword','c_login@getresetpassword'); // lấy lại mật khẩu
+Route::post('resetpassword','c_login@postresetpassword'); // lấy lại mật khẩu
+Route::get('sendcapchar/{email}','c_ajax@sendcapchar'); // gửi mã xác nhận về mail
+Route::get('signup','c_login@getsignup'); // đăng ký
+Route::post('signup','c_login@postsignup'); // đăng ký
+Route::get('logout','c_login@logout'); // logout
 
-Route::get('admin','usercontroller@getlogin'); // login vào admin
-Route::get('admin_login','usercontroller@getlogin'); // login vào admin
-Route::post('login','usercontroller@postlogin'); // xử lý login
-Route::post('registration','usercontroller@registration'); // thêm người dùng
-Route::post('resetacconut','usercontroller@resetacconut'); // cài đặt lại tài khoản
-Route::post('registration/{id}','usercontroller@postedit'); // sửa người dùng
-Route::get('logout','usercontroller@logout'); // logout
-Route::get('logout','usercontroller@getlogout'); // logout khỏi admin
-Route::get('signin','c_frontend@get_signin'); // đăng nhập
-Route::get('signup','c_frontend@get_signup'); // đăng ký
-Route::get('resetpassword','c_frontend@getresetpassword'); // quên mật khẩu
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
-Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
-
-	Route::get('dashboard','c_dashboard@dashboard');
-	Route::post('dashboard-search','c_dashboard@search');
+	Route::get('dashboard','c_dashboard@dashboard')->middleware('can:dashboard');
+	Route::post('dashboard-search','c_dashboard@search')->middleware('can:dashboard');
 
 	Route::group(['prefix'=>'user'],function(){
-		Route::get('list','usercontroller@getlist')->middleware('can:superadmin');
-		Route::get('edit/{id}','usercontroller@getedit')->middleware('can:superadmin');
+		Route::get('list','usercontroller@getlist')->middleware('can:user');
+		Route::get('edit/{id}','usercontroller@getedit')->middleware('can:user');
 		Route::post('edit/{id}','usercontroller@postedit');
-		Route::get('add','usercontroller@getadd')->middleware('can:superadmin');
+		Route::get('add','usercontroller@getadd')->middleware('can:user');
 		Route::post('add','usercontroller@postadd');
-		Route::get('delete/{id}','usercontroller@getdelete')->middleware('can:superadmin');
+		Route::get('delete/{id}','usercontroller@getdelete')->middleware('can:user');
 		Route::post('search','usercontroller@search');
 		Route::get('profile/{id}','usercontroller@profile');
 		Route::get('alerts/{id}','usercontroller@alerts');
@@ -231,6 +228,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('del_section/{id}','c_ajax@del_section');
 	});
 });
+
 
 Route::get('/','c_frontend@home');
 Route::get('profile','c_frontend@profile');

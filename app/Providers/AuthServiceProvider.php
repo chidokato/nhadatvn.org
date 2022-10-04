@@ -28,5 +28,17 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('superadmin', function($User){
             if( $User->permission == 0 ){ return true; }
         });
+
+        Gate::define('dashboard', function($User){
+            if( $User->permission == 0 ){ return true; }
+            if( $User->permission == 1 ){ return true; }
+            if( $User->permission == 2 ){ return true; }
+        });
+
+        Gate::define('user', function($User){
+            if( $User->permission == 0 ){ return true; }
+        });
     }
 }
+
+

@@ -142,7 +142,7 @@ header, a, a h5, .notify-num, .navbar .navbar-brand, .nav-link, .sec-nav .navbar
 .cta-btn .cta-text {color:rgba(255, 255, 255, .8);padding: 8px 20px 8px 26px;text-transform: none;margin-top: -3px;-webkit-text-stroke-width: .25px;letter-spacing: .4px;position: relative;left: 0;transition: .2s all;z-index:2;}
 .cta-btn .cta-ico {padding: 8px 4px 8px 9px;font-size: 20px;border-radius: 5px 0 0 5px;position:relative;}
 .cta-btn .cta-ico i {position:relative; transition: .2s all;right: 0; color:rgba(255, 255, 255, .8)}
-.cta-btn .cta-ico:before {content:'';position:absolute;background: #0a5597;width: 72px;height: 72px;top: -17px;border-radius: 0 50% 50% 0;right: -8px;transition: .2s all;}
+.cta-btn .cta-ico:before {content:'';position:absolute;background: var(--main-color);width: 72px;height: 72px;top: -17px;border-radius: 0 50% 50% 0;right: -8px;transition: .2s all;}
 
 .cta-btn a:hover .cta-ico:before, .cta-btn button:hover .cta-ico:before {transform: scale(5);} 
 .cta-btn a:hover .cta-text, .cta-btn button:hover .cta-text {left:-4px; color:rgba(255, 255, 255, 1)}

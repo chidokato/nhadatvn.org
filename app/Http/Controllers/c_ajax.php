@@ -23,6 +23,7 @@ use App\district;
 use App\ward;
 use App\street;
 use App\messages;
+use Mail;
 
 class c_ajax extends Controller
 {   
@@ -245,5 +246,46 @@ class c_ajax extends Controller
         }
     }
     // messages
+
+    // login
+    public function sendcapchar($email)
+    {
+
+        if(Request::ajax()){
+            $regex = "/([a-z0-9_]+|[a-z0-9_]+\.[a-z0-9_]+)@(([a-z0-9]|[a-z0-9]+\.[a-z0-9]+)+\.([a-z]{2,4}))/i";
+            if(!preg_match($regex, $email)) { 
+                echo "<span class='colored'> Không đúng định dạng email </span>"; 
+            }else{
+                $count = User::where('email',$email)->count();
+                if(Request::get('note') == 'resetpassword'){
+                    if ($count == 0) {
+                        echo "<span class='colored'>Email <b>không</b> tồn tại trong hệ thống </span>";
+                    }else{
+                        $sku = rand(111,999);
+                        $date = date('m/d/Y h:i:s', time());
+                        $website = asset('');
+                        $sent = Mail::send('sendcapchar', array('date'=>$date, 'sku'=>$sku) , function($message) use ($email, $website){
+                            $message->from($email, $website);
+                            $message->to($email, $website)->subject('Mã xác thực tài khoản NHAONGAY');
+                        });
+                        echo "Vui lòng nhập mã xác thực được gửi về email để hoàn tất quá trình đăng ký <input id='sku' type='hidden' name='maxacnhan' value='".$sku."' />";
+                    }
+                }else{
+                    if ($count > 0) {
+                    echo "<span class='colored'>Email đã tồn tại trong hệ thống </span>";
+                    }else{
+                        $sku = rand(111,999);
+                        $date = date('m/d/Y h:i:s', time());
+                        $website = asset('');
+                        $sent = Mail::send('sendcapchar', array('date'=>$date, 'sku'=>$sku) , function($message) use ($email, $website){
+                            $message->from($email, $website);
+                            $message->to($email, $website)->subject('Mã xác thực tài khoản NHAONGAY');
+                        });
+                        echo "Vui lòng nhập mã xác thực được gửi về email để hoàn tất quá trình đăng ký <input id='sku' type='hidden' name='maxacnhan' value='".$sku."' />";
+                    }
+                }
+            }
+        }
+    }
 }
 ?>

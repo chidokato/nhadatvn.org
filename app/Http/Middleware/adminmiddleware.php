@@ -22,9 +22,9 @@ class adminmiddleware
             if ($user->permission <=5)
                 return $next($request);
             else
-                return redirect('admin_login');            
+                return redirect('/');            
         }
         else
-            return redirect('admin_login');
+            return redirect('/');
     }
 }

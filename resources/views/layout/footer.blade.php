@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-6 col-lg-4">
 				<div class="img-footer">
-					<img src="data/themes/{{$head_logo_trang->img}}">
+					<img src="{{asset('')}}data/themes/{{$head_logo_trang->img}}">
 				</div>
 			</div>
 			<div class="col-6 col-lg-4">

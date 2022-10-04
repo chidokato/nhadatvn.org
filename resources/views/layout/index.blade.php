@@ -37,12 +37,20 @@
 <!-- ================= Style ================== --> 
 
 @yield('css')
-<!-- ================= js ================== --> 
 <link href="{{asset('')}}frontend/css/tuan.css" rel="stylesheet">
 
-{!! $head_setting->codeheader !!}
+<style type="text/css">
+:root {
+    --main-color: <?php echo $head_setting->maincolor; ?>;
+    --sub-color: <?php echo $head_setting->subcolor; ?>;
+    --light-color: <?php echo $head_setting->lightcolor; ?>;
+    --body-fontface: 'UTM Avo', sans-serif;
+    --title-fontface: 'UTM Avo';
+    --subtitle-fontface: 'UTM Avo';
+}
+</style>
 
-<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+{!! $head_setting->codeheader !!}
 
 </head>
 @include('layout.function')

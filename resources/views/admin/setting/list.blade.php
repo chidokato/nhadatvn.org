@@ -37,6 +37,7 @@
                     <li><a data-toggle="tab" class="nav-link active" href="#home">Thông tin cơ bản</a></li>
                     <li><a data-toggle="tab" class="nav-link " href="#menu1">Mạng xã hội</a></li>
                     <li><a data-toggle="tab" class="nav-link" href="#menu2">Cấu hình SEO</a></li>
+                    <li><a data-toggle="tab" class="nav-link" href="#color">Cấu hình color</a></li>
                 </ul>
             </div>
             <div class="card-body">
@@ -133,6 +134,29 @@
                                 <label >Code body</label>
                                 <textarea class="form-control" id="message" name="codebody" rows="10" placeholder="Code body">{!! $data['codebody'] !!}</textarea>
                             </div>
+                        </div>
+                    </div>
+                    <div id="color" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Main color</label>
+                                    <input value="{{ isset($data) ? $data->maincolor : '' }}" name='maincolor' type="text" placeholder="Main color" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Sub color</label>
+                                    <input value="{{ isset($data) ? $data->subcolor : '' }}" name='subcolor' type="text" placeholder="sub color" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>light-color</label>
+                                    <input value="{{ isset($data) ? $data->lightcolor : '' }}" name='lightcolor' type="text" placeholder="light color" class="form-control">
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

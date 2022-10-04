@@ -130,6 +130,7 @@ class usercontroller extends Controller
         {
             $user->permission = $Request->permission;
         }
+        $user->permission = $Request->permission;
 
         if($Request->changepassword == "on")
         {
@@ -169,78 +170,78 @@ class usercontroller extends Controller
     }
 
 
-    public function getlogin()
-    {
-    	return view('admin.login');
-    }
+    // public function getlogin()
+    // {
+    // 	return view('login.login');
+    // }
 
-    public function postlogin(Request $request)
-    {
-    	$this->validate($request,[
-    		'name' => 'required',
-    		'password' => 'required|min:3|max:32'
-    		],[]);
-    	if(Auth::attempt(['name'=>$request->name,'password'=>$request->password]))
-    	{
-            if (Auth::User()->permission < 5) {
-                return redirect('admin/dashboard');
-            }else{
-                return redirect('/');
-            }
-    	}
-    	else
-    	{
-            return redirect()->back()->with('Success','Tài khoản hoặc mật khẩu không đúng !');
-    	}
-    }
-    public function getlogout()
-    {
-        Auth::logout();
-        return redirect('admin_login');
-    }
-    public function logout()
-    {
-        Auth::logout();
-        return redirect('/');
-    }
+    // public function postlogin(Request $request)
+    // {
+    // 	$this->validate($request,[
+    // 		'name' => 'required',
+    // 		'password' => 'required|min:3|max:32'
+    // 		],[]);
+    // 	if(Auth::attempt(['name'=>$request->name,'password'=>$request->password]))
+    // 	{
+    //         if (Auth::User()->permission < 5) {
+    //             return redirect('admin/dashboard');
+    //         }else{
+    //             return redirect('/');
+    //         }
+    // 	}
+    // 	else
+    // 	{
+    //         return redirect()->back()->with('Success','Tài khoản hoặc mật khẩu không đúng !');
+    // 	}
+    // }
+    // public function getlogout()
+    // {
+    //     Auth::logout();
+    //     return redirect('admin');
+    // }
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return redirect('/');
+    // }
     
-    public function registration(Request $Request){
-        $this->validate($Request,
-            [
-                'name' => 'Required|min:3|max:50',
-                'password' => 'Required',
-                'passwordagain' => 'Required|same:password',
-            ],
-            [
+    // public function registration(Request $Request){
+    //     $this->validate($Request,
+    //         [
+    //             'name' => 'Required|min:3|max:50',
+    //             'password' => 'Required',
+    //             'passwordagain' => 'Required|same:password',
+    //         ],
+    //         [
 
-            ] );
-        $user = new User;
-        $user->name = $Request->name;
-        $user->password = bcrypt($Request->password);
-        $user->permission = 6;
-        $user->your_name = $Request->your_name;
-        $user->email = $Request->email;
-        $user->phone = $Request->phone;
-        $user->address = $Request->address;
-        $user->save();
-        return redirect('signin');
-    }
+    //         ] );
+    //     $user = new User;
+    //     $user->name = $Request->name;
+    //     $user->password = bcrypt($Request->password);
+    //     $user->permission = 6;
+    //     $user->your_name = $Request->your_name;
+    //     $user->email = $Request->email;
+    //     $user->phone = $Request->phone;
+    //     $user->address = $Request->address;
+    //     $user->save();
+    //     return redirect('signin');
+    // }
 
-    public function resetacconut(Request $Request){
-        $mail = $Request->email;
-        $user = user::where('email',$mail)->first();
-        if (isset($user)) {
-            $user->password = bcrypt('123456');
-            $user->save();
+    // public function resetacconut(Request $Request){
+    //     $mail = $Request->email;
+    //     $user = user::where('email',$mail)->first();
+    //     if (isset($user)) {
+    //         $user->password = bcrypt('123456');
+    //         $user->save();
 
-            Mail::send('resetacconut', array('name'=>$user['name']), function($message) use ($mail){
-                $message->from($mail, 'STTD');
-                $message->to($mail, 'STTD')->subject('Khôi phục tài khoản');
-            });
-            return redirect('signin')->with('Success','Check email để nhận tk và mk mới !');
-        }else{
-            return redirect()->back()->with('Success','Email không tồn tại !');
-        }
-    }
+    //         Mail::send('resetacconut', array('name'=>$user['name']), function($message) use ($mail){
+    //             $message->from($mail, 'STTD');
+    //             $message->to($mail, 'STTD')->subject('Khôi phục tài khoản');
+    //         });
+    //         return redirect('signin')->with('Success','Check email để nhận tk và mk mới !');
+    //     }else{
+    //         return redirect()->back()->with('Success','Email không tồn tại !');
+    //     }
+    // }
     
 }

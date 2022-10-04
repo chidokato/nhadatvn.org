@@ -40,7 +40,32 @@
 				@endif
 				@endforeach
 			</ul>
-			
+			<ul class="navbar-nav ml-auto">
+				<!-- <li class="nav-item cta-btn il">
+				  <a class="nav-link" href="#"><span class="cta-ico"><i class="icon-new"></i></span><span class="cta-text">Đăng tin</span></a>
+				</li> -->
+				@if(Auth::check())
+				<li class="nav-item nav-icon dropdown">
+					<a class="nav-link avata-header" data-bs-toggle="dropdown" href="#"><img src="{{asset('')}}data/user/{{ isset(Auth::User()->avatar)? Auth::User()->avatar:'no_image.jpg'}}"></a>
+					<div class="dropdown-menu">
+						<div class="info-user">
+							<p class="name">{{Auth::User()->your_name}}</p>
+							<p class="mail">{{Auth::User()->email}}</p>
+						</div>
+						<ul>
+							<li><a href="#" class="submenu-link"><i class="icon-user"></i> Thông tin cá nhân</a></li>
+							<li><a href="#" class="submenu-link"><i class="icon-experience"></i> Bảng hàng online</a></li>
+							<li><a href="#" class="submenu-link"><i class="icon-grid"></i> Quản lý tin đăng</a></li>
+							<li><a href="logout" class="submenu-link">Đăng xuất</a></li>
+						</ul>
+					</div>
+				</li>
+				@else
+				<li class="nav-item cta-btn il">
+				  <a style="border: 1px solid #fff;" class="nav-link" href="login"><span class="cta-ico"><i class="icon-user"></i></span><span class="cta-text">Đăng nhập</span></a>
+				</li>
+				@endif
+			  </ul>
 
 		  </div>
 		</div>

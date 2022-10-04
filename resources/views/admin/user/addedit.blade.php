@@ -45,10 +45,10 @@
                         <div class="form-group">
                             <label>Quyền người dùng</label>
                             <select name='permission' class="form-control">
-                                <option value="0">superadmin</option>
-                                <option value="1">admin</option>
-                                <option value="2">author</option>
-                                <option value="3">member</option>
+                                <option <?php if($data->permission == 0){ echo "selected"; } ?> value="0">superadmin</option>
+                                <option <?php if($data->permission == 1){ echo "selected"; } ?> value="1">admin</option>
+                                <option <?php if($data->permission == 2){ echo "selected"; } ?> value="2">author</option>
+                                <option <?php if($data->permission == 5){ echo "selected"; } ?> value="5">Member</option>
                             </select>
                         </div>
                         @if(isset($data))

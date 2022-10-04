@@ -32,6 +32,9 @@ class c_setting extends Controller
         $setting->sidebar = $Request->sidebar;
         $setting->maps = $Request->maps;
         $setting->codeheader = $Request->codeheader;
+        $setting->maincolor = $Request->maincolor;
+        $setting->subcolor = $Request->subcolor;
+        $setting->lightcolor = $Request->lightcolor;
         $setting->codebody = $Request->codebody;
         $setting->title = $Request->title;
         $setting->description = $Request->description;
