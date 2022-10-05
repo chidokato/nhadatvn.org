@@ -191,6 +191,10 @@
 								<!-- <span class="hot"><img src="frontend/images/new-label.png"></span> -->
 								<a href="{{$val->category->slug}}/{{$val->slug}}">
 									<span><img src="frontend/images/space-3.gif" class="card-img-top" style="background-image: url('data/product/300/{{$val->img}}');" alt="..."></span>
+									<span class="cat">
+										<button type="button" class="btn" data-bs-toggle="button" autocomplete="off"><span class="heart"><i class="icon-heart-filled"></i></span></button>
+										<!-- <span class="room-status"> Mới </span> -->
+									</span>
 								</a>
 								<div class="card-body">
 									<div class="card-body-wrap">

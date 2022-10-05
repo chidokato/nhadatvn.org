@@ -62,7 +62,7 @@
 				</li>
 				@else
 				<li class="nav-item cta-btn il">
-				  <a style="border: 1px solid #fff;" class="nav-link" href="login"><span class="cta-ico"><i class="icon-user"></i></span><span class="cta-text">Đăng nhập</span></a>
+				  <a style="border: 1px solid #fff;" class="nav-link" href="{{asset('')}}login"><span class="cta-ico"><i class="icon-user"></i></span><span class="cta-text">Đăng nhập</span></a>
 				</li>
 				@endif
 			  </ul>
