@@ -10,7 +10,7 @@
 <meta name="keywords" itemprop="keywords" content="@yield('keywords')" />
 <meta name="news_keywords" content="@yield('keywords')" />
 <meta name="robots" content="@yield('robots')"/>
-<link rel="shortcut icon" href="data/themes/{{$head_setting->img}}" />
+<link rel="shortcut icon" href="{{asset('')}}data/themes/{{$head_setting->img}}" />
 <link rel="canonical" href="@yield('url')"/>
 <link rel="alternate" href="{{asset('')}}" hreflang="vi-vn" />
 <!-- and seo -->
