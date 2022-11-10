@@ -12,7 +12,7 @@
             <li><a href="admin/seo/list">SEO</a></li>
         </ul>
     </div>
-    <a class="add-iteam" href="admin/category/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a>
+    <a class="add-iteam" href="admin/menu/add"><button class="btn-success form-control" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button></a>
 </div>
 <div class="row">
     <div class="col-xl-12 col-lg-12">
@@ -21,7 +21,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Quản lý danh mục</h6>
             </div>
             <div class="card-body mobile-hide">
-                <form action="admin/category/search" class="search" method="post"><input type="hidden" name="_token" value="{{csrf_token()}}" />
+                <form action="admin/menu/search" class="search" method="post"><input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group mr-3">
                         <input value="{{ isset($key) ? $key : '' }}" name="key" type="text" class="form-control mr-3" placeholder="Tên sp...">
                     </div>

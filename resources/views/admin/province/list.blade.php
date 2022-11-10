@@ -86,8 +86,9 @@
                                 <td>
                                     {{date('d/m/Y',strtotime($val->created_at))}} / {{date('d/m/Y',strtotime($val->updated_at))}}
                                 </td>
-                                <td>
-                                    
+                                <td class="d-flex">
+                                    <a href="admin/province/edit/{{$val->id}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a>
+                                    <!-- <a onclick="dell()" href="admin/province/delete/{{$val->id}}"><i class="fas fa-trash-alt"></i></a> -->
                                 </td>
                             </tr>
                             @endforeach
@@ -133,8 +134,9 @@
                                 <td>
                                     {{date('d/m/Y',strtotime($val->created_at))}} / {{date('d/m/Y',strtotime($val->updated_at))}}
                                 </td>
-                                <td>
-                                    
+                                <td class="d-flex">
+                                    <a href="admin/province/edit/{{$val->id}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a>
+                                    <!-- <a onclick="dell()" href="admin/province/delete/{{$val->id}}"><i class="fas fa-trash-alt"></i></a> -->
                                 </td>
                             </tr>
                             @endif
@@ -181,8 +183,9 @@
                                 <td>
                                     {{date('d/m/Y',strtotime($val->created_at))}} / {{date('d/m/Y',strtotime($val->updated_at))}}
                                 </td>
-                                <td>
-                                    
+                                <td class="d-flex">
+                                    <a href="admin/province/edit/{{$val->id}}" class="mr-2"><i class="fas fa-edit" aria-hidden="true"></i></a>
+                                    <!-- <a onclick="dell()" href="admin/province/delete/{{$val->id}}"><i class="fas fa-trash-alt"></i></a> -->
                                 </td>
                             </tr>
                             @endif

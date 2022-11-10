@@ -53,11 +53,12 @@
 .grid-view .card-s .cat, .horizontal-view .card-s .cat {background:none;padding:0;display: flex;align-items: center;}
 .card-s .cat span {background-color: rgba(0,0,0,.64);padding: 1px 8px 3px;border-radius: 4px;}
 .card-s .cat .btn {padding:0}
-.card-s .cat .heart {margin-right: 16px;font-size:20px;display:flex;align-items:center;height: 36px;border-radius: 50%;padding-top: 4px; color: #fff;}
+.card-s .cat .heart {font-size:20px;display:flex;align-items:center;height: 36px;border-radius: 50%;padding-top: 4px; color: #fff;}
 .card-s .cat .room-status {position:relative}
 .card-s .cat .btn ~ .room-status::before {content:''}
 .card-s .cat .room-status::before {position:absolute;width:1px;height: 24px;background-color: #292727;left: -9px;top:0;bottom:0;margin:auto;}
 .card-s .cat .btn.active .heart {background-color:var(--sub-color)}
+.card-s .cat button:hover .heart{ background-color:var(--sub-color) }
 
 .video > a::before, .video > a::after {content:'';position: absolute;top:0;bottom:0;right:0;left: 0;margin: auto;z-index: 2;}
 .video > a::before {background-color: rgba(0,0,0,.5);width: 48px;height: 48px;border-radius: 50%;}
