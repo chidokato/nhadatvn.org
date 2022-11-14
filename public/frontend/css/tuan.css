@@ -481,6 +481,7 @@ header .navbar-expand-lg .navbar-nav.ml-auto .nav-icon .dropdown-menu li a {padd
 .info-user{ background: #ab5a14; color: #fff;    border-radius: 4px 4px 0px 0px; padding: 20px; margin-bottom: 8px;}
 .info-user p{ margin-bottom: 0px; font-size: .9rem; }
 .info-user .name{ font-weight: bold; margin-bottom: 10px;text-transform: uppercase; }
+.news-sec .title-subpage{ margin-bottom: 20px; }
 
 @media (min-width: 1600px){
     .horizontal-view .card-s > a, .news-sec .horizontal-view .card-s > a {
